@@ -10,7 +10,7 @@ class GazeboTrial(Trial):
         self.headless = headless
         self.swarm = self.docker_client.swarm.init()
 
-        self.sim = RMFGazebo(client=self.docker_client, headless=headless)
+        self.sim = RMFGazebo(docker_client=self.docker_client, headless=headless)
         self.add_plugin(self.sim)
 
     def run(self):

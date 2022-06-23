@@ -1,6 +1,7 @@
 from abc import abstractmethod
 from core.components import Component
 from docker import DockerClient
+import docker
 
 
 class Plugin(Component):
@@ -35,8 +36,15 @@ class DockerPlugin(Plugin):
         super(DockerPlugin, self).__init__(priority)
         self.docker_client = docker_client
         self.image = None
-        self.service = None
-        self.volumes = []
+        self.container = None
+        self.mounts = []
+
+    def add_mount(self, mount: str):
+        mount = mount.split(":")
+        source = mount[0]
+        target = mount[1]
+        mnt = docker.types.Mount(target=target, source=source, type='bind')
+        self.mounts.append(mnt)
 
     @abstractmethod
     def run(self):

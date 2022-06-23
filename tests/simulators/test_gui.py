@@ -1,6 +1,9 @@
-from plugins.simulators.simulator import Simulator
-import subprocess
+from plugins.simulators.rmf_gazebo_simulator import RMFGazebo
+import docker
 
 
-def test_gui_env():
+def test_gui():
+    client = docker.from_env()
+    sim = RMFGazebo(client, headless=False)
+    sim.run()
     assert True
