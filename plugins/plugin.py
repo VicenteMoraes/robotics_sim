@@ -1,5 +1,6 @@
 from abc import abstractmethod
 from core.components import Component
+from core.envs.baseenv import Environment
 from docker import DockerClient
 import docker
 
@@ -32,12 +33,22 @@ class Plugin(Component):
 
 
 class DockerPlugin(Plugin):
-    def __init__(self, docker_client: DockerClient, priority: int = 5):
+    def __init__(self, docker_client: DockerClient, path: str, command: str, priority: int = 5, tag: str = "",
+                 dockerfile: str = "Dockerfile", auto_remove: bool = False, container_name: str = "", network=None):
         super(DockerPlugin, self).__init__(priority)
         self.docker_client = docker_client
+        self.path = path  # Path to dockerfile directory
+        self.tag = tag
+        self.dockerfile = dockerfile  # Name of dockerfile file
+        self.auto_remove = auto_remove
         self.image = None
         self.container = None
+        self.command = command
+        self.network = network
         self.mounts = []
+        self.env = Environment()
+        self.env["TAG"] = self.tag
+        self.container_name = container_name if container_name else f"{self.tag}_container"
 
     def add_mount(self, mount: str):
         mount = mount.split(":")
@@ -46,10 +57,17 @@ class DockerPlugin(Plugin):
         mnt = docker.types.Mount(target=target, source=source, type='bind')
         self.mounts.append(mnt)
 
-    @abstractmethod
-    def run(self):
-        pass
+    def connect(self, network):
+        network.connect(self.container)
 
-    @abstractmethod
-    def build(self):
-        pass
+    def run(self, **run_kwargs):
+        if self.network:
+            run_kwargs['network'] = self.network.name
+        self.container = self.docker_client.containers.run(image=self.tag, command=self.command, detach=True, tty=True,
+                                                           name=self.container_name, mounts=self.mounts,
+                                                           environment=self.env.to_list(), auto_remove=self.auto_remove,
+                                                           **run_kwargs)
+
+    def build(self, **build_kwargs):
+        self.image = self.docker_client.images.build(path=self.path, dockerfile=self.dockerfile, tag=self.tag,
+                                                     **build_kwargs)

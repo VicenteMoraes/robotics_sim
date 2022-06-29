@@ -1,10 +1,9 @@
 import docker
-from plugins.plugin import Plugin
+from plugins.networks.network import Network
 
 
-class ROS2Network(docker.client.NetworkCollection.model, Plugin):
-    def __init__(self, *args, **kwargs):
-        super(ROS2Network, self).__init__(*args, **kwargs)
-
-    def run(self):
-        pass
+class ROS2Network(Network):
+    def __init__(self, docker_client: docker.DockerClient, priority: int = 5, name: str = "ros2_network",
+                 driver: str = "bridge", check_duplicate: bool = True, internal: bool = False, **options):
+        super(ROS2Network, self).__init__(docker_client=docker_client, priority=priority, name=name, driver=driver,
+                                          check_duplicate=check_duplicate, internal=internal, **options)
