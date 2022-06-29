@@ -4,14 +4,12 @@ from core.components import ProjectPath
 
 
 class RMFGazebo(Simulator):
-    def __init__(self, docker_client: docker.DockerClient, headless: bool = True, priority: int = 5,
-                 tag: str = "rmfgazebo", path: str = str(ProjectPath/"dockerfiles/RMFGazebo/"),
+    def __init__(self, tag: str = "rmfgazebo", path: str = str(ProjectPath/"dockerfiles/RMFGazebo/"),
                  headless_command="ros2 launch rmf_demos_gz office.launch.xml headless:=1",
                  gui_command='bash -c "xauth add $XAUTH_LIST && ros2 launch rmf_demos_gz office.launch.xml"',
-                 dockerfile: str = "Dockerfile", auto_remove: bool = True):
-        super(RMFGazebo, self).__init__(docker_client=docker_client, headless_command=headless_command,
-                                        gui_command=gui_command, path=path, auto_remove=auto_remove,
-                                        headless=headless, priority=priority, tag=tag, dockerfile=dockerfile)
+                 *args, **kwargs):
+        super(RMFGazebo, self).__init__(headless_command=headless_command, gui_command=gui_command, path=path, tag=tag,
+                                        *args, **kwargs)
         self.tag = tag
         self.env["ROS_DOMAIN_ID"] = "9"
         self.headless_command = headless_command

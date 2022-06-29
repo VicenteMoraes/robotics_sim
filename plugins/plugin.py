@@ -33,9 +33,10 @@ class Plugin(Component):
 
 
 class DockerPlugin(Plugin):
-    def __init__(self, docker_client: DockerClient, path: str, command: str, priority: int = 5, tag: str = "",
-                 dockerfile: str = "Dockerfile", auto_remove: bool = False, container_name: str = "", network=None):
-        super(DockerPlugin, self).__init__(priority)
+    def __init__(self, docker_client: DockerClient, path: str, command: str, tag: str = "",
+                 dockerfile: str = "Dockerfile", auto_remove: bool = False, container_name: str = "", network=None,
+                 *args, **kwargs):
+        super(DockerPlugin, self).__init__(*args, **kwargs)
         self.docker_client = docker_client
         self.path = path  # Path to dockerfile directory
         self.tag = tag

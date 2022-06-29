@@ -4,13 +4,9 @@ import os
 
 
 class Simulator(DockerPlugin):
-    def __init__(self, docker_client, path: str, headless_command: str, gui_command: str, network=None,
-                 headless: bool = True, priority: int = 5, container_name: str = "",
-                 tag: str = "sim", dockerfile: str = "Dockerfile", auto_remove: bool = True, path_to_world: str = "",
-                 world_arg: str = "world_map"):
-        super(Simulator, self).__init__(docker_client=docker_client, path=path, priority=priority, network=network,
-                                        container_name=container_name, tag=tag, dockerfile=dockerfile,
-                                        auto_remove=auto_remove, command="")
+    def __init__(self, headless_command: str, gui_command: str, headless: bool = True, tag: str = "sim",
+                 path_to_world: str = "", world_arg: str = "world_map", *args, **kwargs):
+        super(Simulator, self).__init__(tag=tag, command="", *args, **kwargs)
         self.headless = headless
 
         if not self.headless:

@@ -3,9 +3,9 @@ import docker
 
 
 def test_gui():
-    assert True
-    return
     client = docker.from_env()
-    sim = Gazebo(client, headless=False, auto_remove=False)
+    sim = Gazebo(docker_client=client, headless=False, auto_remove=False)
     sim.build()
     sim.run()
+    assert True
+    return
