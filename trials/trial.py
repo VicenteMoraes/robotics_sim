@@ -15,7 +15,7 @@ class Trial(Component):
         self._add(plugin)
 
     def build(self):
-        for plugin in self.plugins:
+        for plugin in sorted(self.plugins):
             plugin.build()
 
     def run(self):

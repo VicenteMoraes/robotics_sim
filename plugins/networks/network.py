@@ -3,8 +3,8 @@ import docker
 
 
 class Network(Plugin):
-    def __init__(self, docker_client: docker.DockerClient, priority: int = 5, name: str = "network",
-                 driver: str = "bridge", check_duplicate: bool = True, internal: bool = False, **options):
+    def __init__(self, docker_client: docker.DockerClient, priority: int = 4, name: str = "network",
+                 driver: str = "bridge", check_duplicate: bool = False, internal: bool = False, **options):
         super(Network, self).__init__(priority)
         self.docker_client = docker_client
         self.name = name
@@ -16,9 +16,13 @@ class Network(Plugin):
         self.net = None
 
     def build(self):
-        self.net = self.docker_client.networks.create(name=self.name, driver=self.driver,
-                                                      internal=self.internal, check_duplicate=self.check_duplicate,
-                                                      options=self.options, attachable=True)
+        try:
+            self.net = self.docker_client.networks.create(name=self.name, driver=self.driver,
+                                                          internal=self.internal, check_duplicate=self.check_duplicate,
+                                                          options=self.options, attachable=True)
+        except docker.errors.APIError as e:
+            if not self.check_duplicate and e.explanation == f'network with name {self.name} already exists':
+                pass
 
     def run(self):
         return

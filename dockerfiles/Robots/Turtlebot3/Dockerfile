@@ -2,4 +2,4 @@ FROM osrf/ros2:nightly
 
 RUN apt update && apt full-upgrade -y
 
-RUN apt install ros-${ROS_DISTRO}-turtlebot4*
+RUN apt install -y ros-${ROS_DISTRO}-turtlebot3*

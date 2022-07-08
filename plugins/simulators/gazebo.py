@@ -16,8 +16,6 @@ class Gazebo(Simulator):
             self.add_mount(f"{DEFAULT_PATH}/launch:/workdir/launch")
 
     def run(self, network_mode="host", **run_kwargs):
-        if self.headless:
-            super(Gazebo, self).run(**run_kwargs)
-        else:
-            super(Gazebo, self).run(network_mode=network_mode, **run_kwargs)
-
+        if network_mode:
+            run_kwargs['network_mode'] = "host"
+        super(Gazebo, self).run(**run_kwargs)
