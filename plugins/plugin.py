@@ -34,7 +34,7 @@ class Plugin(Component):
 
 class DockerPlugin(Plugin):
     def __init__(self, docker_client: DockerClient, path: str, command: str, tag: str = "",
-                 dockerfile: str = "Dockerfile", auto_remove: bool = False, container_name: str = "", network=None,
+                 dockerfile: str = "Dockerfile", auto_remove: bool = True, container_name: str = "", network=None,
                  *args, **kwargs):
         super(DockerPlugin, self).__init__(*args, **kwargs)
         self.docker_client = docker_client
