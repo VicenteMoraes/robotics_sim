@@ -16,14 +16,10 @@ def main():
         "turtlebot3_burger", "model-1_4.sdf")
     node = rclpy.create_node("entity_spawner")
 
-    node.get_logger().info(
-        'Creating Service client to connect to `/spawn_entity`')
     client = node.create_client(SpawnEntity, "/spawn_entity")
 
-    node.get_logger().info("Connecting to `/spawn_entity` service...")
     if not client.service_is_ready():
         client.wait_for_service()
-        node.get_logger().info("...connected!")
 
     # Get path to the turtlebot3 burgerbot
     sdf_file_path = os.path.join(
@@ -38,8 +34,11 @@ def main():
     request.initial_pose.position.x = float(argv[2])
     request.initial_pose.position.y = float(argv[3])
     request.initial_pose.position.z = float(argv[4])
+    request.initial_pose.orientation.x = float(argv[5])
+    request.initial_pose.orientation.y = float(argv[6])
+    request.initial_pose.orientation.z = float(argv[7])
+    request.initial_pose.orientation.w = float(argv[8])
 
-    node.get_logger().info("Sending service request to `/spawn_entity`")
     future = client.call_async(request)
     rclpy.spin_until_future_complete(node, future)
     if future.result() is not None:
@@ -48,10 +47,8 @@ def main():
         raise RuntimeError(
             'exception while calling service: %r' % future.exception())
 
-    node.get_logger().info("Done! Shutting down node.")
     node.destroy_node()
     rclpy.shutdown()
-
 
 if __name__ == "__main__":
     main()
