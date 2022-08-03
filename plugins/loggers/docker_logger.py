@@ -29,5 +29,8 @@ class DockerLogger(Logger):
             self.write_logs()
 
     def write_logs(self):
+        if not self.filename:
+            print("No filename provided. Aborting writing logs")
+            return
         with open(ProjectPath/'logs'/self.filename, 'w') as wf:
             wf.writelines(self.logs)
