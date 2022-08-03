@@ -18,3 +18,4 @@ def test_turtlebot3():
 
     sim.run(network_mode=False)
     robot.run()
+    assert True

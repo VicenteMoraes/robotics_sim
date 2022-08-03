@@ -25,4 +25,4 @@ class Pose:
         self.orientation = Orientation()
 
     def __str__(self):
-        return ' '.join([str(x) for x in self.position.to_list()]) + ' '.join([str(x) for x in self.orientation.to_list()])
+        return ' '.join([str(x) for x in self.position.to_list()]) + ' ' + ' '.join([str(x) for x in self.orientation.to_list()])
