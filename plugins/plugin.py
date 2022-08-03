@@ -53,8 +53,8 @@ class DockerPlugin(Plugin):
         self.env["TAG"] = self.tag
         self.container_name = container_name if container_name else f"{self.tag}_container"
 
-    def add_mount(self, source: str, target: str):
-        mnt = docker.types.Mount(target=target, source=source, type='bind')
+    def add_mount(self, source: str, target: str, mount_type: str = 'bind', **mount_kwargs):
+        mnt = docker.types.Mount(target=target, source=source, type=mount_type, **mount_kwargs)
         self.mounts.append(mnt)
 
     def load_gui(self):
