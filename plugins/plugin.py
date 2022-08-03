@@ -3,6 +3,8 @@ from core.components import Component
 from core.envs.baseenv import Environment
 from docker import DockerClient
 import docker
+import os
+import subprocess
 
 
 class Plugin(Component):
@@ -57,6 +59,17 @@ class DockerPlugin(Plugin):
         target = mount[1]
         mnt = docker.types.Mount(target=target, source=source, type='bind')
         self.mounts.append(mnt)
+
+    def load_gui(self):
+        self.load_gui_env()
+        self.add_mount("/tmp/.X11-unix/:/tmp/.X11-unix/")
+
+    def load_gui_env(self):
+        self.env["DISPLAY"] = os.environ['DISPLAY']
+        self.env["QT_GRAPHICSSYSTEM"] = "native"
+        self.env["QT_X11_NO_MITSHM"] = "1"
+        self.env["XAUTHORITY"] = "/tmp/.docker.xauth"
+        self.env["XAUTH_LIST"] = subprocess.run(["xauth", "list"], text=True, capture_output=True).stdout
 
     def connect(self, network):
         network.connect(self.container)
