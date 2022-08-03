@@ -15,4 +15,4 @@ class Turtlebot3(Robot):
             self.command = f"python3 /workdir/launch/robot_bringup.py {robot_name} {robot_namespace} {self.initial_pose}"
 
         if path == DEFAULT_PATH:
-            self.add_mount(f"{DEFAULT_PATH}/launch:/workdir/launch")
+            self.add_mount(source=f"{DEFAULT_PATH}/launch", target="/workdir/launch")

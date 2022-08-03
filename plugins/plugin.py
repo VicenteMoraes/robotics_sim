@@ -53,16 +53,13 @@ class DockerPlugin(Plugin):
         self.env["TAG"] = self.tag
         self.container_name = container_name if container_name else f"{self.tag}_container"
 
-    def add_mount(self, mount: str):
-        mount = mount.split(":")
-        source = mount[0]
-        target = mount[1]
+    def add_mount(self, source: str, target: str):
         mnt = docker.types.Mount(target=target, source=source, type='bind')
         self.mounts.append(mnt)
 
     def load_gui(self):
         self.load_gui_env()
-        self.add_mount("/tmp/.X11-unix/:/tmp/.X11-unix/")
+        self.add_mount(source="/tmp/.X11-unix/", target="/tmp/.X11-unix/")
 
     def load_gui_env(self):
         self.env["DISPLAY"] = os.environ['DISPLAY']
