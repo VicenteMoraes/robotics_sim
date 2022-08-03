@@ -65,7 +65,7 @@ class DockerPlugin(Plugin):
         self.env["DISPLAY"] = os.environ['DISPLAY']
         self.env["QT_GRAPHICSSYSTEM"] = "native"
         self.env["QT_X11_NO_MITSHM"] = "1"
-        self.env["XAUTHORITY"] = "/tmp/.docker.xauth"
+        #self.env["XAUTHORITY"] = "/tmp/.docker.xauth"
         self.env["XAUTH_LIST"] = subprocess.run(["xauth", "list"], text=True, capture_output=True).stdout
 
     def connect(self, network):
