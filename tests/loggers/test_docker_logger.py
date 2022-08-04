@@ -19,7 +19,6 @@ def test_logger():
 
 
 def test_write_logs():
-    assert True
     return
     target = "[gzserver-1]  Audio will be disabled."
     client = docker.from_env()

@@ -3,7 +3,6 @@ import docker
 
 
 def test_gui():
-    assert True
     return
     client = docker.from_env()
     sim = RMFGazebo(docker_client=client, headless=False, auto_remove=False)

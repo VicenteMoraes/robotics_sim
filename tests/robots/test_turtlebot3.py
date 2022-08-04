@@ -5,7 +5,6 @@ from plugins.networks.ros2_network import ROS2Network
 
 
 def test_turtlebot3():
-    assert True
     return
     client = docker.from_env()
     network = ROS2Network(docker_client=client, name="ros2")
@@ -18,4 +17,3 @@ def test_turtlebot3():
 
     sim.run(network_mode=False)
     robot.run()
-    assert True
