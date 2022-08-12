@@ -1,5 +1,5 @@
-FROM osrf/ros2:nightly
+FROM ros:humble-ros-base
 
 RUN apt update && apt full-upgrade -y
 
-RUN apt install -y '~ros-${ROS_DISTRO}-turtlebot3-.*'
+RUN apt install -y ros-${ROS_DISTRO}-turtlebot3*

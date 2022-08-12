@@ -1,4 +1,4 @@
-FROM osrf/ros2:nightly
+FROM ros:humble-ros-base
 
 RUN apt update && apt full-upgrade -y
 

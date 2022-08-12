@@ -1,10 +1,11 @@
-FROM osrf/ros2:nightly
+FROM ros:humble-ros-base
 
 RUN apt update && apt full-upgrade -y
 RUN apt install -y xauth libfreetype6 libglu1-mesa libxi6 libxrender1 xz-utils
 RUN apt install -y mesa-utils libegl1-mesa libegl1-mesa-dev libgbm-dev libgbm1 libgl1-mesa-dev libgl1-mesa-dri libglu1-mesa libglu1-mesa-dev
 RUN apt install -y libopenexr-dev zlib1g-dev libfontconfig1 libgl1-mesa-glx libxmu-dev
 RUN apt update && apt install -y mesa-utils apt-utils xvfb llvm-dev
+RUN apt install -y ros-${ROS_DISTRO}-rviz2
 
 #NVIDIA
 ENV NVIDIA_VISIBLE_DEVICES ${NVIDIA_VISIBLE_DEVICES:-all}
