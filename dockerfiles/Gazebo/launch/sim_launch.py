@@ -19,7 +19,8 @@ def generate_launch_description():
     )
     gz = ExecuteProcess(
         cmd=['gzserver', '--verbose', '-s', 'libgazebo_ros_factory.so', '-s', 'libgazebo_ros_init.so',
-             LaunchConfiguration("world_map")]
+             LaunchConfiguration("world_map")],
+        output='screen'
     )
     gz_gui = ExecuteProcess(
         cmd=['gzclient', '--verbose', LaunchConfiguration("world_map")],
