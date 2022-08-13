@@ -1,4 +1,4 @@
-FROM ros:humble-ros-base
+FROM ros:foxy-ros-base
 
 RUN apt update && apt full-upgrade -y
 
