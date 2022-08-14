@@ -1,4 +1,4 @@
-FROM ros:foxy-ros-base
+FROM ros:humble-ros-base
 
 RUN apt update && apt full-upgrade -y
 RUN apt install -y xauth libfreetype6 libglu1-mesa libxi6 libxrender1 xz-utils
