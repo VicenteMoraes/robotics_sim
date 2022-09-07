@@ -56,6 +56,7 @@ class DockerPlugin(Plugin):
     def add_mount(self, source: str, target: str, mount_type: str = 'bind', **mount_kwargs):
         mnt = docker.types.Mount(target=target, source=source, type=mount_type, **mount_kwargs)
         self.mounts.append(mnt)
+        return mnt
 
     def load_gui(self):
         self.load_gui_env()

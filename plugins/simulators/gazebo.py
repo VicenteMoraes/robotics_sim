@@ -20,3 +20,8 @@ class Gazebo(Simulator):
         if network_mode:
             run_kwargs['network_mode'] = "host"
         super(Gazebo, self).run(**run_kwargs)
+
+    def add_model_path(self, container, path: str, name: str = 'model_path'):
+        mnt = container.add_mount(source=name, target=path, mount_type='volume')
+        self.mounts.append(mnt)
+        self.env['GAZEBO_MODEL_PATH'] = path+"/models"
