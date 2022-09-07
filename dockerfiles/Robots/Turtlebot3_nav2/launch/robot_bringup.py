@@ -22,7 +22,11 @@ def main():
         client.wait_for_service()
 
     # Get path to the turtlebot3 burgerbot
-    sdf_file_path = '/workdir/models/model-1_4.sdf'
+    #sdf_file_path = os.path.join(
+    #    get_package_share_directory("turtlebot3_gazebo"), "models",
+    #    "turtlebot3_burger", "model-1_4.sdf")
+    bringup_dir = get_package_share_directory('nav2_bringup')
+    sdf_file_path = os.path.join(bringup_dir, 'worlds', 'waffle.model')
 #
 #   xml_tree = et.parse(sdf_file_path)
 #   root = xml_tree.getroot()

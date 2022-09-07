@@ -19,7 +19,9 @@ class Turtlebot3withNav2(Turtlebot3):
         self.env['RMW_IMPLEMENTATION'] = 'rmw_cyclonedds_cpp'
         if command is None:
             self.command = f"""bash -c "python3 /workdir/launch/robot_bringup.py {robot_name} {robot_namespace} {str(self.initial_pose)} \
-            && ros2 launch /workdir/launch/turtlebot3_state_publisher.launch.py & ros2 launch -d /workdir/launch/nav2_bringup.launch.py" """
+            && ros2 launch -d /workdir/launch/nav2_bringup.launch.py" """
+            #self.command = f"""bash -c "python3 /workdir/launch/robot_bringup.py {robot_name} {robot_namespace} {str(self.initial_pose)} \
+            #&& (ros2 launch /workdir/launch/turtlebot3_state_publisher.launch.py & ros2 launch -d /workdir/launch/nav2_bringup.launch.py)" """
         if path == DEFAULT_PATH:
             self.add_mount(source=f"{DEFAULT_PATH}/launch", target="/workdir/launch")
             self.add_mount(source=f"{DEFAULT_PATH}/param", target="/workdir/param")
