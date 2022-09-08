@@ -2,6 +2,7 @@ from abc import abstractmethod
 from core.components import Component
 from core.envs.baseenv import Environment
 from docker import DockerClient
+from plugins.loggers.docker_logger import DockerLogger
 import docker
 import os
 import subprocess
@@ -83,3 +84,9 @@ class DockerPlugin(Plugin):
     def build(self, **build_kwargs):
         self.image = self.docker_client.images.build(path=self.path, dockerfile=self.dockerfile, tag=self.tag,
                                                      **build_kwargs)
+
+    def add_logger(self, target: str = "", write_to_file: bool = False, filename: str = '', update_interval: float = 1,
+                   log_args: list = None, timeout: float = 300, *logger_args, **logger_kwargs):
+        self._add(DockerLogger(target=target, write_to_file=write_to_file, filename=filename,
+                               update_interval=update_interval, log_args=log_args, timeout=timeout,
+                               *logger_args, **logger_kwargs))

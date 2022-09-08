@@ -1,7 +1,7 @@
-from plugins.plugin import Plugin
+from core.components import Component
 
 
-class Logger(Plugin):
+class Logger(Component):
     def __init__(self, *args, **kwargs):
         super(Logger, self).__init__(*args, **kwargs)
 

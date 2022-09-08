@@ -3,7 +3,7 @@ import docker
 
 
 class Network(Plugin):
-    def __init__(self, docker_client: docker.DockerClient, priority: int = 4, name: str = "network",
+    def __init__(self, docker_client: docker.DockerClient, priority: int = 1, name: str = "network",
                  driver: str = "bridge", check_duplicate: bool = False, internal: bool = False, **options):
         super(Network, self).__init__(priority)
         self.docker_client = docker_client
