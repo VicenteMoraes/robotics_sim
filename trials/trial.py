@@ -9,10 +9,11 @@ class Trial(Component):
         self.plugins = []
         self.trial_id = trial_id if trial_id is not None else self.uuid
 
-    def add_plugin(self, plugin):
-        self.queue.put(plugin)
-        self.plugins.append(plugin)
-        self._add(plugin)
+    def add_plugins(self, *plugins):
+        for plugin in plugins:
+            self.queue.put(plugin)
+            self.plugins.append(plugin)
+            self._add(plugin)
 
     def build(self):
         for plugin in sorted(self.plugins):

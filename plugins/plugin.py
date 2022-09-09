@@ -28,11 +28,14 @@ class Plugin(Component):
         except AttributeError:
             return f"{str(self)} plugin attached to Parent {str(self.parent)}, ID: {self.parent.uuid}"
 
-    def __ge__(self, other):
-        return self.priority >= other.priority
+    def __gt__(self, other):
+        return self.priority > other.priority
 
-    def __le__(self, other):
-        return self.priority <= other.priority
+    def __lt__(self, other):
+        return self.priority < other.priority
+
+    def __eq__(self, other):
+        return self.priority == other.priority
 
 
 class DockerPlugin(Plugin):

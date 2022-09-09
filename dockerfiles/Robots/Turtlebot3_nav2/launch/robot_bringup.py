@@ -3,7 +3,6 @@ import sys
 import rclpy
 from ament_index_python.packages import get_package_share_directory
 from gazebo_msgs.srv import SpawnEntity
-import xml.etree.ElementTree as et
 
 
 def main():

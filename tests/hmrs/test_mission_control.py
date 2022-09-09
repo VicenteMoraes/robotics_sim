@@ -6,6 +6,17 @@ from plugins.ros2.rviz import RVIZ
 from plugins.loggers.docker_logger import DockerLogger
 from core import pose
 from core.components import ProjectPath
+from plugins.hmrs.load_experiment import parse_config
+from trials.hmrs_trial import HMRSTrial
+
+
+def test_trial():
+    config = parse_config(str(ProjectPath/"tests/hmrs/experiment/experiment_sample.json"))[0]
+    trial = HMRSTrial(config, config['id'], headless=False, path_to_world="/workdir/map/hospital.world")
+    trial.sim.add_mount(source=str(ProjectPath/"tests/hmrs/param/map"), target="/workdir/map")
+    trial.setup_robots(param_path=str(ProjectPath/"tests/hmrs/param"))
+    trial.build()
+    trial.run()
 
 
 def test_hmrsim():

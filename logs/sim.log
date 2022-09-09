@@ -1,4 +1,4 @@
-[INFO] [launch]: All log files can be found below /root/.ros/log/2022-09-07-20-34-12-439337-e87c900546d7-1
+[INFO] [launch]: All log files can be found below /root/.ros/log/2022-09-09-02-16-08-868390-724df5dd1094-1
 [INFO] [launch]: Default logging verbosity is set to INFO
 [INFO] [gzserver-1]: process started with pid [44]
 [INFO] [gzclient-2]: process started with pid [46]
@@ -14,7 +14,7 @@
 [gzserver-1] 
 [gzserver-1] [1;32m[Msg] [0m[1;32mWaiting for master.[0m[1;32m
 [gzserver-1] [0m[1;32m[0m[1;32m[0m[1;32m[Msg] [0m[1;32mConnected to gazebo master @ [0m[1;32mhttp://127.0.0.1:11345[0m[1;32m
-[gzserver-1] [0m[1;32m[0m[1;32m[0m[1;32m[Msg] [0m[1;32mPublicized address: [0m[1;32m172.19.0.2[0m[1;32m
+[gzserver-1] [0m[1;32m[0m[1;32m[0m[1;32m[Msg] [0m[1;32mPublicized address: [0m[1;32m172.20.0.7[0m[1;32m
 [gzserver-1] [1;33m[Wrn] [ModelDatabase.cc:340] [0m[1;33mGetting models from[[0m[1;33mhttp://models.gazebosim.org/[0m[1;33m]. This may take a few seconds.
 [gzclient-2] [1;33m[Wrn] [GuiIface.cc:298] [0m[1;33mCouldn't locate specified .ini. Creating file at [0m[1;33m"/root/.gazebo/gui.ini"[0m[1;33m
 [gzclient-2] [0m[1;33m[0m[1;33m[0m[1;33m[Wrn] [GuiIface.cc:120] [0m[1;33mQStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'[0m[1;33m
@@ -29,7 +29,7 @@
 [gzserver-1] AL lib: (EE) ALCplaybackAlsa_open: Could not open playback device 'default': No such file or directory
 [gzserver-1] [1;31m[Err] [OpenAL.cc:84] [0m[1;31mUnable to open audio device[[0m[1;31mdefault[0m[1;31m]
 [gzserver-1]  Audio will be disabled.
-[gzserver-1] [0m[1;32m[0m[1;32m[0m[1;32m[Msg] [0m[1;32mLoading world file [[0m[1;32m/opt/ros/humble/share/turtlebot3_gazebo/worlds/turtlebot3_world.world[0m[1;32m][0m[1;32m
+[gzserver-1] [0m[1;32m[0m[1;32m[0m[1;32m[Msg] [0m[1;32mLoading world file [[0m[1;32m/workdir/map/hospital.world[0m[1;32m][0m[1;32m
 [gzserver-1] [0m[1;31m[Err] [Model.cc:123] [0m[1;31mError Code [0m[1;31m23[0m[1;31m Msg: [0m[1;31mFrameAttachedToGraph error, Non-LINK vertex with name [camera_rgb_joint] is disconnected; it should have 1 outgoing edge in MODEL attached_to graph.[0m[1;31m
 [gzserver-1] [0m[1;31m[Err] [Model.cc:123] [0m[1;31mError Code [0m[1;31m23[0m[1;31m Msg: [0m[1;31mGraph has __model__ scope but sink vertex named [camera_rgb_joint] does not have FrameType LINK or MODEL when starting from vertex with name [camera_rgb_joint].[0m[1;31m
 [gzserver-1] [0m[1;31m[Err] [Model.cc:123] [0m[1;31mError Code [0m[1;31m26[0m[1;31m Msg: [0m[1;31mPoseRelativeToGraph error, Vertex with name [camera_rgb_joint] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.[0m[1;31m
@@ -37,14 +37,33 @@
 [gzserver-1] [0m[1;31m[Err] [Joint.cc:297] [0m[1;31mEXCEPTION: [0m[1;31mCouldn't Find Child Link[camera_rgb_frame]
 [gzserver-1] [0m[1;31m
 [gzserver-1] [0m[1;31m[0m[1;31m[0m[1;31m[Err] [Model.cc:272] [0m[1;31mLoadJoint Failed
-[gzserver-1] [0m[INFO] [1662582960.462641130] [intel_realsense_r200_depth_driver]: Publishing camera info to [/intel_realsense_r200_depth/camera_info]
-[gzserver-1] [INFO] [1662582960.465021595] [intel_realsense_r200_depth_driver]: Publishing depth camera info to [/intel_realsense_r200_depth/depth/camera_info]
-[gzserver-1] [INFO] [1662582960.466032149] [intel_realsense_r200_depth_driver]: Publishing pointcloud to [/intel_realsense_r200_depth/points]
-[gzserver-1] [INFO] [1662582960.609227002] [turtlebot3_diff_drive]: Wheel pair 1 separation set to [0.287000m]
-[gzserver-1] [INFO] [1662582960.609300713] [turtlebot3_diff_drive]: Wheel pair 1 diameter set to [0.066000m]
-[gzserver-1] [INFO] [1662582960.611453941] [turtlebot3_diff_drive]: Subscribed to [/cmd_vel]
-[gzserver-1] [INFO] [1662582960.614082605] [turtlebot3_diff_drive]: Advertise odometry on [/odom]
-[gzserver-1] [INFO] [1662582960.617809134] [turtlebot3_diff_drive]: Publishing odom transforms between [odom] and [base_footprint]
-[gzserver-1] [INFO] [1662582960.643762841] [turtlebot3_joint_state]: Going to publish joint [wheel_left_joint]
-[gzserver-1] [INFO] [1662582960.643817821] [turtlebot3_joint_state]: Going to publish joint [wheel_right_joint]
+[gzserver-1] [0m[1;31mError [parser.cc:468][0m Error parsing XML from string: Error document empty.
+[gzserver-1] [1;31mError [parser.cc:468][0m Error parsing XML from string: Error document empty.
+[gzserver-1] [1;31mError [parser.cc:468][0m Error parsing XML from string: Error document empty.
+[gzserver-1] [1;31mError [parser.cc:468][0m Error parsing XML from string: Error document empty.
+[gzserver-1] 
+[gzserver-1] >>> [rcutils|error_handling.c:108] rcutils_set_error_state()
+[gzserver-1] This error state is being overwritten:
+[gzserver-1] 
+[gzserver-1]   'invalid data size, at ./src/serdata.cpp:384'
+[gzserver-1] 
+[gzserver-1] with this new error message:
+[gzserver-1] 
+[gzserver-1]   'Handle's typesupport identifier (rosidl_typesupport_cpp) is not supported by this library, at ./src/type_support_dispatch.hpp:111'
+[gzserver-1] 
+[gzserver-1] rcutils_reset_error() should be called after error handling to avoid this.
+[gzserver-1] <<<
+[gzserver-1] [INFO] [1662689862.827542936] [intel_realsense_r200_depth_driver]: Publishing camera info to [/intel_realsense_r200_depth/camera_info]
+[gzserver-1] [INFO] [1662689862.829222421] [intel_realsense_r200_depth_driver]: Publishing depth camera info to [/intel_realsense_r200_depth/depth/camera_info]
+[gzserver-1] [INFO] [1662689862.829763074] [intel_realsense_r200_depth_driver]: Publishing pointcloud to [/intel_realsense_r200_depth/points]
+[gzserver-1] [INFO] [1662689862.938933437] [turtlebot3_diff_drive]: Wheel pair 1 separation set to [0.287000m]
+[gzserver-1] [INFO] [1662689862.939750375] [turtlebot3_diff_drive]: Wheel pair 1 diameter set to [0.066000m]
+[gzserver-1] [INFO] [1662689862.942952907] [turtlebot3_diff_drive]: Subscribed to [/cmd_vel]
+[gzserver-1] [INFO] [1662689862.946403182] [turtlebot3_diff_drive]: Advertise odometry on [/odom]
+[gzserver-1] [INFO] [1662689862.952063390] [turtlebot3_diff_drive]: Publishing odom transforms between [odom] and [base_footprint]
+[gzserver-1] [INFO] [1662689862.976047631] [turtlebot3_joint_state]: Going to publish joint [wheel_left_joint]
+[gzserver-1] [INFO] [1662689862.976628993] [turtlebot3_joint_state]: Going to publish joint [wheel_right_joint]
 [gzserver-1] [1;33m[Wrn] [Publisher.cc:135] [0m[1;33mQueue limit reached for topic [0m[1;33m/gazebo/default/pose/local/info[0m[1;33m, deleting message. [0m[1;33mThis warning is printed only once.[0m[1;33m
+[gzclient-2] [0m[1;33m[0m[1;33m[0m[1;33m[Wrn] [Event.cc:61] [0m[1;33mWarning: Deleting a connection right after creation. [0m[1;33mMake sure to save the ConnectionPtr from a Connect call
+[INFO] [gzclient-2]: process has finished cleanly [pid 46]
+[gzclient-2] [0m[1;33m[0m[1;31m[0m
