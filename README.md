@@ -94,3 +94,13 @@ rviz.run()
 ```
 
 You can find more examples in our tests directory.
+
+## Images
+
+### Simulation Example
+![hospital map](imgs/hospital_map.png) 
+
+### Trial structure
+![plugins](imgs/plugin.drawio.png)
+
+![trials](imgs/sim.drawio.png)
