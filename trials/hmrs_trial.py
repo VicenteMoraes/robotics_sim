@@ -51,7 +51,6 @@ class HMRSTrial(Trial):
                 self.sim.add_model_path(container=robot, path="/opt/ros/humble/share/turtlebot3_gazebo")
                 self.add_plugins(robot)
             else:
-                pass
-                #robot = Turtlebot3(self.docker_client, robot_name=name, container_name=f"{name}_container", config=config,
-                #                   robot_namespace=name, initial_pose=pose, network=self.network)
-            #self.add_plugins(robot)
+                robot = Turtlebot3(self.docker_client, robot_name=name, container_name=f"{name}_container", config=config,
+                                   robot_namespace=name, initial_pose=pose, network=self.network)
+            self.add_plugins(robot)

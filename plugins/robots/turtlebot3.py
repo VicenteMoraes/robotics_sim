@@ -15,3 +15,5 @@ class Turtlebot3(Robot):
 
         if path == DEFAULT_PATH:
             self.add_mount(source=f"{DEFAULT_PATH}/launch", target="/workdir/launch")
+
+        self.env['RMW_IMPLEMENTATION'] = 'rmw_cyclonedds_cpp'
