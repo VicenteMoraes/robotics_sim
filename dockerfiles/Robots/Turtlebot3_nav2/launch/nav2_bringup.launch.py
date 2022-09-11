@@ -42,6 +42,8 @@ def generate_launch_description():
             'Y': LaunchConfiguration('yaw', default='0.00')}
     robot_name = LaunchConfiguration('robot_name')
     robot_sdf = LaunchConfiguration('robot_sdf')
+    my_map = os.environ['MAP_YAML'] if os.environ['MAP_YAML'] else os.path.join(
+        bringup_dir, 'maps', 'turtlebot3_world.yaml')
 
     # Map fully qualified names to relative ones so the node's namespace can be prepended.
     # In case of the transforms (tf), currently, there doesn't seem to be a better alternative
@@ -70,8 +72,8 @@ def generate_launch_description():
 
     declare_map_yaml_cmd = DeclareLaunchArgument(
         'map',
-        default_value=os.path.join(
-            bringup_dir, 'maps', 'turtlebot3_world.yaml'),
+        default_value=my_map,#os.path.join(
+            #bringup_dir, 'maps', 'turtlebot3_world.yaml'),
         description='Full path to map file to load')
 
     declare_use_sim_time_cmd = DeclareLaunchArgument(
@@ -183,7 +185,7 @@ def generate_launch_description():
         launch_arguments={'namespace': namespace,
                           'use_namespace': use_namespace,
                           'slam': slam,
-                          'map': map_yaml_file,
+                          'map': my_map,
                           'use_sim_time': use_sim_time,
                           'params_file': params_file,
                           'autostart': autostart,
