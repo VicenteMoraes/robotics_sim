@@ -6,6 +6,7 @@ from plugins.simulators.gazebo import Gazebo
 from plugins.networks.ros2_network import ROS2Network
 from plugins.robots.turtlebot3_nav2 import Turtlebot3withNav2
 from plugins.robots.turtlebot3 import Turtlebot3
+from plugins.ros2.roslogger import ROSLogger
 
 
 class HMRSTrial(Trial):
@@ -28,7 +29,9 @@ class HMRSTrial(Trial):
             self.rviz = RVIZ(self.docker_client, network=self.network)
             self.add_plugins(self.rviz)
 
-        self.add_plugins(self.sim, self.network)
+        self.logger = ROSLogger(self.docker_client, self.network, trial_id=trial_id, filename=f"{trial_id}.log")
+
+        self.add_plugins(self.sim, self.network, self.logger)
 
     def setup_robots(self, *robot_args, **robot_kwargs):
         for config in self.config['robots']:
