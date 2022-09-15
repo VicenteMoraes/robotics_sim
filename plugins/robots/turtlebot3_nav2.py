@@ -17,13 +17,10 @@ class Turtlebot3withNav2(Turtlebot3):
         self.env['TURTLEBOT3_MODEL'] = turtlebot3_model
         self.env['LDS_MODEL'] = lds_model
         self.env['ROBOT_NAMESPACE'] = robot_namespace
-        self.env['RMW_IMPLEMENTATION'] = 'rmw_cyclonedds_cpp'
         self.env['MAP_YAML'] = map_yaml
         if command is None:
             self.command = f"""bash -c "python3 /workdir/launch/robot_bringup.py {robot_name} {robot_namespace} {str(self.initial_pose)} \
             && ros2 launch -d /workdir/launch/nav2_bringup.launch.py" """
-            #self.command = f"""bash -c "python3 /workdir/launch/robot_bringup.py {robot_name} {robot_namespace} {str(self.initial_pose)} \
-            #&& (ros2 launch /workdir/launch/turtlebot3_state_publisher.launch.py & ros2 launch -d /workdir/launch/nav2_bringup.launch.py)" """
 
         self.add_mount(source=launch_path, target="/workdir/launch")
         self.add_mount(source=param_path, target="/workdir/param")

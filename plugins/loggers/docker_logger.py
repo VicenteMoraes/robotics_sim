@@ -34,9 +34,13 @@ class DockerLogger(Logger):
         except requests.exceptions.HTTPError:
             self.stop()
 
-        self.success = self.success or self.target in self.logs
-        if self.write_to_file:
-            self.write_logs()
+        try:
+            self.success = self.success or self.target in self.logs
+
+            if self.write_to_file:
+                self.write_logs()
+        except TypeError:
+            pass
 
     def write_logs(self):
         if not self.filename:

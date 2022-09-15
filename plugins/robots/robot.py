@@ -1,6 +1,6 @@
 from plugins.plugin import DockerPlugin
 from docker import DockerClient
-from core.pose import Pose
+from core.pose import Pose, euler_from_quaternion
 
 
 class Robot(DockerPlugin):
@@ -12,3 +12,4 @@ class Robot(DockerPlugin):
         self.env['ROBOT_NAME'] = robot_name
         self.config = config
         self.env['CONFIG'] = str(config).replace('\'', '\"')
+        self.env['RMW_IMPLEMENTATION'] = 'rmw_cyclonedds_cpp'

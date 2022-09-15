@@ -115,8 +115,8 @@ if __name__ == "__main__":
     rclpy.init()
     try:
         config = json.loads(os.environ['CONFIG'])
-        initial_percentage = config['battery_level']
-        discharge_rate_percentage = config['battery_consumption_rate']
+        initial_percentage = config['battery_charge']
+        discharge_rate_percentage = config['battery_discharge_rate']
         battery = BatterySensor(parent, initial_percentage=initial_percentage,
                                 discharge_rate_percentage=discharge_rate_percentage)
     except AttributeError:
