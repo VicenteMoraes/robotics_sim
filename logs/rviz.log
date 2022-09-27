@@ -1,9 +1,6 @@
 QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
-[0m[INFO] [1662659331.711902454] [rviz2]: Stereo is NOT SUPPORTED[0m
-[0m[INFO] [1662659331.712022283] [rviz2]: OpenGl version: 4.6 (GLSL 4.6)[0m
-[0m[INFO] [1662659331.901531869] [rviz2]: Stereo is NOT SUPPORTED[0m
-[0m[INFO] [1662659439.425606049] [rviz2]: Trying to create a map of size 384 x 384 using 1 swatches[0m
-[0m[INFO] [1662659446.932882304] [rviz2]: Setting goal pose: Frame:map, Position(-1.40668, 0.641909, 0), Orientation(0, 0, 0.0183872, 0.999831) = Angle: 0.0367765[0m
-[0m[INFO] [1662659466.664403584] [rviz2]: Setting goal pose: Frame:map, Position(-0.181755, -2.15254, 0), Orientation(0, 0, 0.0234173, 0.999726) = Angle: 0.0468389[0m
-[0m[INFO] [1662659498.748398820] [rviz2]: Setting goal pose: Frame:map, Position(0.132248, -2.00734, 0), Orientation(0, 0, 0.686765, 0.72688) = Angle: 1.51406[0m
-[0m[INFO] [1662659514.767586738] [rviz2]: Setting goal pose: Frame:map, Position(0.473067, 1.55961, 0), Orientation(0, 0, -0.715262, 0.698857) = Angle: -1.594[0m
+[0m[INFO] [1662739280.266029584] [rviz2]: Stereo is NOT SUPPORTED[0m
+[0m[INFO] [1662739280.266159533] [rviz2]: OpenGl version: 4.6 (GLSL 4.6)[0m
+[0m[INFO] [1662739281.050359419] [rviz2]: Stereo is NOT SUPPORTED[0m
+[0m[INFO] [1662739390.765601938] [rviz2]: Trying to create a map of size 384 x 384 using 1 swatches[0m
+[0m[INFO] [1662739407.091282107] [rviz2]: Setting goal pose: Frame:map, Position(1.62005, -0.505823, 0), Orientation(0, 0, 0.999292, 0.037621) = Angle: 3.06633[0m
