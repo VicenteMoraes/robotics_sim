@@ -15,7 +15,7 @@ def formatlog(severity, who, loginfo, skill, params):
 
 
 class Nurse(Node):
-    def __init__(self, name: str = '', path='human_rig'):
+    def __init__(self, name: str = 'nurse', path='human_rig'):
         super(Nurse, self).__init__("nurse_node")
         self.name = name
         self.path = path
@@ -27,6 +27,7 @@ class Nurse(Node):
 
         self.sub = self.create_subscription(String, "/led_strip/display", self.handle_auth, 10)
         self.sub_comms = self.create_subscription(String, "/nurse/comms", self.comms, 10)
+        print('we done')
 
     def comms(self, com_data):
         pub_str = String()
@@ -108,3 +109,10 @@ class Nurse(Node):
         }
         log.data = json.dumps(logdata)
         self.pub_log.publish(log)
+
+
+if __name__ == "__main__":
+    rclpy.init()
+    nurse = Nurse()
+    print('we going')
+    rclpy.spin(nurse)

@@ -34,12 +34,13 @@ class BatterySensor(Node):
         self.design_capacity = 1800.0
         self.discharge_rate_ah = discharge_rate_ah
         self.discharge_rate_percentage = discharge_rate_percentage
+        self.namespace = os.environ['ROBOT_NAMESPACE']
 
         self.charge = capacity*initial_percentage
 
-        self.battery_pub = self.create_publisher(BatteryState, "/battery",  1)
+        self.battery_pub = self.create_publisher(BatteryState, f"/{self.namespace}/battery",  1)
         self.log_pub = self.create_publisher(String, "/log",  1)
-        self.vel_pub = self.create_publisher(Twist, "/cmd_vel",  1)
+        self.vel_pub = self.create_publisher(Twist, f"/{self.namespace}/cmd_vel",  1)
 
         self.update_timer = self.create_timer(1, self.update_charge)
         self.log_timer = self.create_timer(15, self.update_log)
