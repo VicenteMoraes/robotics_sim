@@ -120,7 +120,7 @@ if __name__ == "__main__":
         discharge_rate_percentage = config['battery_discharge_rate']
         battery = BatterySensor(parent, initial_percentage=initial_percentage,
                                 discharge_rate_percentage=discharge_rate_percentage)
-    except AttributeError:
+    except (AttributeError, json.decoder.JSONDecodeError):
         battery = BatterySensor(parent)
 
     rclpy.spin(battery)
