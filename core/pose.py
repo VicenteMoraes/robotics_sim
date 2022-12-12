@@ -1,5 +1,6 @@
 import math
 import numpy
+import json
 
 _NEXT_AXIS = [1, 2, 0, 1]
 _AXES2TUPLE = {
@@ -43,6 +44,11 @@ class Pose:
 
     def __str__(self):
         return ' '.join([str(x) for x in self.position.to_list()]) + ' ' + ' '.join([str(x) for x in self.orientation.to_list()])
+
+    def pose_to_json(self):
+        roll, pitch, yaw = euler_from_quaternion(self.orientation)
+        dic = {'x': self.position.x, 'y': self.position.y, 'z': self.position.z, 'roll': roll, 'pitch': pitch, 'yaw': yaw}
+        return json.dumps(dic)
 
 
 def quaternion_from_euler(ai, aj, ak, axes='sxyz'):

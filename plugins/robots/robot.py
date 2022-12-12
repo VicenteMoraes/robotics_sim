@@ -13,3 +13,4 @@ class Robot(DockerPlugin):
         self.config = config
         self.env['CONFIG'] = str(config).replace('\'', '\"')
         self.env['RMW_IMPLEMENTATION'] = 'rmw_cyclonedds_cpp'
+        self.env['ROBOT_POSE'] = self.initial_pose.pose_to_json()

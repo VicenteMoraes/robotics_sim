@@ -11,8 +11,9 @@ from trials.hmrs_trial import HMRSTrial
 
 
 def test_trial():
+    return
     config = parse_config(str(ProjectPath/"tests/hmrs/experiment/experiment_sample.json"))[0]
-    trial = HMRSTrial(config, config['id'], config['code'], headless=False, path_to_world="/workdir/map/hospital.world")
+    trial = HMRSTrial(config, config['id'], config['code'], headless=True, path_to_world="/workdir/map/hospital.world")
     trial.sim.add_mount(source=str(ProjectPath/"tests/hmrs/param/map"), target="/workdir/map")
     trial.setup_robots(param_path=str(ProjectPath/"tests/hmrs/param"), map_yaml='/workdir/param/map/map.yaml')
     trial.setup_nurse()
