@@ -9,6 +9,7 @@ from core import pose
 
 
 def test_turtlebot3withnav2():
+    return
     client = docker.from_env()
     network = ROS2Network(client, name="ros2")
     sim = Gazebo(client, headless=False, auto_remove=True, network=network, path_to_world="/opt/ros/humble/share/turtlebot3_gazebo/worlds/turtlebot3_world.world")
@@ -21,14 +22,18 @@ def test_turtlebot3withnav2():
                                initial_pose=ps, use_rviz=True)
     robot._add(DockerLogger(target='', write_to_file=True, filename='robot.log', timeout=300))
     sim.add_model_path(container=robot, path="/opt/ros/humble/share/turtlebot3_gazebo")
-    #robot2 = Turtlebot3withNav2(client, robot_name="turtlebot2", robot_namespace="turtlebot2", container_name="turtlebot2", auto_remove=True, network=network,
-    #                            initial_pose=ps)
+    ps = pose.Pose()
+    ps.position.x = 0
+    ps.position.y = -1
+    ps.position.z = 0.1
+    robot2 = Turtlebot3withNav2(client, robot_name="turtlebot2", robot_namespace="turtlebot2", container_name="turtlebot2", auto_remove=True, network=network,
+                                initial_pose=ps, use_rviz=True)
 
     network.build()
     sim.build()
     robot.build()
-    #robot2.build()
+    robot2.build()
 
     sim.run(network_mode=False)
     robot.run()
-    #robot2.run()
+    robot2.run()
