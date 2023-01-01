@@ -16,7 +16,6 @@ class Turtlebot3withNav2(Turtlebot3):
 
         self.env['TURTLEBOT3_MODEL'] = turtlebot3_model
         self.env['LDS_MODEL'] = lds_model
-        self.env['ROBOT_NAMESPACE'] = robot_namespace
         self.env['MAP_YAML'] = map_yaml
         self.env['PARAMS_YAML'] = params_yaml
         self.use_rviz = use_rviz
