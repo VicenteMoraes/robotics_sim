@@ -6,14 +6,14 @@ from plugins.simulators.gazebo import Gazebo
 from plugins.networks.ros2_network import ROS2Network
 from plugins.robots.turtlebot3_nav2 import Turtlebot3withNav2
 from plugins.robots.turtlebot3 import Turtlebot3
-from plugins.hmrs.behaviour_trees import BehaviourTrees
+from plugins.ros2.skill_library import SkillLibrary
 from plugins.robots.human import Human
 from plugins.ros2.roslogger import ROSLogger
 
 
 class HMRSTrial(Trial):
     def __init__(self, config, trial_id: int, trial_code: str, headless: bool = True, network_name: str = "",
-                 path_to_world: str = "", use_rviz: bool = True, logger_args: list = None, logger_kwargs: dict = None):
+                 path_to_world: str = "", use_rviz: bool = False, logger_args: list = None, logger_kwargs: dict = None):
         super(HMRSTrial, self).__init__(trial_id=trial_id)
         self.docker_client = docker.from_env()
         self.headless = headless
@@ -27,11 +27,7 @@ class HMRSTrial(Trial):
         self.network = ROS2Network(self.docker_client, name=self.network_name)
         self.sim = Gazebo(self.docker_client, headless=headless, network=self.network, path_to_world=path_to_world)
         self.sim.add_logger(write_to_file=True, filename="sim.log", *logger_args, **logger_kwargs)
-        self.bt_skills = None
-
-        if use_rviz:
-            self.rviz = RVIZ(self.docker_client, network=self.network)
-            self.add_plugins(self.rviz)
+        self.skills = {}
 
         self.logger = ROSLogger(self.docker_client, self.network, trial_id=trial_id, filename=f"{self.trial_id}.log")
 
@@ -56,15 +52,17 @@ class HMRSTrial(Trial):
             pose = self.pose_from_config(config)
             name = f"robot{config['id']}"
             if config['local_plan']:
-                robot = Turtlebot3withNav2(self.docker_client, robot_name=name, config=config,
+                robot = Turtlebot3withNav2(self.docker_client, robot_name=name, config=config, use_rviz=self.use_rviz,
                                            robot_namespace=name, initial_pose=pose, network=self.network,
                                            *robot_args, **robot_kwargs)
                 robot.add_logger(write_to_file=True, filename="robot.log")
                 self.sim.add_model_path(container=robot, path="/opt/ros/humble/share/turtlebot3_gazebo")
 
-#               self.bt_skills = BehaviourTrees(self.docker_client, config, auto_remove=False, network=self.network)
-#               self.add_plugins(self.bt_skills)
-#               self.bt_skills.add_logger(write_to_file=True, filename="bt_skills.log")
+                skills = SkillLibrary(self.docker_client, config=config, network=self.network, robot_name=name,
+                                      robot_namespace=name)
+                self.skills[name] = skills
+                self.add_plugins(skills)
+                skills.add_logger(write_to_file=True, filename="bt_skills.log")
             else:
                 robot = Turtlebot3(self.docker_client, robot_name=name, container_name=f"{name}_container", config=config,
                                    robot_namespace=name, initial_pose=pose, network=self.network)

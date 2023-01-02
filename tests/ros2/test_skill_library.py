@@ -1,14 +1,13 @@
 import docker
 from plugins.simulators.gazebo import Gazebo
-from plugins.robots.turtlebot3_nav2 import Turtlebot3withNav2
-from plugins.robots.turtlebot3 import Turtlebot3
-from plugins.networks.ros2_network import ROS2Network
-from plugins.ros2.rviz import RVIZ
 from plugins.loggers.docker_logger import DockerLogger
+from plugins.robots.turtlebot3_nav2 import Turtlebot3withNav2
+from plugins.ros2.skill_library import SkillLibrary
+from plugins.networks.ros2_network import ROS2Network
 from core import pose
 
 
-def test_turtlebot3withnav2():
+def test_skill_library():
     return
     client = docker.from_env()
     network = ROS2Network(client, name="ros2")
@@ -22,19 +21,13 @@ def test_turtlebot3withnav2():
                                initial_pose=ps, use_rviz=True)
     robot._add(DockerLogger(target='', write_to_file=True, filename='robot.log', timeout=300))
     sim.add_model_path(container=robot, path="/opt/ros/humble/share/turtlebot3_gazebo")
-    ps = pose.Pose()
-    ps.position.x = 2
-    ps.position.y = -1
-    ps.position.z = 0.1
-    robot2 = Turtlebot3withNav2(client, robot_name="turtlebot2", robot_namespace="turtlebot2", container_name="turtlebot2",
-                                auto_remove=True, network=network, initial_pose=ps, use_rviz=True)
-    robot._add(DockerLogger(target='', write_to_file=True, filename='robot2.log', timeout=300))
+
+    lib = SkillLibrary(client, '', network=network, robot_name='turtlebot', robot_namespace='turtlebot', auto_remove=True)
+    lib.add_logger(write_to_file=True, filename='skill_library.log')
 
     network.build()
     sim.build()
     robot.build()
-    robot2.build()
 
     sim.run(network_mode=False)
     robot.run()
-    robot2.run()

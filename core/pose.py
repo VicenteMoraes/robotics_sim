@@ -47,7 +47,8 @@ class Pose:
 
     def pose_to_json(self):
         roll, pitch, yaw = euler_from_quaternion(self.orientation)
-        dic = {'x': self.position.x, 'y': self.position.y, 'z': self.position.z, 'roll': roll, 'pitch': pitch, 'yaw': yaw}
+        dic = {'x': self.position.x, 'y': self.position.y, 'z': self.position.z, 'roll': roll, 'pitch': pitch, 'yaw': yaw,
+               'x_rot': self.orientation.x, 'y_rot': self.orientation.y, 'z_rot': self.orientation.z, 'w_rot': self.orientation.w}
         return json.dumps(dic)
 
 
