@@ -1,3 +1,5 @@
+import docker.errors
+
 from core.components import Component
 from queue import PriorityQueue
 
@@ -17,7 +19,11 @@ class Trial(Component):
 
     def build(self):
         for plugin in sorted(self.plugins):
-            plugin.build()
+            try:
+                plugin.build()
+            except docker.errors.BuildError as error:
+                print(f"\n\n FAILED TO BUILD {plugin.__class__.__name__}\n\n")
+                raise error
 
     def run(self):
         while not self.queue.empty():
