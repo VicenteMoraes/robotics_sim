@@ -12,7 +12,7 @@ class Turtlebot3withNav2(Turtlebot3):
                  robot_name: str = "turtlebot", robot_namespace: str = "turtlebot", use_rviz: bool = False,
                  map_yaml: str = '', params_yaml: str = '', *args, **kwargs):
         super(Turtlebot3, self).__init__(docker_client=docker_client, path=docker_path, tag=tag, command=command,
-                                         robot_name=robot_name, *args, **kwargs)
+                                         robot_name=robot_name, robot_namespace=robot_namespace, *args, **kwargs)
 
         self.env['TURTLEBOT3_MODEL'] = turtlebot3_model
         self.env['LDS_MODEL'] = lds_model
