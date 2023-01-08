@@ -27,7 +27,6 @@ class Nurse(Node):
 
         self.sub = self.create_subscription(String, "/led_strip/display", self.handle_auth, 10)
         self.sub_comms = self.create_subscription(String, "/nurse/comms", self.comms, 10)
-        print('we done')
 
     def comms(self, com_data):
         pub_str = String()
@@ -69,7 +68,6 @@ class Nurse(Node):
         pub_str = String()
         log = String()
         pub_str.data = "auth"
-        self.pub.publish(pub_str)
         # log.data = self.name + ": athentication received "+str(pub_str)
         log.data = formatlog('info',
                              self.name,
@@ -77,7 +75,7 @@ class Nurse(Node):
                              'received-request',
                              '(status=sending-request)')
         content = {
-            'skill': 'athentication-request',
+            'skill': 'authentication-request',
             'status': 'message-received'
         }
         logdata = {
@@ -87,19 +85,18 @@ class Nurse(Node):
         }
         log.data = json.dumps(logdata)
         self.pub_log.publish(log)
-        rate = self.create_rate(0.5)
-        for i in range(0, 10):
-            #rospy.loginfo(pub_str)
-            self.pub.publish(pub_str)
-            log.data = self.name + ": sent " + str(pub_str)
-            rate.sleep()
+
+        self.pub.publish(pub_str)
+        log.data = self.name + ": sent " + str(pub_str)
+        self.pub_log.publish(log)
+
         log.data = formatlog('info',
                              self.name,
                              'sync',
                              'request-sent',
                              '(status=waiting)')
         content = {
-            'skill': 'athentication-sent',
+            'skill': 'authentication-sent',
             'status': 'waiting'
         }
         logdata = {
@@ -114,5 +111,4 @@ class Nurse(Node):
 if __name__ == "__main__":
     rclpy.init()
     nurse = Nurse()
-    print('we going')
     rclpy.spin(nurse)
