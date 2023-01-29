@@ -6,7 +6,6 @@ import time
 
 
 def formatlog(severity, who, loginfo, skill, params):
-    global simulation_init_time
     return ('[' + severity + '],' +
             who + ',' +
             loginfo + ',' +

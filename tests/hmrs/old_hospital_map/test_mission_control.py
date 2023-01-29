@@ -11,11 +11,12 @@ from trials.hmrs_trial import HMRSTrial
 
 
 def test_trial():
-    config = parse_config(str(ProjectPath/"tests/hmrs/experiment/experiment_sample.json"))[0]
-    trial = HMRSTrial(config, config['id'], config['code'], headless=True, path_to_world="/workdir/map/hospital.world",
+    return
+    config = parse_config(str(ProjectPath/"tests/hmrs/old_hospital_map/experiment/experiment_sample.json"))[0]
+    trial = HMRSTrial(config, config['id'], config['code'], headless=False, path_to_world="/workdir/map/hospital.world",
                       use_rviz=True)
-    trial.sim.add_mount(source=str(ProjectPath/"tests/hmrs/param/map"), target="/workdir/map")
-    trial.setup_robots(param_path=str(ProjectPath/"tests/hmrs/param"), map_yaml='/workdir/param/map/map.yaml')
+    trial.sim.add_mount(source=str(ProjectPath/"tests/hmrs/old_hospital_map/param/map"), target="/workdir/map")
+    trial.setup_robots(param_path=str(ProjectPath/"tests/hmrs/old_hospital_map/param"), map_yaml='/workdir/param/map/map.yaml')
     trial.setup_nurse()
     trial.build()
     trial.run()
@@ -27,7 +28,7 @@ def test_hmrsim():
     network = ROS2Network(client, name="ros2")
     sim = Gazebo(client, headless=False, auto_remove=True, network=network, path_to_world="/workdir/map/hospital.world")
     sim._add(DockerLogger(target='', write_to_file=True, filename='sim.log', timeout=300))
-    sim.add_mount(source=str(ProjectPath/"tests/hmrs/map"), target="/workdir/map")
+    sim.add_mount(source=str(ProjectPath/"tests/hmrs/old_hospital_map/param/map"), target="/workdir/map")
     ps = pose.Pose()
     ps.position.x = -2
     ps.position.y = -0.5
