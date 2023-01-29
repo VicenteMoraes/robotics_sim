@@ -2,7 +2,7 @@ import docker
 from core.pose import Pose
 from core.components import ProjectPath
 from plugins.simulators.gazebo import Gazebo
-from plugins.robots.turtlebot3_nav2 import Turtlebot3withNav2
+from plugins.robots.turtlebot3 import Turtlebot3
 from plugins.networks.ros2_network import ROS2Network
 from plugins.ros2.rviz import RVIZ
 
@@ -18,8 +18,8 @@ def test_map():
     initial_pose.position.x = 2
     initial_pose.position.y = 4
     initial_pose.position.z = 6.1
-    robot = Turtlebot3withNav2(client, robot_name="turtlebot", robot_namespace="turtlebot", auto_remove=True, network=network,
-                               initial_pose=initial_pose, use_rviz=False)
+    robot = Turtlebot3(client, robot_name="turtlebot", robot_namespace="turtlebot", auto_remove=True, network=network,
+                       initial_pose=initial_pose)
     robot.add_logger(write_to_file=True, filename="robot.log")
 
     sim.add_model_path(container=robot, path="/opt/ros/humble/share/turtlebot3_gazebo")
