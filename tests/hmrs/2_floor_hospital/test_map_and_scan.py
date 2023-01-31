@@ -1,5 +1,5 @@
 import docker
-from core.pose import Pose
+from core.pose import Pose, quaternion_from_euler
 from core.components import ProjectPath
 from plugins.simulators.gazebo import Gazebo
 from plugins.robots.turtlebot3 import Turtlebot3
@@ -15,9 +15,14 @@ def test_map():
     sim.add_mount(source=str(ProjectPath/"tests/hmrs/2_floor_hospital/param/map"), target="/workdir/map")
     sim.add_logger(write_to_file=True, filename="sim.log")
     initial_pose = Pose()
-    initial_pose.position.x = 2
-    initial_pose.position.y = 4
+    initial_pose.position.x = 16.5
+    initial_pose.position.y = 2.8
     initial_pose.position.z = 6.1
+    quat = quaternion_from_euler(0, 0, 1.57)
+    initial_pose.orientation.x = quat[0]
+    initial_pose.orientation.y = quat[1]
+    initial_pose.orientation.z = quat[2]
+    initial_pose.orientation.w = quat[3]
     robot = Turtlebot3(client, robot_name="turtlebot", robot_namespace="turtlebot", auto_remove=True, network=network,
                        initial_pose=initial_pose)
     robot.add_logger(write_to_file=True, filename="robot.log")
