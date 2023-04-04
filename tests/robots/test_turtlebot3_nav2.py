@@ -1,9 +1,7 @@
 import docker
 from plugins.simulators.gazebo import Gazebo
 from plugins.robots.turtlebot3_nav2 import Turtlebot3withNav2
-from plugins.robots.turtlebot3 import Turtlebot3
 from plugins.networks.ros2_network import ROS2Network
-from plugins.ros2.rviz import RVIZ
 from plugins.loggers.docker_logger import DockerLogger
 from core import pose
 
@@ -28,7 +26,7 @@ def test_turtlebot3withnav2():
     ps.position.z = 0.1
     robot2 = Turtlebot3withNav2(client, robot_name="turtlebot2", robot_namespace="turtlebot2", container_name="turtlebot2",
                                 auto_remove=True, network=network, initial_pose=ps, use_rviz=True)
-    robot._add(DockerLogger(target='', write_to_file=True, filename='robot2.log', timeout=300))
+    robot2._add(DockerLogger(target='', write_to_file=True, filename='robot2.log', timeout=300))
 
     network.build()
     sim.build()
