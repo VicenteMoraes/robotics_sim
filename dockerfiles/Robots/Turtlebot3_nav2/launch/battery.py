@@ -7,14 +7,8 @@ from sensor_msgs.msg import BatteryState
 from geometry_msgs.msg import Twist
 
 
-def formatlog(severity, who, loginfo, skill, params):
-    global simulation_init_time
-    return ('['+severity+'],'+
-               who+','+
-               loginfo+','+
-               skill+','+
-               params)
-
+def formatlog(severity, who, loginfo: dict, skill=None, params=None):
+    return f"[{severity}], {who}, {loginfo}, {skill}, {params}"
 
 class BatterySensor(Node):
     def __init__(self, parent,
@@ -46,34 +40,9 @@ class BatterySensor(Node):
         self.log_timer = self.create_timer(15, self.update_log)
         self.update_log()
 
-#       self.thr_timer = Timer(30, self.set_ros_timer)
-#       self.thr_timer.start()
-#
-#   def set_ros_timer(self):
-#       try:
-#           while rospy.get_time() == 0:
-#               rospy.logwarn(f"{self.parent} waiting for clock...")
-#               rospy.sleep(1)
-#           rospy.logwarn(f"{self.parent} setting up battery module...")
-#           self.timer = rospy.Timer(rospy.Duration(1), self.update_charge)
-#           self.logtimer = rospy.Timer(rospy.Duration(15), self.update_log)
-#       except:
-#           self.thr_timer = Timer(30, self.set_ros_timer)
-#           self.thr_timer.start()
-
     def update_log(self):
         log = String()
-        log.data = '{}-battery-level={:02.2f}%'.format(self.parent, self.percentage*100)
-        content = {
-            'battery-level': '{:02.2f}%'.format(self.percentage*100)
-        }
-        logdata = {
-            'level': 'info',
-            'entity': self.parent,
-            'content': {
-                'battery-level': '{:02.2f}%'.format(self.percentage*100)
-            }
-        }
+        log.data = formatlog("INFO", self.parent, {'battery-level': f"{self.percentage*100:02.2f}"})
         self.log_pub.publish(log)
 
     def update_charge(self):
@@ -89,7 +58,7 @@ class BatterySensor(Node):
 
         msg.charge = self.charge - self.discharge_rate_ah if self.discharge_rate_ah != 0 else self.charge - self.discharge_rate_percentage * self.capacity
         msg.percentage = self.charge/self.capacity
-        # rospy.logwarn(f"{self.parent} updating charge battery {msg.percentage*100}%...")
+
         self.battery_pub.publish(msg)
         self.charge = msg.charge
         self.percentage = msg.percentage

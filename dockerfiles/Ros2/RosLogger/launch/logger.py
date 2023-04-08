@@ -2,9 +2,13 @@ import rclpy
 import os
 from std_msgs.msg import String
 
+node = None
+
 
 def log(msg):
-    print(msg.data)
+    global node
+    now = node.get_clock().now().to_msg()
+    print(str(now.sec) + ' ,' + msg.data)
 
 
 if __name__ == "__main__":
