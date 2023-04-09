@@ -7,3 +7,5 @@ RUN apt install -y ros-${ROS_DISTRO}-nav2-rviz-plugins
 RUN apt install -y ros-${ROS_DISTRO}-turtlebot3*
 RUN apt update
 RUN apt install -y ros-${ROS_DISTRO}-rmw-cyclonedds-cpp
+RUN apt install -y python3-pip
+RUN pip install transforms3d
