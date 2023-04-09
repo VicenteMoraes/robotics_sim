@@ -1,5 +1,6 @@
 import rclpy
 from rclpy.node import Node
+from rclpy.parameter import Parameter
 import os
 import json
 from std_msgs.msg import String
@@ -7,16 +8,16 @@ from sensor_msgs.msg import BatteryState
 from geometry_msgs.msg import Twist
 
 
-def formatlog(severity, who, loginfo: dict, skill=None, params=None):
+def formatlog(severity, who, loginfo, skill=None, params=None):
     return f"[{severity}], {who}, {loginfo}, {skill}, {params}"
 
+
 class BatterySensor(Node):
-    def __init__(self, parent,
-            capacity=1800,
-            initial_percentage=1,
-            discharge_rate_percentage=0.0005,
-            discharge_rate_ah=0):
-        super(BatterySensor, self).__init__('battery_sensor')
+    def __init__(self, parent, capacity=1800, initial_percentage=1, discharge_rate_percentage=0.0005,
+                 discharge_rate_ah=0, use_sim_time=True):
+        use_sim_time = Parameter('use_sim_time', Parameter.Type.BOOL, use_sim_time)
+        super(BatterySensor, self).__init__('battery_sensor', parameter_overrides=[use_sim_time])
+
         self.parent = parent
         self.capacity = 1800.0
         self.percentage = initial_percentage
@@ -37,7 +38,7 @@ class BatterySensor(Node):
         self.vel_pub = self.create_publisher(Twist, f"/{self.namespace}/cmd_vel",  1)
 
         self.update_timer = self.create_timer(1, self.update_charge)
-        self.log_timer = self.create_timer(15, self.update_log)
+        self.log_timer = self.create_timer(10, self.update_log)
         self.update_log()
 
     def update_log(self):
@@ -63,19 +64,19 @@ class BatterySensor(Node):
         self.charge = msg.charge
         self.percentage = msg.percentage
         if msg.percentage < .05:
-            #rospy.logwarn(f"{self.parent} requesting simulation end...")
             log = String()
-            log.data = "ENDLOWBATT"
+            log.data = formatlog("WARN", self.parent, "ENDLOWBATT")
             self.log_pub.publish(log)
-            #self.new_timer = rospy.Timer(rospy.Duration(1.0/100.0), self.stop_robot)
             self.stop_robot()
-            # self.timer.cancel()
-            #self.timer.shutdown()
-            # return
 
     def stop_robot(self):
         vel_0 = Twist()
         self.vel_pub.publish(vel_0)
+
+        log = String()
+        log.data = formatlog("WARM", "None", "end!")
+        self.log_pub.publish(log)
+
         self.destroy_node()
         rclpy.shutdown()
 
