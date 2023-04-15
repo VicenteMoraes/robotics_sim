@@ -8,9 +8,11 @@ DEFAULT_PATH = str(ProjectPath/"dockerfiles/Robots/Turtlebot3_nav2")
 class Turtlebot3withNav2(Turtlebot3):
     def __init__(self, docker_client: DockerClient, docker_path: str = DEFAULT_PATH, tag: str = "turtlebot3_nav2",
                  command: str = None, launch_path: str = f"{DEFAULT_PATH}/launch", param_path: str = f"{DEFAULT_PATH}/param",
-                 models_path: str = f"{DEFAULT_PATH}/models", turtlebot3_model: str = 'burger', lds_model: str = 'LDS-01',
-                 robot_name: str = "turtlebot", robot_namespace: str = "turtlebot", use_rviz: bool = False,
-                 map_yaml: str = '', params_yaml: str = '', use_logs: bool = True, *args, **kwargs):
+                 models_path: str = f"{DEFAULT_PATH}/models", map_yaml: str = '', params_yaml: str = '',
+                 turtlebot3_model: str = 'burger', lds_model: str = 'LDS-01', robot_name: str = "turtlebot",
+                 robot_namespace: str = "turtlebot", use_rviz: bool = False, use_slam: bool = False,
+                 use_pose_logger: bool = True, use_battery: bool = True,
+                 *args, **kwargs):
         super(Turtlebot3, self).__init__(docker_client=docker_client, path=docker_path, tag=tag, command=command,
                                          robot_name=robot_name, robot_namespace=robot_namespace, *args, **kwargs)
 
@@ -25,8 +27,22 @@ class Turtlebot3withNav2(Turtlebot3):
             self.load_gui()
 
         if command is None:
-            self.command = f"""bash -c "ros2 launch -d /workdir/launch/nav2_bringup.launch.py \
-            & python3 /workdir/launch/battery.py {"& python3 /workdir/launch/robot_logger.py" if use_logs else ''}" """
+            if use_slam:
+                self.command = f"""bash -c "ros2 launch /workdir/launch/robot_bringup.py \
+                && (ros2 launch turtlebot3_gazebo robot_state_publisher.launch.py \
+                & ros2 launch nav2_bringup navigation_launch.py \
+                & ros2 launch slam_toolbox online_async_launch.py) """
+                #&& (ros2 launch turtlebot3_gazebo robot_state_publisher.launch.py \
+                #& ros2 launch turtlebot3_cartographer cartographer.launch.py use_sim_time:=True) """
+            else:
+                self.command = f"""bash -c "ros2 launch -d /workdir/launch/nav2_bringup.launch.py """
+
+            if use_battery:
+                self.command += "& python3 /workdir/launch/battery.py "
+            if use_pose_logger:
+                self.command += "& python3 /workdir/launch/robot_logger.py "
+
+            self.command += '"'
 
         self.add_mount(source=launch_path, target="/workdir/launch")
         self.add_mount(source=param_path, target="/workdir/param")
