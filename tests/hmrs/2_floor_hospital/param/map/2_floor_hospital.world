@@ -21,12 +21,12 @@
 
     <!-- Hospital map -->
     <model name="my_mesh">
-      <pose>0 0 0  0 0 0</pose>
+      <pose>-5 -5 0  0 0 0</pose>
       <static>true</static>
       <link name="body">
         <visual name="visual">
           <geometry>
-            <mesh><uri>file://workdir/map/hospital_floors.dae</uri></mesh>
+            <mesh><uri>file://workdir/map/2_floor_hospital_v2.dae</uri></mesh>
           </geometry>
         </visual>
         <collision name="collision">
@@ -40,7 +40,7 @@
     <!-- Elevator -->
 
     <model name="elevator">
-      <pose>17.7 9.3 0.01 0 0 0</pose>
+      <pose>12.7 4.3 0.01 0 0 0</pose>
       <link name="link">
         <inertial>
           <mass>800</mass>
@@ -175,7 +175,7 @@
 
         <lift_joint>elevator::lift</lift_joint>
         <door_joint>elevator::door_joint</door_joint>
-        <floor_height>5.95</floor_height>
+        <floor_height>6.20</floor_height>
 
         <!-- Time the elevator door will stay open in seconds -->
         <door_wait_time>10</door_wait_time>
@@ -183,7 +183,7 @@
     </model>
 
     <model name="service_elevator">
-      <pose>47.45 -5.6 0.01 0 0 0</pose>
+      <pose>42.45 -10.6 0.01 0 0 0</pose>
       <link name="link">
         <inertial>
           <mass>800</mass>
@@ -318,7 +318,7 @@
 
         <lift_joint>service_elevator::lift</lift_joint>
         <door_joint>service_elevator::door_joint</door_joint>
-        <floor_height>6.1</floor_height>
+        <floor_height>6.2</floor_height>
 
         <!-- Time the elevator door will stay open in seconds -->
         <door_wait_time>10</door_wait_time>
