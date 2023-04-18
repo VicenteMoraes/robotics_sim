@@ -9,9 +9,9 @@ class Turtlebot3withNav2(Turtlebot3):
     def __init__(self, docker_client: DockerClient, docker_path: str = DEFAULT_PATH, tag: str = "turtlebot3_nav2",
                  command: str = None, launch_path: str = f"{DEFAULT_PATH}/launch", param_path: str = f"{DEFAULT_PATH}/param",
                  models_path: str = f"{DEFAULT_PATH}/models", map_yaml: str = '', params_yaml: str = '',
-                 turtlebot3_model: str = 'burger', lds_model: str = 'LDS-01', robot_name: str = "turtlebot",
+                 turtlebot3_model: str = 'waffle', lds_model: str = 'LDS-01', robot_name: str = "turtlebot",
                  robot_namespace: str = "turtlebot", use_rviz: bool = False, use_slam: bool = False,
-                 use_pose_logger: bool = True, use_battery: bool = True,
+                 use_pose_logger: bool = False, use_battery: bool = False,
                  *args, **kwargs):
         super(Turtlebot3, self).__init__(docker_client=docker_client, path=docker_path, tag=tag, command=command,
                                          robot_name=robot_name, robot_namespace=robot_namespace, *args, **kwargs)
