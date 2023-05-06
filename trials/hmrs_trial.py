@@ -60,9 +60,9 @@ class HMRSTrial(Trial):
 
                 skills = SkillLibrary(self.docker_client, config=config, network=self.network, robot_name=name,
                                       robot_namespace=name, initial_pose=pose)
+                skills.add_logger(write_to_file=True, filename="bt_skills.log")
                 self.skills[name] = skills
                 self.add_plugins(skills)
-                skills.add_logger(write_to_file=True, filename="bt_skills.log")
             else:
                 robot = Turtlebot3(self.docker_client, robot_name=name, container_name=f"{name}_container", config=config,
                                    robot_namespace=name, initial_pose=pose, network=self.network)
