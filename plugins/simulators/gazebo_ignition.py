@@ -13,9 +13,6 @@ class GazeboIgnition(Simulator):
                                              gui_command=gui_command, headless=headless, path=path, tag=tag,
                                              *args, **kwargs)
 
-        self.headless = headless
-
-        self.env['RMW_IMPLEMENTATION'] = 'rmw_cyclonedds_cpp'
         if not headless:
             self.env['NVIDIA_VISIBLE_DEVICES'] = 'all'
             self.env['NVIDIA_DRIVER_CAPABILITIES'] = 'all'
@@ -34,4 +31,9 @@ class GazeboIgnition(Simulator):
     def add_model_path(self, container, path: str, name: str = 'model_path'):
         mnt = container.add_mount(source=name, target=path, mount_type='volume')
         self.mounts.append(mnt)
-        self.env['IGN_FILE_PATH'] = path+"/models"
+        self.env['IGN_GAZEBO_RESOURCE_PATH'] = path+"/models"
+
+    def add_gui_plugin_path(self, container, path: str, name: str = 'gui_plugin_path'):
+        mnt = container.add_mount(source=name, target=path, mount_type='volume')
+        self.mounts.append(mnt)
+        self.env['IGN_GUI_PLUGIN_PATH'] = path+"/models"

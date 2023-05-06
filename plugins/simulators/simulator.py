@@ -7,6 +7,7 @@ class Simulator(DockerPlugin):
                  tag: str = "sim", path_to_world: str = "", world_arg: str = "world_map", *args, **kwargs):
         super(Simulator, self).__init__(docker_client=docker_client, path=path, tag=tag, command="", *args, **kwargs)
         self.headless = headless
+        self.env['RMW_IMPLEMENTATION'] = 'rmw_cyclonedds_cpp'
 
         if not self.headless:
             self.command = gui_command

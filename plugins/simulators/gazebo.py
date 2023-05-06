@@ -12,7 +12,6 @@ class Gazebo(Simulator):
         super(Gazebo, self).__init__(docker_client=docker_client, headless_command=headless_command,
                                      gui_command=gui_command, path=path, tag=tag, *args, **kwargs)
 
-        self.env['RMW_IMPLEMENTATION'] = 'rmw_cyclonedds_cpp'
         self.env['GAZEBO_MODEL_DATABASE_URI'] = ''
         if path == DEFAULT_PATH:
             self.add_mount(source=f"{DEFAULT_PATH}/launch", target="/workdir/launch")
