@@ -33,3 +33,7 @@ class Trial(Component):
     def parent_stop(self):
         for plugin in self.plugins:
             plugin.stop()
+        try:
+            self.parent.run_next_trial()
+        except AttributeError:
+            pass
