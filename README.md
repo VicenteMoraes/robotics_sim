@@ -1,14 +1,21 @@
 # Generic Robotics Simulator with Docker
 
-Library for implementing Distributed Robotics experiment trials with Docker.
+Library for implementing Distributed Robotics experiment trials with Docker in Python.
 
 ## Dependencies
 
 Install all python dependencies listed on requirements.txt
 
+## Installation
+
+```bash
+git clone https://github.com/VicenteMoraes/robotics_sim 
+pip3 install -e robotics_sim
+```
+
 ## Usage
 
-This library provides an acessible interface for integrating different containers as plugins in a distributed system using docker.
+This library provides an accessible interface for integrating different containers as plugins in a distributed system using docker.
 
 Integrate different aspects of your ros 2 simulation, such as RVIZ, Gazebo, Nav2 and each robot as a separate container.
     Or organise your simulations into trials to be run distributively.
