@@ -32,8 +32,6 @@ class Turtlebot3withNav2(Turtlebot3):
                 && (ros2 launch turtlebot3_gazebo robot_state_publisher.launch.py \
                 & ros2 launch nav2_bringup navigation_launch.py \
                 & ros2 launch slam_toolbox online_async_launch.py) """
-                #&& (ros2 launch turtlebot3_gazebo robot_state_publisher.launch.py \
-                #& ros2 launch turtlebot3_cartographer cartographer.launch.py use_sim_time:=True) """
             else:
                 self.command = f"""bash -c "ros2 launch -d /workdir/launch/nav2_bringup.launch.py """
 

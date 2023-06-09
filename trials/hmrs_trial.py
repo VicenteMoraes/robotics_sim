@@ -1,4 +1,4 @@
-import docker
+from docker import DockerClient
 from core.pose import Pose, quaternion_from_euler
 from trials.trial import Trial
 from plugins.ros2.rviz import RVIZ
@@ -12,15 +12,17 @@ from plugins.ros2.roslogger import ROSLogger
 
 
 class HMRSTrial(Trial):
-    def __init__(self, config, trial_id: int, trial_code: str, headless: bool = True, network_name: str = "",
-                 path_to_world: str = "", use_rviz: bool = False, logger_args: list = None, logger_kwargs: dict = None):
+    def __init__(self, docker_client: DockerClient, config, trial_id: int, trial_code: str, headless: bool = True,
+                 network_name: str = "", path_to_world: str = "", use_rviz: bool = False,  sim_timeout: float = 1*60,
+                 logger_args: list = None, logger_kwargs: dict = None):
         super(HMRSTrial, self).__init__(trial_id=trial_id)
-        self.docker_client = docker.from_env()
+        self.docker_client = docker_client
         self.headless = headless
         self.trial_id = f"{trial_id}_{trial_code}"
         self.network_name = network_name if network_name else f"trial_{self.trial_id}_net"
         self.config = config
         self.use_rviz = use_rviz
+        self.sim_timeout = sim_timeout
         logger_args = logger_args if logger_args is not None else []
         logger_kwargs = logger_kwargs if logger_kwargs is not None else {}
 
@@ -29,7 +31,8 @@ class HMRSTrial(Trial):
         self.sim.add_logger(write_to_file=True, filename="sim.log", *logger_args, **logger_kwargs)
         self.skills = {}
 
-        self.logger = ROSLogger(self.docker_client, self.network, trial_id=trial_id, filename=f"{self.trial_id}.log")
+        self.logger = ROSLogger(self.docker_client, self.network, trial_id=trial_id, filename=f"{self.trial_id}.log",
+                                timeout=self.sim_timeout)
 
         self.add_plugins(self.sim, self.network, self.logger)
 
@@ -58,20 +61,21 @@ class HMRSTrial(Trial):
                 robot.add_logger(write_to_file=True, filename="robot.log")
                 self.sim.add_model_path(container=robot, path="/opt/ros/humble/share/turtlebot3_gazebo")
 
-                skills = SkillLibrary(self.docker_client, config=config, network=self.network, robot_name=name,
-                                      robot_namespace=name, initial_pose=pose)
-                skills.add_logger(write_to_file=True, filename="bt_skills.log")
-                self.skills[name] = skills
-                self.add_plugins(skills)
+                skill_library = SkillLibrary(self.docker_client, config=config, network=self.network, robot_name=name,
+                                             robot_namespace=name, initial_pose=pose)
+                skill_library.add_logger(write_to_file=True, filename="bt_skills.log")
+                self.skills[name] = skill_library
+                self.add_plugins(skill_library)
             else:
                 robot = Turtlebot3(self.docker_client, robot_name=name, container_name=f"{name}_container", config=config,
                                    robot_namespace=name, initial_pose=pose, network=self.network)
             self.add_plugins(robot)
 
-    def setup_nurse(self, *robot_args , **robot_kwargs):
+    def setup_nurse(self, *robot_args, **robot_kwargs):
         for config in self.config['nurses']:
             pose = self.pose_from_config(config)
             human = Human(self.docker_client, robot_name="nurse", config=config, initial_pose=pose, network=self.network,
                           *robot_args, **robot_kwargs)
             human.add_logger(write_to_file=True, filename="nurse.log")
             self.add_plugins(human)
+

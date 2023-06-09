@@ -11,15 +11,17 @@ from trials.hmrs_trial import HMRSTrial
 
 
 def test_trial():
-    return
+    docker_client = docker.from_env()
     config = parse_config(str(ProjectPath/"tests/hmrs/old_hospital_map/experiment/experiment_sample.json"))[0]
-    trial = HMRSTrial(config, config['id'], config['code'], headless=False, path_to_world="/workdir/map/hospital.world",
+    trial = HMRSTrial(docker_client, config, config['id'], config['code'], headless=False, path_to_world="/workdir/map/hospital.world",
                       use_rviz=True)
     trial.sim.add_mount(source=str(ProjectPath/"tests/hmrs/old_hospital_map/param/map"), target="/workdir/map")
-    trial.setup_robots(param_path=str(ProjectPath/"tests/hmrs/old_hospital_map/param"), map_yaml='/workdir/param/map/map.yaml')
+    trial.setup_robots(param_path=str(ProjectPath/"tests/hmrs/old_hospital_map/param"), map_yaml='/workdir/param/map/map.yaml',
+                       use_pose_logger=True, use_battery=True)
     trial.setup_nurse()
     trial.build()
     trial.run()
+    pass
 
 
 def test_hmrsim():

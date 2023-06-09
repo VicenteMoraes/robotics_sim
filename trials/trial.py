@@ -29,3 +29,7 @@ class Trial(Component):
         while not self.queue.empty():
             plugin = self.queue.get()
             plugin.run()
+
+    def parent_stop(self):
+        for plugin in self.plugins:
+            plugin.stop()

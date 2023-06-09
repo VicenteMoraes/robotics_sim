@@ -21,5 +21,11 @@ class Component(ABC):
         self._add_child(other)
         other.parent = self
 
+    def parent_stop(self):
+        try:
+            self.parent.parent_stop()
+        except AttributeError:
+            pass
+
     def __str__(self):
         return type(self).__name__

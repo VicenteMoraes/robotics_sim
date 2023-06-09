@@ -9,11 +9,11 @@ DEFAULT_PATH = str(ProjectPath/"dockerfiles/Ros2/RosLogger")
 
 class ROSLogger(DockerPlugin):
     def __init__(self, docker_client: DockerClient, network: ROS2Network, path: str = DEFAULT_PATH, tag: str = "roslogger",
-                 command: str = "python3 /workdir/launch/logger.py", trial_id: int = 0,
-                 filename: str = "trial_log.log", *args, **kwargs):
+                 command: str = "python3 /workdir/launch/logger.py", trial_id: int = 0, timeout: float = 15*60,
+                 filename: str = "trial_log.log", target: str = "", *args, **kwargs):
         super(ROSLogger, self).__init__(docker_client=docker_client, network=network, path=path, tag=tag,
                                         command=command, *args, **kwargs)
-        self.add_logger(write_to_file=True, filename=filename)
+        self.add_logger(write_to_file=True, target=target, filename=filename, timeout=timeout, timeout_stop=True)
         self.env['TRIAL_ID'] = trial_id
 
         if path == DEFAULT_PATH:

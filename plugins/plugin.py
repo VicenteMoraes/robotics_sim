@@ -22,6 +22,9 @@ class Plugin(Component):
     def build(self):
         pass
 
+    def stop(self):
+        pass
+
     def __repr__(self):
         try:
             return f"{str(self)} plugin attached to Trial {str(self.parent)}, ID: {self.parent.trial_id}"
@@ -93,3 +96,17 @@ class DockerPlugin(Plugin):
         self._add(DockerLogger(target=target, write_to_file=write_to_file, filename=filename,
                                update_interval=update_interval, log_args=log_args, timeout=timeout,
                                *logger_args, **logger_kwargs))
+
+    def kill(self, signal=None):
+        self.container.kill(signal)
+
+    def stop(self):
+        try:
+            self.container.stop()
+            for child in self.children:
+                child.stop()
+        except AttributeError:
+            pass
+        except docker.errors.NotFound:
+            pass
+
