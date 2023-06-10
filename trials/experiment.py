@@ -22,8 +22,8 @@ class Experiment(Component):
                     name: str = "", *trial_args, **trial_kwargs):
         trial_list = []
         for trial_config in config:
-            trial = HMRSTrial(docker_client, trial_config, trial_config['id'], trial_config['code'], headless=False,
-                              path_to_world=path_to_world, *trial_args, **trial_kwargs, use_rviz=True)
+            trial = HMRSTrial(docker_client, trial_config, trial_config['id'], trial_config['code'],
+                              path_to_world=path_to_world, *trial_args, **trial_kwargs)
             trial.sim.add_mount(source=map_path, target="/workdir/map")
             trial.setup_robots(param_path=param_path,
                                map_yaml='/workdir/param/map/map.yaml',
