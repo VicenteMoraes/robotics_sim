@@ -5,12 +5,8 @@ from rclpy.node import Node
 import time
 
 
-def formatlog(severity, who, loginfo, skill, params):
-    return ('[' + severity + '],' +
-            who + ',' +
-            loginfo + ',' +
-            skill + ',' +
-            params)
+def formatlog(severity, who, loginfo, skill=None, params=None):
+    return f"[{severity}], {who}, {loginfo}, {skill}, {params}"
 
 
 class Nurse(Node):
@@ -40,26 +36,9 @@ class Nurse(Node):
                              'sync',
                              'wait-message',
                              '(status=message-received)')
-        content = {
-            'skill': 'wait-message',
-            'status': 'message-received'
-        }
-        logdata = {
-            'level': 'info',
-            'entity': 'nurse',
-            'content': content
-        }
-        log.data = json.dumps(logdata)
-        print("NURSE")
-        print(log.data)
-        print(com_data.data)
-        print("NURSE")
         self.pub_log.publish(log)
-        # if com_data.data == "Open Drawer":
-        print(pub_str.data)
         rate = self.create_rate(0.5)
         for i in range(0, 5):
-            #rospy.loginfo(pub_str)
             self.pub_comms.publish(pub_str)
             rate.sleep()
 
@@ -73,37 +52,14 @@ class Nurse(Node):
                              'sync',
                              'received-request',
                              '(status=sending-request)')
-        content = {
-            'skill': 'authentication-request',
-            'status': 'message-received'
-        }
-        logdata = {
-            'level': 'info',
-            'entity': 'nurse',
-            'content': content
-        }
-        log.data = json.dumps(logdata)
         self.pub_log.publish(log)
-
         self.pub.publish(pub_str)
-        log.data = self.name + ": sent " + str(pub_str)
-        self.pub_log.publish(log)
 
         log.data = formatlog('info',
                              self.name,
                              'sync',
                              'request-sent',
                              '(status=waiting)')
-        content = {
-            'skill': 'authentication-sent',
-            'status': 'waiting'
-        }
-        logdata = {
-            'level': 'info',
-            'entity': 'nurse',
-            'content': content
-        }
-        log.data = json.dumps(logdata)
         self.pub_log.publish(log)
 
 

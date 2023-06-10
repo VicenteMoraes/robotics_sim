@@ -74,7 +74,7 @@ class BatterySensor(Node):
         self.vel_pub.publish(vel_0)
 
         log = String()
-        log.data = formatlog("WARM", "None", "end!")
+        log.data = formatlog("WARN", "None", "end!")
         self.log_pub.publish(log)
 
         self.destroy_node()

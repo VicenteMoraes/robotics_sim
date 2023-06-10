@@ -21,6 +21,7 @@ def test_trial():
     trial.setup_nurse()
     trial.build()
     trial.run()
+    pass
 
 
 def test_hmrsim():
