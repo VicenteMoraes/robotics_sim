@@ -13,7 +13,7 @@ from plugins.ros2.roslogger import ROSLogger
 
 class HMRSTrial(Trial):
     def __init__(self, docker_client: DockerClient, config, trial_id: int, trial_code: str, headless: bool = True,
-                 network_name: str = "", path_to_world: str = "", use_rviz: bool = False,  sim_timeout: float = 1*60,
+                 network_name: str = "", path_to_world: str = "", use_rviz: bool = False,  sim_timeout: float = 15*60,
                  logger_args: list = None, logger_kwargs: dict = None):
         super(HMRSTrial, self).__init__(trial_id=trial_id)
         self.docker_client = docker_client
@@ -32,7 +32,7 @@ class HMRSTrial(Trial):
         self.skills = {}
 
         self.logger = ROSLogger(self.docker_client, self.network, trial_id=trial_id, filename=f"{self.trial_id}.log",
-                                timeout=self.sim_timeout)
+                                timeout=self.sim_timeout, target='WARN')
 
         self.add_plugins(self.sim, self.network, self.logger)
 

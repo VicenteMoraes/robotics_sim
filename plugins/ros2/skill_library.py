@@ -11,7 +11,7 @@ DEFAULT_PATH = str(ProjectPath/"dockerfiles/Ros2/SkillLibrary")
 class SkillLibrary(DockerPlugin):
     def __init__(self, docker_client: DockerClient, config: str, initial_pose: Pose, network: ROS2Network,
                  path: str = DEFAULT_PATH, robot_name: str = 'robot', robot_namespace: str = 'robot',
-                 tag: str = "skill_library", command: str = "", *args, **kwargs):
+                 tag: str = "skill_library", command: str = "python3 launch/run_from_config.py", *args, **kwargs):
         super(SkillLibrary, self).__init__(docker_client=docker_client, network=network, path=path, tag=tag,
                                            command=command, *args, **kwargs)
 

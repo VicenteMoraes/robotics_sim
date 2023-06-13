@@ -17,10 +17,12 @@ class Nurse(Node):
         self.pub = self.create_publisher(String, f"{name}/fauth",  5)
         self.pub_action = self.create_publisher(String, f"{name}/action",  5)
         self.pub_log = self.create_publisher(String, "log",  5)
-        self.pub_comms = self.create_publisher(String, "nurse/comms",  5)
+        self.pub_comms = self.create_publisher(String, "/nurse/comms",  5)
+        self.arm_comms = self.create_publisher(String, "/lab_arm/comms",  5)
         self.pub_dum2 = self.create_publisher(String, "/led_strip/display",  5)
 
         self.sub = self.create_subscription(String, "/led_strip/display", self.handle_auth, 10)
+        self.arm_sub = self.create_subscription(String, "/lab_arm/comms", self.comms, 10)
         self.sub_comms = self.create_subscription(String, "/nurse/comms", self.comms, 10)
 
     def comms(self, com_data):
@@ -32,15 +34,16 @@ class Nurse(Node):
         #rospy.logwarn(com_data)
         log = String()
         log.data = formatlog('info',
-                             self.name,
+                             com_data.data,
                              'sync',
                              'wait-message',
                              '(status=message-received)')
         self.pub_log.publish(log)
-        rate = self.create_rate(0.5)
-        for i in range(0, 5):
+        time.sleep(1)
+        if com_data.data == 'nurse':
             self.pub_comms.publish(pub_str)
-            rate.sleep()
+        elif com_data.data == 'lab_arm':
+            self.arm_comms.publish(pub_str)
 
     def handle_auth(self, msg):
         pub_str = String()
