@@ -65,7 +65,7 @@ class BatterySensor(Node):
         self.percentage = msg.percentage
         if msg.percentage < .05:
             log = String()
-            log.data = formatlog("WARN", self.parent, "ENDLOWBATT")
+            log.data = formatlog("WARN", self.parent, "LOWBATT")
             self.log_pub.publish(log)
             self.stop_robot()
 

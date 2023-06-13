@@ -1,4 +1,4 @@
-from plugins.loggers.logger import Logger
+from plugins.loggers.logger import Logger, formatlog
 from core.components import ProjectPath
 from core.timer import RepeatedTimer
 from time import time
@@ -38,16 +38,20 @@ class DockerLogger(Logger):
             self.write_logs()
 
         if self.target and self.target in self.logs:
-            self.stop_timer()
+            self.stop_timer(target_reached=True)
 
-    def write_logs(self):
+    def write_logs(self, msg: str = ''):
         if not self.filename:
             print("No filename provided. Aborting writing logs")
             return
         with open(ProjectPath/'logs'/self.filename, 'w') as wf:
             wf.writelines(self.logs)
+            if msg:
+                wf.writelines(f"\n{msg}\n")
 
-    def stop_timer(self):
+    def stop_timer(self, target_reached: bool = False):
         self.timer.stop()
         if self.timeout_stop:
+            if not target_reached:
+                self.write_logs(msg=formatlog("WARN", 'logger', "TIMEOUT"))
             self.parent_stop()
