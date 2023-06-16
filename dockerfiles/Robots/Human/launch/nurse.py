@@ -3,10 +3,17 @@ from std_msgs.msg import String
 import rclpy
 from rclpy.node import Node
 import time
+import os
+from std_msgs.msg import String
+
+
+CONFIG = json.loads(os.environ['CONFIG'])
 
 
 def formatlog(severity, who, loginfo, skill=None, params=None):
-    return f"[{severity}], {who}, {loginfo}, {skill}, {params}"
+    msg = String()
+    msg.data = f"[{severity}], {who}, {loginfo}, {skill}, {params}"
+    return msg
 
 
 class Nurse(Node):
@@ -30,14 +37,11 @@ class Nurse(Node):
         pub_str.data = "r1"
         if com_data.data == pub_str.data:
             return
-        # self.sub_comms_new = rospy.Subscriber(f"{self.name}/comms", String, self.placeholder)
-        #rospy.logwarn(com_data)
-        log = String()
-        log.data = formatlog('info',
-                             com_data.data,
-                             'sync',
-                             'wait-message',
-                             '(status=message-received)')
+        log = formatlog('info',
+                        com_data.data,
+                        'sync',
+                        'wait-message',
+                        '(status=message-received)')
         self.pub_log.publish(log)
         time.sleep(1)
         if com_data.data == 'nurse':
@@ -47,26 +51,25 @@ class Nurse(Node):
 
     def handle_auth(self, msg):
         pub_str = String()
-        log = String()
         pub_str.data = "auth"
-        # log.data = self.name + ": athentication received "+str(pub_str)
-        log.data = formatlog('info',
-                             self.name,
-                             'sync',
-                             'received-request',
-                             '(status=sending-request)')
+        log = formatlog('info',
+                        self.name,
+                        'sync',
+                        'received-request',
+                        '(status=sending-request)')
         self.pub_log.publish(log)
         self.pub.publish(pub_str)
 
-        log.data = formatlog('info',
-                             self.name,
-                             'sync',
-                             'request-sent',
-                             '(status=waiting)')
+        log = formatlog('info',
+                        self.name,
+                        'sync',
+                        'request-sent',
+                        '(status=waiting)')
         self.pub_log.publish(log)
 
 
 if __name__ == "__main__":
     rclpy.init()
     nurse = Nurse()
+    nurse.pub_log.publish(formatlog('DEBUG', 'nurse', f'NURSE_CONFIG={CONFIG}'))
     rclpy.spin(nurse)
