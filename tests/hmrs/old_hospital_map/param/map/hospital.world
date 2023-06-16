@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+  <world name="default">
+
+    <gui>
+        <camera name="user_camera">
+            <pose> -29.30 10.81 13.8 0 1.22 1.012 </pose>
+        </camera>
+    </gui>
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <model name="my_mesh">
+      <pose>0 0 0  0 0 0</pose>
+      <static>true</static>
+      <link name="body">
+        <visual name="visual">
+          <geometry>
+            <mesh><uri>file://workdir/map/hospital_v5_v1.dae</uri></mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh><uri>file://workdir/map/hospital_v5_v1.dae</uri></mesh>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+  </world>
+</sdf>

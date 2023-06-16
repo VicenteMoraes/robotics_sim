@@ -34,8 +34,7 @@ class Experiment(Component):
         return cls(trial_list, name)
 
     def build(self):
-        for trial in self.trial_list:
-            trial.build()
+        pass
 
     def run(self):
         self.run_next_trial()
@@ -43,6 +42,7 @@ class Experiment(Component):
     def run_next_trial(self):
         try:
             trial = self.trial_queue.get(block=False)
+            trial.build()
             trial.run()
         except queue.Empty:
             print('Done executing all trials.')

@@ -14,7 +14,7 @@ from plugins.ros2.roslogger import ROSLogger
 class HMRSTrial(Trial):
     def __init__(self, docker_client: DockerClient, config, trial_id: int, trial_code: str, headless: bool = True,
                  network_name: str = "", path_to_world: str = "", use_rviz: bool = False,  sim_timeout: float = 15*60,
-                 logger_args: list = None, logger_kwargs: dict = None):
+                 dir: str = "", target: str = 'WARN', *logger_args, **logger_kwargs):
         super(HMRSTrial, self).__init__(trial_id=trial_id)
         self.docker_client = docker_client
         self.headless = headless
@@ -23,18 +23,43 @@ class HMRSTrial(Trial):
         self.config = config
         self.use_rviz = use_rviz
         self.sim_timeout = sim_timeout
-        logger_args = logger_args if logger_args is not None else []
-        logger_kwargs = logger_kwargs if logger_kwargs is not None else {}
+        self.dir = dir
 
         self.network = ROS2Network(self.docker_client, name=self.network_name)
         self.sim = Gazebo(self.docker_client, headless=headless, network=self.network, path_to_world=path_to_world)
-        self.sim.add_logger(write_to_file=True, filename="sim.log", *logger_args, **logger_kwargs)
         self.skills = {}
 
-        self.logger = ROSLogger(self.docker_client, self.network, trial_id=trial_id, filename=f"{self.trial_id}.log",
-                                timeout=self.sim_timeout, target='WARN')
+        self.logger = ROSLogger(self.docker_client, self.network, trial_id=trial_id, filename=f"{dir}/{self.trial_id}.log",
+                                timeout=self.sim_timeout, target=target, *logger_args, **logger_kwargs)
 
         self.add_plugins(self.sim, self.network, self.logger)
+
+    @staticmethod
+    def get_pose_from_loc(loc):
+        poses = {
+            "IC Corridor": [-37, 15],
+            "IC Room 1": [-39.44, 33.98, 0.00],
+            "IC Room 2": [-32.88, 33.95, 3.14],
+            "IC Room 3": [-40.23, 25.37, 0.00],
+            "IC Room 4": [-33.90, 18.93, 3.14],
+            "IC Room 5": [-38.00, 21.50, 0.00],
+            "IC Room 6": [-38.00, 10.00, 0.00],
+            "PC Corridor": [-19, 16],
+            "PC Room 1": [-28.50, 18.00,-1.57],
+            "PC Room 2": [-27.23, 18.00,-1.57],
+            "PC Room 3": [-21.00, 18.00,-1.57],
+            "PC Room 4": [-19.00, 18.00,-1.57],
+            "PC Room 5": [-13.50, 18.00,-1.57],
+            "PC Room 6": [-11.50, 18,-1.57],
+            "PC Room 7": [-4, 18,-1.57],
+            "PC Room 8": [-27.23, 13.00, 1.57],
+            "PC Room 9": [-26.00, 13.00, 1.57],
+            "PC Room 10": [-18.00, 13.00, 1.57],
+            "Reception": [-1, 20],
+            "Pharmacy Corridor": [0, 8],
+            "Pharmacy": [-2, 2.6],
+        }
+        return poses[loc]
 
     @staticmethod
     def pose_from_config(config):
@@ -52,18 +77,20 @@ class HMRSTrial(Trial):
 
     def setup_robots(self, *robot_args, **robot_kwargs):
         for config in self.config['robots']:
-            pose = self.pose_from_config(config)
+            try:
+                pose = self.pose_from_config(config)
+            except KeyError:
+                pose = self.get_pose_from_loc(config['location'])
+
             name = f"robot{config['id']}"
             if config['local_plan']:
                 robot = Turtlebot3withNav2(self.docker_client, robot_name=name, config=config, use_rviz=self.use_rviz,
                                            robot_namespace=name, initial_pose=pose, network=self.network,
                                            *robot_args, **robot_kwargs)
-                robot.add_logger(write_to_file=True, filename="robot.log")
                 self.sim.add_model_path(container=robot, path="/opt/ros/humble/share/turtlebot3_gazebo")
 
                 skill_library = SkillLibrary(self.docker_client, config=config, network=self.network, robot_name=name,
                                              robot_namespace=name, initial_pose=pose)
-                skill_library.add_logger(write_to_file=True, filename="bt_skills.log")
                 self.skills[name] = skill_library
                 self.add_plugins(skill_library)
             else:
@@ -76,6 +103,5 @@ class HMRSTrial(Trial):
             pose = self.pose_from_config(config)
             human = Human(self.docker_client, robot_name="nurse", config=config, initial_pose=pose, network=self.network,
                           *robot_args, **robot_kwargs)
-            human.add_logger(write_to_file=True, filename="nurse.log")
             self.add_plugins(human)
 

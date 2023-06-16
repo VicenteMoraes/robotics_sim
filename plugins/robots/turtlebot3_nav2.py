@@ -31,7 +31,8 @@ class Turtlebot3withNav2(Turtlebot3):
                 self.command = f"""bash -c "ros2 launch /workdir/launch/robot_bringup.py \
                 && (ros2 launch turtlebot3_gazebo robot_state_publisher.launch.py \
                 & ros2 launch nav2_bringup navigation_launch.py \
-                & ros2 launch slam_toolbox online_async_launch.py) """
+                & ros2 launch slam_toolbox online_async_launch.py \
+                & ros2 run rviz2 rviz2)"""
             else:
                 self.command = f"""bash -c "ros2 launch -d /workdir/launch/nav2_bringup.launch.py """
 
