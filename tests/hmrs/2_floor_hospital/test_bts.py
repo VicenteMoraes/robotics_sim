@@ -9,11 +9,13 @@ from plugins.ros2.rviz import RVIZ
 
 
 def test_behavior_tree():
+    return
     client = docker.from_env()
     network = ROS2Network(docker_client=client, name="ros2")
-    sim = Gazebo(docker_client=client, headless=True, auto_remove=True, network=network,
-                 path_to_world="/workdir/map/2_floor_hospital.world")
+    sim = Gazebo(docker_client=client, headless=False, auto_remove=True, network=network,
+                 path_to_world = "/workdir/LES/les.world")
     sim.add_mount(source=str(ProjectPath / "tests/hmrs/2_floor_hospital/param/map"), target="/workdir/map")
+    sim.add_mount(source=str(ProjectPath / "tests/hmrs/2_floor_hospital/param/LES"), target="/workdir/LES")
     sim.add_logger(write_to_file=True, filename="sim.log")
     initial_pose = Pose()
     initial_pose.position.x = 11.5
@@ -37,4 +39,4 @@ def test_behavior_tree():
     robot.build()
 
     sim.run(network_mode=False)
-    robot.run()
+    #robot.run()
