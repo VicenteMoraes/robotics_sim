@@ -40,7 +40,7 @@ network.build()
 sim.build()
 robot.build()
 
-sim.run(network_mode=False)
+sim.run()
 robot.run()
 ```
 
@@ -95,7 +95,7 @@ def test_turtlebot3withnav2():
     robot.build()
     robot2.build()
 
-    sim.run(network_mode=False)
+    sim.run()
     robot.run()
     robot2.run()
 ```
