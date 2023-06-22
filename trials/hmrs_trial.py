@@ -105,3 +105,7 @@ class HMRSTrial(Trial):
                           *robot_args, **robot_kwargs)
             self.add_plugins(human)
 
+    def run(self):
+        super(HMRSTrial, self).run()
+        self.logger.start_logger()
+

@@ -45,9 +45,12 @@ class DockerLogger(Logger):
             print("No filename provided. Aborting writing logs")
             return
         with open(ProjectPath/'logs'/self.filename, 'w') as wf:
-            wf.writelines(self.logs)
-            if msg:
-                wf.writelines(f"\n{msg}\n")
+            try:
+                wf.writelines(self.logs)
+                if msg:
+                    wf.writelines(f"\n{msg}\n")
+            except TypeError:
+                pass
 
     def stop_timer(self, target_reached: bool = False):
         self.timer.stop()

@@ -1,4 +1,5 @@
 from plugins.plugin import DockerPlugin
+from plugins.loggers.docker_logger import DockerLogger
 from core.components import ProjectPath
 from docker import DockerClient
 from plugins.networks.ros2_network import ROS2Network
@@ -18,3 +19,11 @@ class ROSLogger(DockerPlugin):
 
         if path == DEFAULT_PATH:
             self.add_mount(source=DEFAULT_PATH+"/launch", target="/workdir/launch")
+
+    def start_logger(self):
+        try:
+            for child in self.children:
+                if type(child) == DockerLogger:
+                    child.timer.start()
+        except AttributeError:
+            pass

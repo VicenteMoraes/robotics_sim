@@ -12,7 +12,6 @@ from trials.experiment import Experiment
 
 
 def test_experiment():
-    return
     docker_client = docker.from_env()
     config = parse_config(str(ProjectPath/"tests/hmrs/old_hospital_map/experiment/trials.json"))
     experiment = Experiment.from_config(docker_client, config=config, map_path=str(ProjectPath/"tests/hmrs/old_hospital_map/param/map"),
