@@ -17,7 +17,7 @@ class DockerLogger(Logger):
         self.timeout_stop = timeout_stop
         log_args = log_args if log_args is not None else []
         self.timer = RepeatedTimer(update_interval, self.update, *log_args)
-        self.time = time()
+        self.time = None
 
     def update(self, **log_kwargs):
         if self.timeout is not None:
@@ -58,3 +58,7 @@ class DockerLogger(Logger):
             if not target_reached:
                 self.write_logs(msg=formatlog("WARN", 'logger', "TIMEOUT"))
             self.parent_stop()
+
+    def start_timer(self):
+        self.time = time()
+        self.timer.start()

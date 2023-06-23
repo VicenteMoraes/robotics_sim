@@ -24,6 +24,6 @@ class ROSLogger(DockerPlugin):
         try:
             for child in self.children:
                 if type(child) == DockerLogger:
-                    child.timer.start()
+                    child.start_timer()
         except AttributeError:
             pass
