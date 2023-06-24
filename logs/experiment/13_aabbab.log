@@ -1,0 +1,49 @@
+0.00, [DEBUG], nurse, NURSE_CONFIG={'location': 'IC Room 6', 'position': [-33.9, 18.93, 3.14]}, None, None
+0.00, [INFO], robot5, {'battery-level': '71.80'}, None, None
+0.13, [DEBUG], logger, ROBOTS_CONFIG={'avg_speed': 0.15, 'battery_charge': 0.7179616530181877, 'battery_discharge_rate': 0.00076, 'id': 5, 'local_plan': [['navigation', ['IC Room 6', [[-13.5, 18.0, -1.57], [-13.5, 16.0], [-37.0, 16.0], [-37.0, 18.93], [-33.9, 18.93, 3.14]]], 'navto_room'], ['approach_person', ['nurse'], 'approach_nurse'], ['authenticate_person', ['nurse'], 'authenticate_nurse'], ['operate_drawer', ['open'], 'open_drawer_for_nurse'], ['send_message', ['nurse'], 'notify_nurse_of_open_drawer_for_nurse_completed'], ['wait_message', ['nurse'], 'wait_nurse_to_complete_deposit'], ['operate_drawer', ['close'], 'close_drawer_nurse'], ['navigation', ['Laboratory', [[-33.9, 18.93, 3.14], [-37.0, 18.93], [-37.0, 16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]], 'navto_lab'], ['approach_robot', ['lab_arm'], 'approach_arm'], ['operate_drawer', ['open'], 'open_drawer_lab'], ['send_message', ['lab_arm'], 'notify_lab_arm_of_open_drawer_lab_completed'], ['wait_message', ['lab_arm'], 'wait_lab_arm_to_complete_pick_up_sample'], ['operate_drawer', ['close'], 'close_drawer_lab']], 'location': 'PC Room 7', 'name': 'r5', 'position': [-13.5, 18.0, -1.57], 'skills': ['approach_person', 'approach_robot', 'authenticate_person', 'navigation', 'operate_drawer']}, None, None
+0.13, [DEBUG], logger, Simulation open, None, None
+10.08, [INFO], robot5, {'y': 17.337, 'x': -13.494, 'yaw': 3.142}, None, None
+10.08, [INFO], robot5, {'battery-level': '71.11'}, None, None
+20.05, [INFO], robot5, {'battery-level': '70.35'}, None, None
+20.05, [INFO], robot5, {'y': 16.14, 'x': -14.542, 'yaw': 3.142}, None, None
+30.01, [INFO], robot5, {'battery-level': '69.59'}, None, None
+30.01, [INFO], robot5, {'y': 16.007, 'x': -16.643, 'yaw': 3.141}, None, None
+40.08, [INFO], robot5, {'y': 16.071, 'x': -18.759, 'yaw': 3.142}, None, None
+40.08, [INFO], robot5, {'battery-level': '68.83'}, None, None
+50.03, [INFO], robot5, {'y': 16.193, 'x': -20.85, 'yaw': 3.141}, None, None
+50.03, [INFO], robot5, {'battery-level': '68.07'}, None, None
+60.00, [INFO], robot5, {'battery-level': '67.31'}, None, None
+60.00, [INFO], robot5, {'y': 16.129, 'x': -22.958, 'yaw': 3.141}, None, None
+70.01, [INFO], robot5, {'battery-level': '66.55'}, None, None
+70.01, [INFO], robot5, {'y': 16.149, 'x': -25.07, 'yaw': 3.141}, None, None
+80.00, [INFO], robot5, {'battery-level': '65.79'}, None, None
+80.00, [INFO], robot5, {'y': 16.096, 'x': -27.178, 'yaw': 3.142}, None, None
+90.04, [INFO], robot5, {'y': 16.198, 'x': -29.29, 'yaw': 3.142}, None, None
+90.04, [INFO], robot5, {'battery-level': '65.03'}, None, None
+100.07, [INFO], robot5, {'battery-level': '64.27'}, None, None
+100.07, [INFO], robot5, {'y': 16.055, 'x': -31.415, 'yaw': 3.14}, None, None
+110.06, [INFO], robot5, {'battery-level': '63.51'}, None, None
+110.06, [INFO], robot5, {'y': 15.704, 'x': -33.514, 'yaw': -3.142}, None, None
+120.03, [INFO], robot5, {'y': 15.505, 'x': -35.602, 'yaw': -3.141}, None, None
+120.03, [INFO], robot5, {'battery-level': '62.75'}, None, None
+130.02, [INFO], robot5, {'battery-level': '61.99'}, None, None
+130.02, [INFO], robot5, {'y': 16.736, 'x': -36.751, 'yaw': 3.142}, None, None
+140.08, [INFO], robot5, {'battery-level': '61.23'}, None, None
+140.08, [INFO], robot5, {'y': 17.658, 'x': -36.771, 'yaw': 3.141}, None, None
+150.05, [INFO], robot5, {'battery-level': '60.47'}, None, None
+150.05, [INFO], robot5, {'y': 17.805, 'x': -35.944, 'yaw': -3.141}, None, None
+160.01, [INFO], robot5, {'y': 18.131, 'x': -35.846, 'yaw': 3.142}, None, None
+160.01, [INFO], robot5, {'battery-level': '59.71'}, None, None
+170.08, [INFO], robot5, {'battery-level': '58.95'}, None, None
+170.08, [INFO], robot5, {'y': 18.155, 'x': -35.822, 'yaw': -3.142}, None, None
+180.09, [INFO], robot5, {'y': 18.398, 'x': -35.719, 'yaw': 3.136}, None, None
+180.09, [INFO], robot5, {'battery-level': '58.19'}, None, None
+190.00, [INFO], robot5, {'battery-level': '57.43'}, None, None
+190.00, [INFO], robot5, {'y': 18.398, 'x': -35.718, 'yaw': 3.136}, None, None
+200.02, [INFO], robot5, {'battery-level': '56.67'}, None, None
+200.02, [INFO], robot5, {'y': 18.398, 'x': -35.718, 'yaw': 3.136}, None, None
+210.03, [INFO], robot5, {'battery-level': '55.91'}, None, None
+210.03, [INFO], robot5, {'y': 18.398, 'x': -35.718, 'yaw': 3.136}, None, None
+220.02, [INFO], robot5, {'battery-level': '55.15'}, None, None
+220.02, [INFO], robot5, {'y': 18.329, 'x': -35.645, 'yaw': 3.139}, None, None
+224.46, [WARN], robot5, SKILL-FAILURE, navigation, navto_room

@@ -1,0 +1,70 @@
+0.00, [DEBUG], nurse, NURSE_CONFIG={'location': 'IC Room 6', 'position': [-33.9, 18.93, 3.14]}, None, None
+0.00, [INFO], robot6, {'battery-level': '50.80'}, None, None
+0.12, [DEBUG], logger, ROBOTS_CONFIG={'avg_speed': 0.15, 'battery_charge': 0.5080169438370433, 'battery_discharge_rate': 0.0005200000000000001, 'id': 6, 'local_plan': [['navigation', ['IC Room 6', [[-32.88, 33.98, 3.14], [-37.0, 33.98], [-37.0, 18.93], [-33.9, 18.93, 3.14]]], 'navto_room'], ['approach_person', ['nurse'], 'approach_nurse'], ['authenticate_person', ['nurse'], 'authenticate_nurse'], ['operate_drawer', ['open'], 'open_drawer_for_nurse'], ['send_message', ['nurse'], 'notify_nurse_of_open_drawer_for_nurse_completed'], ['wait_message', ['nurse'], 'wait_nurse_to_complete_deposit'], ['operate_drawer', ['close'], 'close_drawer_nurse'], ['navigation', ['Laboratory', [[-33.9, 18.93, 3.14], [-37.0, 18.93], [-37.0, 16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]], 'navto_lab'], ['approach_robot', ['lab_arm'], 'approach_arm'], ['operate_drawer', ['open'], 'open_drawer_lab'], ['send_message', ['lab_arm'], 'notify_lab_arm_of_open_drawer_lab_completed'], ['wait_message', ['lab_arm'], 'wait_lab_arm_to_complete_pick_up_sample'], ['operate_drawer', ['close'], 'close_drawer_lab']], 'location': 'IC Room 5', 'name': 'r6', 'position': [-32.88, 33.98, 3.14], 'skills': ['approach_person', 'approach_robot', 'authenticate_person', 'navigation', 'operate_drawer']}, None, None
+0.12, [DEBUG], logger, Simulation open, None, None
+9.91, [INFO], robot6, {'y': 34.267, 'x': -33.578, 'yaw': -3.142}, None, None
+10.01, [INFO], robot6, {'battery-level': '50.33'}, None, None
+20.07, [INFO], robot6, {'battery-level': '49.81'}, None, None
+20.07, [INFO], robot6, {'y': 34.701, 'x': -35.656, 'yaw': -3.142}, None, None
+30.08, [INFO], robot6, {'battery-level': '49.29'}, None, None
+30.08, [INFO], robot6, {'y': 33.28, 'x': -36.862, 'yaw': -3.142}, None, None
+40.01, [INFO], robot6, {'y': 31.193, 'x': -36.899, 'yaw': -3.141}, None, None
+40.01, [INFO], robot6, {'battery-level': '48.77'}, None, None
+50.01, [INFO], robot6, {'battery-level': '48.25'}, None, None
+50.01, [INFO], robot6, {'y': 29.081, 'x': -36.909, 'yaw': -3.142}, None, None
+60.06, [INFO], robot6, {'battery-level': '47.73'}, None, None
+60.06, [INFO], robot6, {'y': 26.964, 'x': -36.923, 'yaw': -3.142}, None, None
+70.08, [INFO], robot6, {'y': 24.856, 'x': -36.995, 'yaw': 3.141}, None, None
+70.08, [INFO], robot6, {'battery-level': '47.21'}, None, None
+80.01, [INFO], robot6, {'battery-level': '46.69'}, None, None
+80.01, [INFO], robot6, {'y': 22.763, 'x': -37.056, 'yaw': 3.141}, None, None
+90.09, [INFO], robot6, {'battery-level': '46.17'}, None, None
+90.09, [INFO], robot6, {'y': 20.63, 'x': -37.101, 'yaw': 3.142}, None, None
+100.03, [INFO], robot6, {'battery-level': '45.65'}, None, None
+100.03, [INFO], robot6, {'y': 18.68, 'x': -36.552, 'yaw': -3.142}, None, None
+110.07, [INFO], robot6, {'battery-level': '45.13'}, None, None
+110.07, [INFO], robot6, {'y': 17.736, 'x': -34.807, 'yaw': 3.141}, None, None
+120.08, [INFO], robot6, {'y': 18.93, 'x': -33.951, 'yaw': 3.141}, None, None
+120.08, [INFO], robot6, {'battery-level': '44.61'}, None, None
+129.45, [info], nurse, sync, received-request, (status=sending-request)
+129.45, [info], nurse, sync, request-sent, (status=waiting)
+129.53, [info], nurse, sync, wait-message, (status=message-received)
+130.00, [INFO], robot6, {'y': 18.978, 'x': -33.946, 'yaw': 3.141}, None, None
+130.00, [INFO], robot6, {'battery-level': '44.09'}, None, None
+140.03, [INFO], robot6, {'y': 17.817, 'x': -35.328, 'yaw': 3.141}, None, None
+140.03, [INFO], robot6, {'battery-level': '43.57'}, None, None
+150.04, [INFO], robot6, {'y': 18.079, 'x': -36.203, 'yaw': 3.142}, None, None
+150.04, [INFO], robot6, {'battery-level': '43.05'}, None, None
+160.05, [INFO], robot6, {'y': 18.079, 'x': -36.203, 'yaw': 3.142}, None, None
+160.05, [INFO], robot6, {'battery-level': '42.53'}, None, None
+170.07, [INFO], robot6, {'battery-level': '42.01'}, None, None
+170.07, [INFO], robot6, {'y': 17.446, 'x': -36.899, 'yaw': -3.142}, None, None
+180.02, [INFO], robot6, {'battery-level': '41.49'}, None, None
+180.02, [INFO], robot6, {'y': 17.17, 'x': -37.065, 'yaw': -3.141}, None, None
+190.06, [INFO], robot6, {'battery-level': '40.97'}, None, None
+190.06, [INFO], robot6, {'y': 17.335, 'x': -36.883, 'yaw': 3.141}, None, None
+200.09, [INFO], robot6, {'y': 17.258, 'x': -36.98, 'yaw': 3.141}, None, None
+200.09, [INFO], robot6, {'battery-level': '40.45'}, None, None
+210.01, [INFO], robot6, {'y': 17.173, 'x': -36.797, 'yaw': 3.142}, None, None
+210.01, [INFO], robot6, {'battery-level': '39.93'}, None, None
+220.06, [INFO], robot6, {'battery-level': '39.41'}, None, None
+220.06, [INFO], robot6, {'y': 17.413, 'x': -37.156, 'yaw': 3.142}, None, None
+230.08, [INFO], robot6, {'y': 17.337, 'x': -37.064, 'yaw': 3.142}, None, None
+230.08, [INFO], robot6, {'battery-level': '38.89'}, None, None
+240.07, [INFO], robot6, {'battery-level': '38.37'}, None, None
+240.07, [INFO], robot6, {'y': 17.291, 'x': -36.939, 'yaw': 3.141}, None, None
+250.00, [INFO], robot6, {'battery-level': '37.85'}, None, None
+250.00, [INFO], robot6, {'y': 17.434, 'x': -36.876, 'yaw': 3.141}, None, None
+260.03, [INFO], robot6, {'y': 17.267, 'x': -37.087, 'yaw': 3.141}, None, None
+260.03, [INFO], robot6, {'battery-level': '37.33'}, None, None
+270.03, [INFO], robot6, {'battery-level': '36.81'}, None, None
+270.03, [INFO], robot6, {'y': 17.357, 'x': -36.817, 'yaw': 3.14}, None, None
+280.02, [INFO], robot6, {'battery-level': '36.29'}, None, None
+280.02, [INFO], robot6, {'y': 17.488, 'x': -36.99, 'yaw': 3.141}, None, None
+290.04, [INFO], robot6, {'battery-level': '35.77'}, None, None
+290.04, [INFO], robot6, {'y': 17.421, 'x': -36.975, 'yaw': -3.142}, None, None
+300.07, [INFO], robot6, {'battery-level': '35.25'}, None, None
+300.07, [INFO], robot6, {'y': 17.252, 'x': -37.126, 'yaw': -3.141}, None, None
+310.01, [INFO], robot6, {'y': 17.335, 'x': -36.999, 'yaw': 3.141}, None, None
+310.01, [INFO], robot6, {'battery-level': '34.73'}, None, None
+311.68, [WARN], robot6, SKILL-FAILURE, navigation, navto_lab
