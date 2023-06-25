@@ -57,7 +57,7 @@ class DockerLogger(Logger):
         if self.timeout_stop:
             if not target_reached:
                 self.write_logs(msg=formatlog("WARN", 'logger', "TIMEOUT"))
-            self.parent_stop()
+            self.event_callback(msg="SHUTDOWN")
 
     def start_timer(self):
         self.time = time()

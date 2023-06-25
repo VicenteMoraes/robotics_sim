@@ -25,8 +25,9 @@ class HMRSTrial(Trial):
         self.sim_timeout = sim_timeout
         self.dir = dir
 
-        self.network = ROS2Network(self.docker_client, name=self.network_name)
+        self.network = ROS2Network(self.docker_client, name="ros2")
         self.sim = Gazebo(self.docker_client, headless=headless, network=self.network, path_to_world=path_to_world)
+        self.sim.add_logger(write_to_file=True, filename="sim.log")
         self.skills = {}
 
         self.logger = ROSLogger(self.docker_client, self.network, trial_id=trial_id, filename=f"{dir}/{self.trial_id}.log",
@@ -87,10 +88,12 @@ class HMRSTrial(Trial):
                 robot = Turtlebot3withNav2(self.docker_client, robot_name=name, config=config, use_rviz=self.use_rviz,
                                            robot_namespace=name, initial_pose=pose, network=self.network,
                                            *robot_args, **robot_kwargs)
+                robot.add_logger(write_to_file=True, filename="robot.log")
                 self.sim.add_model_path(container=robot, path="/opt/ros/humble/share/turtlebot3_gazebo")
 
                 skill_library = SkillLibrary(self.docker_client, config=config, network=self.network, robot_name=name,
                                              robot_namespace=name, initial_pose=pose)
+                skill_library.add_logger(write_to_file=True, filename="bt_skills.log")
                 self.skills[name] = skill_library
                 self.add_plugins(skill_library)
             else:
@@ -103,6 +106,7 @@ class HMRSTrial(Trial):
             pose = self.pose_from_config(config)
             human = Human(self.docker_client, robot_name="nurse", config=config, initial_pose=pose, network=self.network,
                           *robot_args, **robot_kwargs)
+            human.add_logger(write_to_file=True, filename="nurse.log")
             self.add_plugins(human)
 
     def run(self):

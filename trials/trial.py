@@ -30,10 +30,17 @@ class Trial(Component):
             plugin = self.queue.get()
             plugin.run()
 
-    def parent_stop(self):
+    def shutdown(self):
         for plugin in self.plugins:
             plugin.stop()
         try:
-            self.parent.run_next_trial()
+            self.event_callback(msg="RUN NEXT TRIAL")
         except AttributeError:
             pass
+
+    def event_callback(self, msg: str):
+        match msg:
+            case "SHUTDOWN":
+                self.shutdown()
+            case _:
+                super(Trial, self).event_callback(msg)

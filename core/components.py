@@ -21,9 +21,9 @@ class Component(ABC):
         self._add_child(other)
         other.parent = self
 
-    def parent_stop(self):
+    def event_callback(self, msg: str):
         try:
-            self.parent.parent_stop()
+            self.parent.event_callback(msg)
         except AttributeError:
             pass
 
