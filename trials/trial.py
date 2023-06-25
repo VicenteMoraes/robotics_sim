@@ -8,22 +8,16 @@ class Trial(Component):
     def __init__(self, trial_id=None):
         super(Trial, self).__init__()
         self.queue = PriorityQueue()
-        self.plugins = []
         self.trial_id = trial_id if trial_id is not None else self.uuid
 
     def add_plugins(self, *plugins):
         for plugin in plugins:
             self.queue.put(plugin)
-            self.plugins.append(plugin)
-            self._add(plugin)
+            self.add(plugin)
 
     def build(self):
-        for plugin in sorted(self.plugins):
-            try:
-                plugin.build()
-            except docker.errors.BuildError as error:
-                print(f"\n\n FAILED TO BUILD {plugin.__class__.__name__}\n\n")
-                raise error
+        for plugin in self.children:
+            plugin.build()
 
     def run(self):
         while not self.queue.empty():
@@ -31,7 +25,7 @@ class Trial(Component):
             plugin.run()
 
     def shutdown(self):
-        for plugin in self.plugins:
+        for plugin in self.children:
             plugin.stop()
         try:
             self.event_callback(msg="RUN NEXT TRIAL")

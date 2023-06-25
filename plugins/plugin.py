@@ -8,10 +8,10 @@ import os
 import subprocess
 
 
-class Plugin(Component):
+class Module(Component):
     def __init__(self, priority: int = 5):
         # Priorities: 0 - highest, 5 - lowest
-        super(Plugin, self).__init__()
+        super(Module, self).__init__()
         self.priority = priority
 
     @abstractmethod
@@ -39,6 +39,32 @@ class Plugin(Component):
 
     def __eq__(self, other):
         return self.priority == other.priority
+
+
+class Plugin(Module):
+    def __init__(self, priority: int = 5):
+        super(Plugin, self).__init__(priority)
+
+    def run(self):
+        for child in self.children:
+            try:
+                child.run()
+            except AttributeError:
+                pass
+
+    def build(self):
+        for child in self.children:
+            try:
+                child.build()
+            except AttributeError:
+                pass
+
+    def stop(self):
+        for child in self.children:
+            try:
+                child.stop()
+            except AttributeError:
+                pass
 
 
 class DockerPlugin(Plugin):
@@ -86,16 +112,18 @@ class DockerPlugin(Plugin):
                                                            name=self.container_name, mounts=self.mounts,
                                                            environment=self.env.to_list(), auto_remove=self.auto_remove,
                                                            **run_kwargs)
+        super(DockerPlugin, self).run()
 
     def build(self, **build_kwargs):
         self.image = self.docker_client.images.build(path=self.path, dockerfile=self.dockerfile, tag=self.tag,
                                                      **build_kwargs)
+        super(DockerPlugin, self).build()
 
     def add_logger(self, target: str = "", write_to_file: bool = False, filename: str = '', update_interval: float = 1,
                    log_args: list = None, timeout: float = 15*60, *logger_args, **logger_kwargs):
-        self._add(DockerLogger(target=target, write_to_file=write_to_file, filename=filename,
-                               update_interval=update_interval, log_args=log_args, timeout=timeout,
-                               *logger_args, **logger_kwargs))
+        self.add(DockerLogger(target=target, write_to_file=write_to_file, filename=filename,
+                              update_interval=update_interval, log_args=log_args, timeout=timeout,
+                              *logger_args, **logger_kwargs))
 
     def kill(self, signal=None):
         self.container.kill(signal)
@@ -103,10 +131,7 @@ class DockerPlugin(Plugin):
     def stop(self):
         try:
             self.container.stop()
-            for child in self.children:
-                child.stop()
-        except AttributeError:
-            pass
         except docker.errors.NotFound:
             pass
+        super(DockerPlugin, self).stop()
 

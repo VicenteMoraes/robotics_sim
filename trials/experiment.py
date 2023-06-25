@@ -13,7 +13,7 @@ class Experiment(Component):
         self.trial_list = trial_list
         self.trial_queue = Queue()
         for trial in trial_list:
-            self._add(trial)
+            self.add(trial)
             self.trial_queue.put(trial)
         self.name = name
 

@@ -33,7 +33,7 @@ class HMRSTrial(Trial):
         self.logger = ROSLogger(self.docker_client, self.network, trial_id=trial_id, filename=f"{dir}/{self.trial_id}.log",
                                 timeout=self.sim_timeout, target=target, *logger_args, **logger_kwargs)
 
-        self.add_plugins(self.sim, self.network, self.logger)
+        self.add_plugins(self.network, self.sim, self.logger)
 
     @staticmethod
     def get_pose_from_loc(loc):

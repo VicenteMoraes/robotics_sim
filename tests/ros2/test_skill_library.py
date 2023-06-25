@@ -12,14 +12,14 @@ def test_skill_library():
     client = docker.from_env()
     network = ROS2Network(client, name="ros2")
     sim = Gazebo(client, headless=False, auto_remove=True, network=network, path_to_world="/opt/ros/humble/share/turtlebot3_gazebo/worlds/turtlebot3_world.world")
-    sim._add(DockerLogger(target='', write_to_file=True, filename='sim.log', timeout=300))
+    sim.add(DockerLogger(target='', write_to_file=True, filename='sim.log', timeout=300))
     ps = pose.Pose()
     ps.position.x = -2
     ps.position.y = -0.5
     ps.position.z = 0.1
     robot = Turtlebot3withNav2(client, robot_name="turtlebot", robot_namespace="turtlebot", auto_remove=True, network=network,
                                initial_pose=ps, use_rviz=True)
-    robot._add(DockerLogger(target='', write_to_file=True, filename='robot.log', timeout=300))
+    robot.add(DockerLogger(target='', write_to_file=True, filename='robot.log', timeout=300))
     sim.add_model_path(container=robot, path="/opt/ros/humble/share/turtlebot3_gazebo")
 
     lib = SkillLibrary(client, '', network=network, robot_name='turtlebot', robot_namespace='turtlebot', auto_remove=True)

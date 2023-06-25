@@ -16,7 +16,15 @@ def test_experiment():
     config = parse_config(str(ProjectPath/"tests/hmrs/old_hospital_map/experiment/trials.json"))
     experiment = Experiment.from_config(docker_client, config=config, map_path=str(ProjectPath/"tests/hmrs/old_hospital_map/param/map"),
                                         param_path=str(ProjectPath/"tests/hmrs/old_hospital_map/param"), use_rviz=True,
-                                        path_to_world="/workdir/map/hospital.world", dir="experiment", headless=False)
+                                        path_to_world="/workdir/map/hospital.world", dir="experiment", headless=False,
+                                        trials_to_execute=["2_aaaabp", "45_abbccb", "28_abaaab", "27_aacccb", "27_aacccp", "25_aaccap",
+                                                           "24_aacbcp", "23_aacbbp",
+                                                           "22_aacbap", "40_abbbap", "26_aaccbb", "25_aaccab", "24_aacbcb",
+                                                           "23_aacbbb", "22_aacbab",
+                                                           "21_aacacp", "19_aacaab", "9_aaaccp", "7_aaacap", "4_aaabap",
+                                                           "73_accaap", "73_accaab",
+                                                           "66_acbacb", "60_acabcb"]
+                                        )
     experiment.build()
     experiment.run()
 

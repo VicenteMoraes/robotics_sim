@@ -17,7 +17,7 @@ class Component(ABC):
     def _add_child(self, child):
         self.children.append(child)
 
-    def _add(self, other):
+    def add(self, other):
         self._add_child(other)
         other.parent = self
 
