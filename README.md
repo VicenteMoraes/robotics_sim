@@ -128,7 +128,7 @@ from robotics_sim.plugins.networks.ros2_network import ROS2Network
 
 client = docker.DockerClient(base_url="ssh://username@your_host")
 network = ROS2Network(client, name="ros2")
-sim = GazeboIgnition(docker_client=client, headless=False, network=network, path_to_world="/workdir/map/cicmap.sdf")
+sim = GazeboIgnition(docker_client=client, headless=False, network=network)
 sim.add_logger(write_to_file=True, filename="ignition.log")
 robot = Turtlebot4(docker_client=client, tag="tb4", auto_remove=True, network=network, use_rviz=True, use_nav2=False,
                    use_slam=False, use_localization=False)
