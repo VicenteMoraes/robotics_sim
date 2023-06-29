@@ -14,37 +14,6 @@ class Module(Component):
         super(Module, self).__init__()
         self.priority = priority
 
-    @abstractmethod
-    def run(self):
-        pass
-
-    @abstractmethod
-    def build(self):
-        pass
-
-    def stop(self):
-        pass
-
-    def __repr__(self):
-        try:
-            return f"{str(self)} plugin attached to Trial {str(self.parent)}, ID: {self.parent.trial_id}"
-        except AttributeError:
-            return f"{str(self)} plugin attached to Parent {str(self.parent)}, ID: {self.parent.uuid}"
-
-    def __gt__(self, other):
-        return self.priority > other.priority
-
-    def __lt__(self, other):
-        return self.priority < other.priority
-
-    def __eq__(self, other):
-        return self.priority == other.priority
-
-
-class Plugin(Module):
-    def __init__(self, priority: int = 5):
-        super(Plugin, self).__init__(priority)
-
     def run(self):
         for child in self.children:
             try:
@@ -66,12 +35,27 @@ class Plugin(Module):
             except AttributeError:
                 pass
 
+    def __repr__(self):
+        try:
+            return f"{str(self)} plugin attached to Trial {str(self.parent)}, ID: {self.parent.trial_id}"
+        except AttributeError:
+            return f"{str(self)} plugin attached to Parent {str(self.parent)}, ID: {self.parent.uuid}"
 
-class DockerPlugin(Plugin):
+    def __gt__(self, other):
+        return self.priority > other.priority
+
+    def __lt__(self, other):
+        return self.priority < other.priority
+
+    def __eq__(self, other):
+        return self.priority == other.priority
+
+
+class Plugin(Module):
     def __init__(self, docker_client: DockerClient, path: str, command: str, tag: str,
                  dockerfile: str = "Dockerfile", auto_remove: bool = True, container_name: str = "", network=None,
                  *args, **kwargs):
-        super(DockerPlugin, self).__init__(*args, **kwargs)
+        super(Plugin, self).__init__(*args, **kwargs)
         self.docker_client = docker_client
         self.path = path  # Path to dockerfile directory
         self.tag = tag
@@ -112,12 +96,12 @@ class DockerPlugin(Plugin):
                                                            name=self.container_name, mounts=self.mounts,
                                                            environment=self.env.to_list(), auto_remove=self.auto_remove,
                                                            **run_kwargs)
-        super(DockerPlugin, self).run()
+        super(Plugin, self).run()
 
     def build(self, **build_kwargs):
         self.image = self.docker_client.images.build(path=self.path, dockerfile=self.dockerfile, tag=self.tag,
                                                      **build_kwargs)
-        super(DockerPlugin, self).build()
+        super(Plugin, self).build()
 
     def add_logger(self, target: str = "", write_to_file: bool = False, filename: str = '', update_interval: float = 1,
                    log_args: list = None, timeout: float = 15*60, *logger_args, **logger_kwargs):
@@ -133,5 +117,5 @@ class DockerPlugin(Plugin):
             self.container.stop()
         except docker.errors.NotFound:
             pass
-        super(DockerPlugin, self).stop()
+        super(Plugin, self).stop()
 

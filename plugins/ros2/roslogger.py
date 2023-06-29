@@ -1,4 +1,4 @@
-from plugins.plugin import DockerPlugin
+from plugins.plugin import Plugin
 from plugins.loggers.docker_logger import DockerLogger
 from core.components import ProjectPath
 from docker import DockerClient
@@ -8,7 +8,7 @@ from plugins.networks.ros2_network import ROS2Network
 DEFAULT_PATH = str(ProjectPath/"dockerfiles/Ros2/RosLogger")
 
 
-class ROSLogger(DockerPlugin):
+class ROSLogger(Plugin):
     def __init__(self, docker_client: DockerClient, network: ROS2Network, path: str = DEFAULT_PATH, tag: str = "roslogger",
                  command: str = "python3 /workdir/launch/logger.py", trial_id: int = 0, timeout: float = 15*60,
                  filename: str = "trial_log.log", target: str = "", *args, **kwargs):

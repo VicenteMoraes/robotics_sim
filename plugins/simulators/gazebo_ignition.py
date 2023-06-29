@@ -8,10 +8,11 @@ DEFAULT_PATH = str(ProjectPath/"dockerfiles/GazeboIgnition/")
 class GazeboIgnition(Simulator):
     def __init__(self, docker_client: DockerClient, tag: str = "gazebo_ignition", path: str = DEFAULT_PATH,
                  headless: bool = True, headless_command='ign gazebo -v 4 -s -r empty.sdf', hostname: str = 'gz_sim',
-                 gui_command='ros2 launch /workdir/launch/gazebo_bringup.launch.py',  *args, **kwargs):
+                 gui_command='ros2 launch /workdir/launch/gazebo_bringup.launch.py',
+                 world_arg: str = "world", *args, **kwargs):
         super(GazeboIgnition, self).__init__(docker_client=docker_client, headless_command=headless_command,
                                              gui_command=gui_command, headless=headless, path=path, tag=tag,
-                                             *args, **kwargs)
+                                             world_arg=world_arg, *args, **kwargs)
 
         self.hostname = hostname
         self.env['IGN_GAZEBO_RESOURCE_PATH'] = '/opt/ros/humble/share/'

@@ -1,8 +1,8 @@
-from plugins.plugin import Plugin
+from plugins.plugin import Module
 import docker
 
 
-class Network(Plugin):
+class Network(Module):
     def __init__(self, docker_client: docker.DockerClient, priority: int = 1, name: str = "network",
                  driver: str = "bridge", check_duplicate: bool = False, internal: bool = False, **options):
         super(Network, self).__init__(priority)

@@ -18,7 +18,7 @@ ARGUMENTS = [
     DeclareLaunchArgument('use_sim_time', default_value='true',
                           choices=['true', 'false'],
                           description='use_sim_time'),
-    DeclareLaunchArgument('world', default_value='empty',
+    DeclareLaunchArgument('world', default_value='empty.sdf',
                           description='Ignition World'),
 ]
 
@@ -38,7 +38,6 @@ def generate_launch_description():
         PythonLaunchDescriptionSource([ign_gazebo_launch]),
         launch_arguments=[
             ('ign_args', ['-r ', LaunchConfiguration('world'),
-                          '.sdf',
                           ' -v 4'])
         ]
     )

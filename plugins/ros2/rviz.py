@@ -1,11 +1,11 @@
-from plugins.plugin import DockerPlugin
+from plugins.plugin import Plugin
 from core.components import ProjectPath
 from docker import DockerClient
 
 DEFAULT_PATH = str(ProjectPath/"dockerfiles/Ros2/Rviz")
 
 
-class RVIZ(DockerPlugin):
+class RVIZ(Plugin):
     def __init__(self, docker_client: DockerClient, path: str = DEFAULT_PATH, command: str = "",
                  tag: str = "rviz", config_file: str = "", *args, **kwargs):
         super(RVIZ, self).__init__(docker_client=docker_client, path=path, command=command, tag=tag, *args, **kwargs)

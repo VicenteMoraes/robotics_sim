@@ -3,11 +3,11 @@ from docker import DockerClient
 
 from trials.trial import Trial
 from trials.hmrs_trial import HMRSTrial
-from core.components import Component
+from plugins.plugin import Module
 from queue import Queue
 
 
-class Experiment(Component):
+class Experiment(Module):
     def __init__(self, trial_list: [Trial], name: str = ""):
         super(Experiment, self).__init__()
         self.trial_list = trial_list

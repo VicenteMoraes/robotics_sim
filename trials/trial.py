@@ -1,10 +1,10 @@
 import docker.errors
 
-from core.components import Component
+from plugins.plugin import Module
 from queue import PriorityQueue
 
 
-class Trial(Component):
+class Trial(Module):
     def __init__(self, trial_id=None):
         super(Trial, self).__init__()
         self.queue = PriorityQueue()
