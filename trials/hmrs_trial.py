@@ -19,13 +19,13 @@ class HMRSTrial(Trial):
         self.docker_client = docker_client
         self.headless = headless
         self.trial_id = f"{trial_id}_{trial_code}"
-        self.network_name = network_name if network_name else f"trial_{self.trial_id}_net"
+        self.network_name = network_name if network_name else f"ros2"
         self.config = config
         self.use_rviz = use_rviz
         self.sim_timeout = sim_timeout
         self.dir = dir
 
-        self.network = ROS2Network(self.docker_client, name="ros2")
+        self.network = ROS2Network(self.docker_client, name=self.network_name)
         self.sim = Gazebo(self.docker_client, headless=headless, network=self.network, path_to_world=path_to_world)
         self.sim.add_logger(write_to_file=True, filename="sim.log")
         self.skills = {}
