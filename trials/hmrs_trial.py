@@ -14,7 +14,8 @@ from plugins.ros2.roslogger import ROSLogger
 class HMRSTrial(Trial):
     def __init__(self, docker_client: DockerClient, config, trial_id: int, trial_code: str, headless: bool = True,
                  network_name: str = "", path_to_world: str = "", use_rviz: bool = False,  sim_timeout: float = 15*60,
-                 dir: str = "", target: str = 'WARN', *logger_args, **logger_kwargs):
+                 dir: str = "", target: str = 'WARN', ssh_host: str = None, ssh_pass: str = '',
+                 *logger_args, **logger_kwargs):
         super(HMRSTrial, self).__init__(trial_id=trial_id)
         self.docker_client = docker_client
         self.headless = headless
@@ -24,14 +25,17 @@ class HMRSTrial(Trial):
         self.use_rviz = use_rviz
         self.sim_timeout = sim_timeout
         self.dir = dir
+        self.ssh_host = ssh_host
+        self.ssh_pass = ssh_pass
 
         self.network = ROS2Network(self.docker_client, name=self.network_name)
-        self.sim = Gazebo(self.docker_client, headless=headless, network=self.network, path_to_world=path_to_world)
-        self.sim.add_logger(write_to_file=True, filename="sim.log")
+        self.sim = Gazebo(self.docker_client, headless=headless, network=self.network, path_to_world=path_to_world,
+                          ssh_host=self.ssh_host, ssh_pass=self.ssh_pass)
         self.skills = {}
 
         self.logger = ROSLogger(self.docker_client, self.network, trial_id=trial_id, filename=f"{dir}/{self.trial_id}.log",
-                                timeout=self.sim_timeout, target=target, *logger_args, **logger_kwargs)
+                                timeout=self.sim_timeout, target=target, ssh_host=self.ssh_host, ssh_pass=self.ssh_pass,
+                                *logger_args, **logger_kwargs)
 
         self.add_plugins(self.network, self.sim, self.logger)
 
@@ -87,26 +91,25 @@ class HMRSTrial(Trial):
             if config['local_plan']:
                 robot = Turtlebot3withNav2(self.docker_client, robot_name=name, config=config, use_rviz=self.use_rviz,
                                            robot_namespace=name, initial_pose=pose, network=self.network,
-                                           *robot_args, **robot_kwargs)
-                robot.add_logger(write_to_file=True, filename="robot.log")
+                                           ssh_host=self.ssh_host, ssh_pass=self.ssh_pass, *robot_args, **robot_kwargs)
                 self.sim.add_model_path(container=robot, path="/opt/ros/humble/share/turtlebot3_gazebo")
 
                 skill_library = SkillLibrary(self.docker_client, config=config, network=self.network, robot_name=name,
-                                             robot_namespace=name, initial_pose=pose)
-                skill_library.add_logger(write_to_file=True, filename="bt_skills.log")
+                                             robot_namespace=name, initial_pose=pose, ssh_host=self.ssh_host,
+                                             ssh_pass=self.ssh_pass)
                 self.skills[name] = skill_library
                 self.add_plugins(skill_library)
             else:
                 robot = Turtlebot3(self.docker_client, robot_name=name, container_name=f"{name}_container", config=config,
-                                   robot_namespace=name, initial_pose=pose, network=self.network)
+                                   robot_namespace=name, initial_pose=pose, network=self.network, ssh_host=self.ssh_host,
+                                   ssh_pass=self.ssh_pass)
             self.add_plugins(robot)
 
     def setup_nurse(self, *robot_args, **robot_kwargs):
         for config in self.config['nurses']:
             pose = self.pose_from_config(config)
             human = Human(self.docker_client, robot_name="nurse", config=config, initial_pose=pose, network=self.network,
-                          *robot_args, **robot_kwargs)
-            human.add_logger(write_to_file=True, filename="nurse.log")
+                          ssh_host=self.ssh_host, ssh_pass=self.ssh_pass, *robot_args, **robot_kwargs)
             self.add_plugins(human)
 
     def run(self):

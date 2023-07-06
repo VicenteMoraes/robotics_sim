@@ -15,10 +15,6 @@ class Trial(Module):
             self.queue.put(plugin)
             self.add(plugin)
 
-    def build(self):
-        for plugin in self.children:
-            plugin.build()
-
     def run(self):
         while not self.queue.empty():
             plugin = self.queue.get()

@@ -18,7 +18,7 @@ class ROSLogger(Plugin):
         self.env['TRIAL_ID'] = trial_id
 
         if path == DEFAULT_PATH:
-            self.add_mount(source=DEFAULT_PATH+"/launch", target="/workdir/launch")
+            self.add_mount(source=f"{DEFAULT_PATH}/launch", target="/workdir/launch")
 
     def start_logger(self):
         try:

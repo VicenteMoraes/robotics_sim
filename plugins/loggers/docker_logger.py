@@ -1,13 +1,14 @@
 from plugins.loggers.logger import Logger, formatlog
 from core.components import ProjectPath
 from core.timer import RepeatedTimer
+from paramiko.ssh_exception import ChannelException
 from time import time
 import requests
 
 
 class DockerLogger(Logger):
     def __init__(self, target: str, write_to_file: bool = False, filename: str = '', timeout_stop: bool = False,
-                 update_interval: float = 1, log_args: list = None, timeout: float = None, *args, **kwargs):
+                 update_interval: float = 10, log_args: list = None, timeout: float = None, *args, **kwargs):
         super(DockerLogger, self).__init__(*args, **kwargs)
         self.target = target
         self.logs = None
@@ -30,6 +31,10 @@ class DockerLogger(Logger):
         try:
             self.logs = self.parent.container.logs(**log_kwargs).decode()
         except AttributeError:
+            return
+        except BrokenPipeError:
+            return
+        except ChannelException:
             return
         except requests.exceptions.HTTPError:
             self.stop_timer()

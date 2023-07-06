@@ -1,11 +1,13 @@
+import sys
 from abc import abstractmethod
-from core.components import Component
+from core.components import Component, ProjectPath
 from core.envs.baseenv import Environment
 from docker import DockerClient
 from plugins.loggers.docker_logger import DockerLogger
 import docker
 import os
 import subprocess
+from paramiko.ssh_exception import ChannelException
 
 
 class Module(Component):
@@ -52,7 +54,9 @@ class Module(Component):
 
 
 class Plugin(Module):
-    def __init__(self, docker_client: DockerClient, path: str, command: str, tag: str,
+    ssh_hash_dict = {}
+
+    def __init__(self, docker_client: DockerClient, path: str, command: str, tag: str, ssh_host: str = None, ssh_pass: str = '',
                  dockerfile: str = "Dockerfile", auto_remove: bool = True, container_name: str = "", network=None,
                  *args, **kwargs):
         super(Plugin, self).__init__(*args, **kwargs)
@@ -65,12 +69,19 @@ class Plugin(Module):
         self.container = None
         self.command = command
         self.network = network
+        self.ssh_host = ssh_host
+        self.ssh_pass = ssh_pass
+        self.ssh_params = None
         self.mounts = []
         self.env = Environment()
         self.env["TAG"] = self.tag
         self.container_name = container_name if container_name else f"{self.tag}_container"
 
     def add_mount(self, source: str, target: str, mount_type: str = 'bind', **mount_kwargs):
+        if self.ssh_host is not None and mount_type == 'bind':
+            if str(ProjectPath) in source:
+                source = source.replace(str(ProjectPath), f'/home/{self.ssh_host.split("@")[0]}/.robotics_sim_files/')
+
         mnt = docker.types.Mount(target=target, source=source, type=mount_type, **mount_kwargs)
         self.mounts.append(mnt)
         return mnt
@@ -113,9 +124,13 @@ class Plugin(Module):
         self.container.kill(signal)
 
     def stop(self):
-        try:
-            self.container.stop()
-        except docker.errors.NotFound:
-            pass
+        while True:
+            try:
+                self.container.stop()
+                break
+            except docker.errors.NotFound:
+                break
+            except ChannelException:
+                continue
         super(Plugin, self).stop()
 

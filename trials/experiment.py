@@ -19,11 +19,13 @@ class Experiment(Module):
 
     @classmethod
     def from_config(cls, docker_client: DockerClient, config, map_path: str, param_path: str, path_to_world: str,
-                    name: str = "", trials_to_execute: [str] = None, *trial_args, **trial_kwargs):
+                    name: str = "", trials_to_execute: [str] = None, ssh_host: str = None, ssh_pass: str = '',
+                    *trial_args, **trial_kwargs):
         trial_list = []
         for trial_config in config:
             trial = HMRSTrial(docker_client, trial_config, trial_config['id'], trial_config['code'],
-                              path_to_world=path_to_world, *trial_args, **trial_kwargs)
+                              path_to_world=path_to_world, ssh_host=ssh_host, ssh_pass=ssh_pass,
+                              *trial_args, **trial_kwargs)
             if trials_to_execute is not None:
                 if trial.trial_id not in trials_to_execute:
                     continue
