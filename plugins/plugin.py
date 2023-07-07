@@ -114,10 +114,10 @@ class Plugin(Module):
                                                      **build_kwargs)
         super(Plugin, self).build()
 
-    def add_logger(self, target: str = "", write_to_file: bool = False, filename: str = '', update_interval: float = 1,
-                   log_args: list = None, timeout: float = 15*60, *logger_args, **logger_kwargs):
+    def add_logger(self, target: str = "", write_to_file: bool = False, filename: str = '', update_interval: float = 30,
+                   log_kwargs: dict = None, timeout: float = 15*60, *logger_args, **logger_kwargs):
         self.add(DockerLogger(target=target, write_to_file=write_to_file, filename=filename,
-                              update_interval=update_interval, log_args=log_args, timeout=timeout,
+                              update_interval=update_interval, log_kwargs=log_kwargs, timeout=timeout,
                               *logger_args, **logger_kwargs))
 
     def kill(self, signal=None):
@@ -131,6 +131,7 @@ class Plugin(Module):
             except docker.errors.NotFound:
                 break
             except ChannelException:
+                print('Paramiko broken channel')
                 continue
         super(Plugin, self).stop()
 

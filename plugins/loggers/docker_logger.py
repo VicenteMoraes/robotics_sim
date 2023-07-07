@@ -8,19 +8,21 @@ import requests
 
 class DockerLogger(Logger):
     def __init__(self, target: str, write_to_file: bool = False, filename: str = '', timeout_stop: bool = False,
-                 update_interval: float = 10, log_args: list = None, timeout: float = None, *args, **kwargs):
+                 update_interval: float = 30, log_kwargs: dict = None, timeout: float = None, *args, **kwargs):
         super(DockerLogger, self).__init__(*args, **kwargs)
         self.target = target
-        self.logs = None
+        self.log_stream = None
+        self.logs = ''
         self.write_to_file = write_to_file
         self.filename = filename
         self.timeout = timeout
         self.timeout_stop = timeout_stop
-        log_args = log_args if log_args is not None else []
-        self.timer = RepeatedTimer(update_interval, self.update, *log_args)
+        log_kwargs = log_kwargs or {}
+        self.timer = RepeatedTimer(update_interval, self.update, **log_kwargs)
         self.time = None
 
     def update(self, **log_kwargs):
+        #self.log_stream = self.log_stream or self.parent.container.logs(stream=True, **log_kwargs)
         if self.timeout is not None:
             if time() - self.time >= self.timeout:
                 self.stop_timer()
@@ -29,12 +31,13 @@ class DockerLogger(Logger):
             return
 
         try:
-            self.logs = self.parent.container.logs(**log_kwargs).decode()
+            self.logs = self.parent.container.logs().decode()
+            print(self.logs)
+        except ValueError:
+            return
         except AttributeError:
             return
-        except BrokenPipeError:
-            return
-        except ChannelException:
+        except requests.exceptions.ConnectionError:
             return
         except requests.exceptions.HTTPError:
             self.stop_timer()
@@ -45,15 +48,13 @@ class DockerLogger(Logger):
         if self.target and self.target in self.logs:
             self.stop_timer(target_reached=True)
 
-    def write_logs(self, msg: str = ''):
+    def write_logs(self):
         if not self.filename:
             print("No filename provided. Aborting writing logs")
             return
         with open(ProjectPath/'logs'/self.filename, 'w') as wf:
             try:
-                wf.writelines(self.logs)
-                if msg:
-                    wf.writelines(f"\n{msg}\n")
+                wf.write(self.logs)
             except TypeError:
                 pass
 
@@ -61,7 +62,11 @@ class DockerLogger(Logger):
         self.timer.stop()
         if self.timeout_stop:
             if not target_reached:
-                self.write_logs(msg=formatlog("WARN", 'logger', "TIMEOUT"))
+                self.logs += f'\n{formatlog("WARN", "logger", "TIMEOUT")}\n'
+
+            if self.write_to_file:
+                self.write_logs()
+
             self.event_callback(msg="SHUTDOWN")
 
     def start_timer(self):

@@ -12,8 +12,7 @@ from trials.experiment import Experiment
 
 
 def test_experiment():
-    docker_client = docker.DockerClient(base_url='ssh://lesunb@les-02', use_ssh_client=True, timeout=60,
-                                        max_pool_size=50)
+    docker_client = docker.DockerClient(base_url='ssh://lesunb@les-02')
     config = parse_config(str(ProjectPath/"tests/hmrs/old_hospital_map/experiment/trials.json"))
     experiment = Experiment.from_config(docker_client, config=config, map_path=str(ProjectPath/"tests/hmrs/old_hospital_map/param/map"),
                                         param_path=str(ProjectPath/"tests/hmrs/old_hospital_map/param"), use_rviz=False,
