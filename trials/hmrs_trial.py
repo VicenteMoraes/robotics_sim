@@ -98,19 +98,19 @@ class HMRSTrial(Trial):
                                              robot_namespace=name, initial_pose=pose, ssh_host=self.ssh_host,
                                              ssh_pass=self.ssh_pass)
                 self.skills[name] = skill_library
-                self.add_plugins(skill_library)
+                robot.add(skill_library)
             else:
                 robot = Turtlebot3(self.docker_client, robot_name=name, container_name=f"{name}_container", config=config,
                                    robot_namespace=name, initial_pose=pose, network=self.network, ssh_host=self.ssh_host,
                                    ssh_pass=self.ssh_pass)
-            self.add_plugins(robot)
+            self.sim.add(robot)
 
     def setup_nurse(self, *robot_args, **robot_kwargs):
         for config in self.config['nurses']:
             pose = self.pose_from_config(config)
             human = Human(self.docker_client, robot_name="nurse", config=config, initial_pose=pose, network=self.network,
                           ssh_host=self.ssh_host, ssh_pass=self.ssh_pass, *robot_args, **robot_kwargs)
-            self.add_plugins(human)
+            self.sim.add(human)
 
     def run(self):
         super(HMRSTrial, self).run()

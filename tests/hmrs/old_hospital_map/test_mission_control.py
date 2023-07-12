@@ -2,22 +2,50 @@ import docker
 from plugins.simulators.gazebo import Gazebo
 from plugins.robots.turtlebot3_nav2 import Turtlebot3withNav2
 from plugins.networks.ros2_network import ROS2Network
-from plugins.ros2.rviz import RVIZ
-from plugins.loggers.docker_logger import DockerLogger
 from core import pose
 from core.components import ProjectPath
 from plugins.hmrs.load_experiment import parse_config
 from trials.hmrs_trial import HMRSTrial
 from trials.experiment import Experiment
+import os
+from core.components import ProjectPath
+
+
+def test_full_experiment():
+    hosts = [f"les-0{i}" for i in range(1, 9)]
+    config = parse_config(str(ProjectPath/"tests/hmrs/old_hospital_map/experiment/trials.json"))
+    experiments = []
+    docker_clients = []
+    for host in hosts:
+        client = docker.DockerClient(base_url=f'ssh://lesunb@{host}')
+        docker_clients.append(client)
+        experiments.append(Experiment.from_config(client, config=config,
+                                                  map_path=str(ProjectPath/"tests/hmrs/old_hospital_map/param/map"),
+                                                  param_path=str(ProjectPath/"tests/hmrs/old_hospital_map/param"),
+                                                  use_rviz=False, path_to_world="/workdir/map/hospital.world",
+                                                  dir=f"distributed_experiment/{host}", headless=True, ssh_host=f"lesunb@{host}"))
+
+    for experiment in experiments:
+        experiment.build()
+    for num, experiment in enumerate(experiments):
+        print(f'Running Host: {hosts[num]}')
+        experiment.run()
 
 
 def test_experiment():
-    docker_client = docker.DockerClient(base_url='ssh://lesunb@les-02')
+    return
+    trials = [trial.removesuffix(".log") for trial in os.listdir(ProjectPath/"logs/experiment")]
+    exclusion_list = ["1_aaaaab", "1_aaaaap", "2_aaaabb", "2_aaaabp", "3_aaaacb", "3_aaaacp", "4_aaabab", "4_aaabap",
+                      "5_aaabbb", "5_aaabbp", "6_aaabcb", "6_aaabcp", "7_aaacab", "7_aaacap", "8_aaacbb", "8_aaacbp",
+                      "9_aaaccb", "9_aaaccp", "10_aabaab", "18_aabccb"]
+    exclusion_list = [trial for trial in trials if trial in exclusion_list or int(trial[:2]) < 53]
+    trials = sorted([trial for trial in trials if trial not in exclusion_list], key=(lambda x: x[:2]))
+    docker_client = docker.from_env()
     config = parse_config(str(ProjectPath/"tests/hmrs/old_hospital_map/experiment/trials.json"))
     experiment = Experiment.from_config(docker_client, config=config, map_path=str(ProjectPath/"tests/hmrs/old_hospital_map/param/map"),
                                         param_path=str(ProjectPath/"tests/hmrs/old_hospital_map/param"), use_rviz=False,
-                                        path_to_world="/workdir/map/hospital.world", dir="distributed_experiment/les-02",
-                                        headless=True, ssh_host="lesunb@les-02")
+                                        path_to_world="/workdir/map/hospital.world", dir="distributed_experiment/les-01",
+                                        headless=True, trials_to_execute=trials)
     experiment.build()
     experiment.run()
 
@@ -62,3 +90,8 @@ def test_hmrsim():
     sim.run(network_mode=False)
     robot.run()
     #robot2.run()
+
+
+if __name__ == "__main__":
+    print('Started')
+    test_full_experiment()
