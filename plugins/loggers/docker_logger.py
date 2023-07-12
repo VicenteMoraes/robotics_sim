@@ -13,6 +13,8 @@ class DockerLogger(Logger):
         self.target = target
         self.log_stream = None
         self.logs = ''
+        self.previous = ''
+        self.count = 0
         self.write_to_file = write_to_file
         self.filename = filename
         self.timeout = timeout
@@ -22,7 +24,6 @@ class DockerLogger(Logger):
         self.time = None
 
     def update(self, **log_kwargs):
-        #self.log_stream = self.log_stream or self.parent.container.logs(stream=True, **log_kwargs)
         if self.timeout is not None:
             if time() - self.time >= self.timeout:
                 self.stop_timer()
@@ -32,7 +33,7 @@ class DockerLogger(Logger):
 
         try:
             self.logs = self.parent.container.logs().decode()
-            print(self.logs)
+            self.count += (self.logs == self.previous)
         except ValueError:
             return
         except AttributeError:
@@ -42,11 +43,16 @@ class DockerLogger(Logger):
         except requests.exceptions.HTTPError:
             self.stop_timer()
 
+        self.previous = self.logs
+
         if self.write_to_file:
             self.write_logs()
 
-        if self.target and self.target in self.logs:
-            self.stop_timer(target_reached=True)
+        if self.target:
+            if self.target in self.logs:
+                self.stop_timer(target_reached=True)
+            elif self.count > 2:
+                self.stop_timer()
 
     def write_logs(self):
         if not self.filename:
@@ -62,6 +68,9 @@ class DockerLogger(Logger):
         self.timer.stop()
         if self.timeout_stop:
             if not target_reached:
+                if self.logs.count('\n') < 7:
+                    self.event_callback(msg="RESTART")
+                    return
                 self.logs += f'\n{formatlog("WARN", "logger", "TIMEOUT")}\n'
 
             if self.write_to_file:
@@ -72,3 +81,4 @@ class DockerLogger(Logger):
     def start_timer(self):
         self.time = time()
         self.timer.start()
+        self.count = 0

@@ -72,6 +72,7 @@ if __name__ == "__main__":
     rclpy.init()
     print('Started Nurse')
     nurse = Nurse()
+    time.sleep(1)
     nurse.pub_log.publish(formatlog('DEBUG', 'nurse', f'NURSE_CONFIG={CONFIG}'))
     print("Published Log")
     print("\n Starting Nurse System")

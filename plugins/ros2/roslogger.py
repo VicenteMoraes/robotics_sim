@@ -14,7 +14,8 @@ class ROSLogger(Plugin):
                  filename: str = "trial_log.log", target: str = "", *args, **kwargs):
         super(ROSLogger, self).__init__(docker_client=docker_client, network=network, path=path, tag=tag,
                                         command=command, *args, **kwargs)
-        self.add_logger(write_to_file=True, target=target, filename=filename, timeout=timeout, timeout_stop=True)
+        self.add_logger(write_to_file=True, target=target, filename=filename, timeout=timeout, timeout_stop=True,
+                        add_logger_func=False)
         self.env['TRIAL_ID'] = trial_id
 
         if path == DEFAULT_PATH:

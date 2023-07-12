@@ -58,7 +58,7 @@ class Plugin(Module):
 
     def __init__(self, docker_client: DockerClient, path: str, command: str, tag: str, ssh_host: str = None, ssh_pass: str = '',
                  dockerfile: str = "Dockerfile", auto_remove: bool = True, container_name: str = "", network=None,
-                 *args, **kwargs):
+                 run_children: bool = True, *args, **kwargs):
         super(Plugin, self).__init__(*args, **kwargs)
         self.docker_client = docker_client
         self.path = path  # Path to dockerfile directory
@@ -72,6 +72,8 @@ class Plugin(Module):
         self.ssh_host = ssh_host
         self.ssh_pass = ssh_pass
         self.ssh_params = None
+        self.run_children = run_children
+        self._start_logger = None
         self.mounts = []
         self.env = Environment()
         self.env["TAG"] = self.tag
@@ -107,6 +109,10 @@ class Plugin(Module):
                                                            name=self.container_name, mounts=self.mounts,
                                                            environment=self.env.to_list(), auto_remove=self.auto_remove,
                                                            **run_kwargs)
+        try:
+            self._start_logger()
+        except TypeError:
+            pass
         super(Plugin, self).run()
 
     def build(self, **build_kwargs):
@@ -114,11 +120,16 @@ class Plugin(Module):
                                                      **build_kwargs)
         super(Plugin, self).build()
 
-    def add_logger(self, target: str = "", write_to_file: bool = False, filename: str = '', update_interval: float = 30,
-                   log_kwargs: dict = None, timeout: float = 15*60, *logger_args, **logger_kwargs):
-        self.add(DockerLogger(target=target, write_to_file=write_to_file, filename=filename,
+    def add_logger(self, target: str = "", write_to_file: bool = False, filename: str = '', update_interval: float = 15,
+                   log_kwargs: dict = None, timeout: float = 15*60, add_logger_func: bool = True,
+                   *logger_args, **logger_kwargs):
+        logger = DockerLogger(target=target, write_to_file=write_to_file, filename=filename,
                               update_interval=update_interval, log_kwargs=log_kwargs, timeout=timeout,
-                              *logger_args, **logger_kwargs))
+                              *logger_args, **logger_kwargs)
+        self.add(logger)
+        if add_logger_func:
+            self._start_logger = logger.start_timer
+
 
     def kill(self, signal=None):
         self.container.kill(signal)

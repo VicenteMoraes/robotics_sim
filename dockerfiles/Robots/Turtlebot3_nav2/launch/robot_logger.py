@@ -51,11 +51,14 @@ class Logger(Node):
         self.init_timer.destroy()
 
     def update_log(self):
-        orientation = [self.pose.orientation.x, self.pose.orientation.y, self.pose.orientation.z, self.pose.orientation.w]
-        pose_msg = String()
-        pose_msg.data = formatlog("INFO", self.name, {'y': round(self.pose.position.y, 3), 'x': round(self.pose.position.x, 3),
-                                                      "yaw": round(quat2euler(orientation)[2], 3)})
-        self.log_pub.publish(pose_msg)
+        try:
+            orientation = [self.pose.orientation.x, self.pose.orientation.y, self.pose.orientation.z, self.pose.orientation.w]
+            pose_msg = String()
+            pose_msg.data = formatlog("INFO", self.name, {'y': round(self.pose.position.y, 3), 'x': round(self.pose.position.x, 3),
+                                                          "yaw": round(quat2euler(orientation)[2], 3)})
+            self.log_pub.publish(pose_msg)
+        except AttributeError:
+            pass
 
 
 if __name__ == "__main__":
