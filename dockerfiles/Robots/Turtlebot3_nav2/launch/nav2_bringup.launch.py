@@ -54,6 +54,7 @@ def generate_launch_description():
                               'headless': 'False',
                               'use_robot_state_pub': 'True',
                               'use_composition': 'False',
+                              'use_respawn': 'True',
                               'x_pose': TextSubstitution(text=str(pose['x'])),
                               'y_pose': TextSubstitution(text=str(pose['y'])),
                               'z_pose': TextSubstitution(text=str(pose['z'])),
