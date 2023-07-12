@@ -1,0 +1,36 @@
+0.00, [INFO], robot2, {'battery-level': '83.45'}, None, None
+0.13, [DEBUG], logger, ROBOTS_CONFIG={'avg_speed': 0.15, 'battery_charge': 0.8344531419634984, 'battery_discharge_rate': 0.0006000000000000001, 'id': 2, 'local_plan': [['navigation', ['PC Room 3', [[-21.0, 18.0, -1.57], [-21.0, 16.0], [-28.5, 16.0], [-28.5, 18.0, -1.57]]], 'navto_room'], ['approach_person', ['nurse'], 'approach_nurse'], ['authenticate_person', ['nurse'], 'authenticate_nurse'], ['operate_drawer', ['open'], 'open_drawer_for_nurse'], ['send_message', ['nurse'], 'notify_nurse_of_open_drawer_for_nurse_completed'], ['wait_message', ['nurse'], 'wait_nurse_to_complete_deposit'], ['operate_drawer', ['close'], 'close_drawer_nurse'], ['navigation', ['Laboratory', [[-28.5, 18.0, -1.57], [-28.5, 16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]], 'navto_lab'], ['approach_robot', ['lab_arm'], 'approach_arm'], ['operate_drawer', ['open'], 'open_drawer_lab'], ['send_message', ['lab_arm'], 'notify_lab_arm_of_open_drawer_lab_completed'], ['wait_message', ['lab_arm'], 'wait_lab_arm_to_complete_pick_up_sample'], ['operate_drawer', ['close'], 'close_drawer_lab']], 'location': 'PC Room 5', 'name': 'r2', 'position': [-21.0, 18.0, -1.57], 'skills': ['approach_person', 'approach_robot', 'authenticate_person', 'navigation', 'operate_drawer']}, None, None
+0.13, [DEBUG], logger, Simulation open, None, None
+10.04, [INFO], robot2, {'battery-level': '82.91'}, None, None
+10.04, [INFO], robot2, {'y': 17.082, 'x': -20.932, 'yaw': -3.138}, None, None
+20.02, [INFO], robot2, {'battery-level': '82.31'}, None, None
+20.02, [INFO], robot2, {'y': 16.061, 'x': -22.205, 'yaw': -3.141}, None, None
+30.10, [INFO], robot2, {'y': 16.037, 'x': -24.335, 'yaw': 3.14}, None, None
+30.10, [INFO], robot2, {'battery-level': '81.71'}, None, None
+40.03, [INFO], robot2, {'y': 15.987, 'x': -26.42, 'yaw': 3.142}, None, None
+40.03, [INFO], robot2, {'battery-level': '81.11'}, None, None
+50.01, [INFO], robot2, {'battery-level': '80.51'}, None, None
+50.01, [INFO], robot2, {'y': 16.238, 'x': -28.462, 'yaw': 3.141}, None, None
+60.05, [INFO], robot2, {'battery-level': '79.91'}, None, None
+60.05, [INFO], robot2, {'y': 17.918, 'x': -28.602, 'yaw': 3.142}, None, None
+70.09, [INFO], robot2, {'y': 17.971, 'x': -28.643, 'yaw': 3.141}, None, None
+70.09, [INFO], robot2, {'battery-level': '79.31'}, None, None
+75.32, [info], nurse, sync, received-request, (status=sending-request)
+75.32, [info], nurse, sync, request-sent, (status=waiting)
+75.32, [info], nurse, sync, wait-message, (status=message-received)
+80.07, [INFO], robot2, {'battery-level': '78.71'}, None, None
+80.07, [INFO], robot2, {'y': 17.241, 'x': -28.738, 'yaw': 3.141}, None, None
+90.07, [INFO], robot2, {'battery-level': '78.11'}, None, None
+90.07, [INFO], robot2, {'y': 16.069, 'x': -27.67, 'yaw': -3.141}, None, None
+100.05, [INFO], robot2, {'battery-level': '77.51'}, None, None
+100.05, [INFO], robot2, {'y': 15.259, 'x': -26.005, 'yaw': -3.142}, None, None
+110.10, [INFO], robot2, {'battery-level': '76.91'}, None, None
+110.10, [INFO], robot2, {'y': 13.176, 'x': -25.855, 'yaw': -3.142}, None, None
+120.08, [INFO], robot2, {'battery-level': '76.31'}, None, None
+120.08, [INFO], robot2, {'y': 12.909, 'x': -25.98, 'yaw': 3.142}, None, None
+120.27, [info], lab_arm, sync, wait-message, (status=message-received)
+121.24, [WARN], robot2, SUCCESS, None, None
+130.04, [INFO], robot2, {'battery-level': '75.71'}, None, None
+130.04, [INFO], robot2, {'y': 12.907, 'x': -25.979, 'yaw': -3.142}, None, None
+140.05, [INFO], robot2, {'y': 12.907, 'x': -25.979, 'yaw': -3.142}, None, None
+140.05, [INFO], robot2, {'battery-level': '75.11'}, None, None

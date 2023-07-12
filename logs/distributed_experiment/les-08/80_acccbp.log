@@ -1,0 +1,42 @@
+0.00, [DEBUG], nurse, NURSE_CONFIG={'location': 'IC Room 2', 'position': [-38.0, 21.5, 0.0]}, None, None
+0.12, [DEBUG], logger, ROBOTS_CONFIG={'avg_speed': 0.15, 'battery_charge': 0.9109794326728246, 'battery_discharge_rate': 0.0005200000000000001, 'id': 6, 'local_plan': [['navigation', ['IC Room 2', [[-33.9, 18.93, 3.14], [-37.0, 18.93], [-37.0, 21.5], [-38.0, 21.5, 0.0]]], 'navto_room'], ['approach_person', ['nurse'], 'approach_nurse'], ['authenticate_person', ['nurse'], 'authenticate_nurse'], ['operate_drawer', ['open'], 'open_drawer_for_nurse'], ['send_message', ['nurse'], 'notify_nurse_of_open_drawer_for_nurse_completed'], ['wait_message', ['nurse'], 'wait_nurse_to_complete_deposit'], ['operate_drawer', ['close'], 'close_drawer_nurse'], ['navigation', ['Laboratory', [[-38.0, 21.5, 0.0], [-37.0, 21.5], [-37.0, 16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]], 'navto_lab'], ['approach_robot', ['lab_arm'], 'approach_arm'], ['operate_drawer', ['open'], 'open_drawer_lab'], ['send_message', ['lab_arm'], 'notify_lab_arm_of_open_drawer_lab_completed'], ['wait_message', ['lab_arm'], 'wait_lab_arm_to_complete_pick_up_sample'], ['operate_drawer', ['close'], 'close_drawer_lab']], 'location': 'IC Room 6', 'name': 'r6', 'position': [-33.9, 18.93, 3.14], 'skills': ['approach_person', 'approach_robot', 'authenticate_person', 'navigation', 'operate_drawer']}, None, None
+0.12, [DEBUG], logger, Simulation open, None, None
+10.09, [INFO], robot6, {'battery-level': '90.63'}, None, None
+10.09, [INFO], robot6, {'y': 18.927, 'x': -33.915, 'yaw': -3.141}, None, None
+19.93, [INFO], robot6, {'y': 17.777, 'x': -35.329, 'yaw': 3.141}, None, None
+20.02, [INFO], robot6, {'battery-level': '90.11'}, None, None
+30.06, [INFO], robot6, {'battery-level': '89.59'}, None, None
+30.06, [INFO], robot6, {'y': 19.014, 'x': -36.933, 'yaw': 3.141}, None, None
+40.09, [INFO], robot6, {'battery-level': '89.07'}, None, None
+40.09, [INFO], robot6, {'y': 21.148, 'x': -36.996, 'yaw': 3.142}, None, None
+50.04, [INFO], robot6, {'y': 21.472, 'x': -38.066, 'yaw': 3.136}, None, None
+50.04, [INFO], robot6, {'battery-level': '88.55'}, None, None
+60.00, [info], nurse, sync, received-request, (status=sending-request)
+60.00, [info], nurse, sync, request-sent, (status=waiting)
+60.00, [info], nurse, sync, wait-message, (status=message-received)
+60.09, [INFO], robot6, {'battery-level': '88.03'}, None, None
+60.09, [INFO], robot6, {'y': 21.402, 'x': -38.081, 'yaw': 3.142}, None, None
+70.04, [INFO], robot6, {'battery-level': '87.51'}, None, None
+70.04, [INFO], robot6, {'y': 20.218, 'x': -37.185, 'yaw': 3.141}, None, None
+80.08, [INFO], robot6, {'y': 18.086, 'x': -37.11, 'yaw': 3.141}, None, None
+80.08, [INFO], robot6, {'battery-level': '86.99'}, None, None
+90.02, [INFO], robot6, {'battery-level': '86.47'}, None, None
+90.02, [INFO], robot6, {'y': 16.139, 'x': -36.705, 'yaw': -3.142}, None, None
+100.05, [INFO], robot6, {'y': 15.402, 'x': -34.678, 'yaw': -3.141}, None, None
+100.05, [INFO], robot6, {'battery-level': '85.95'}, None, None
+110.00, [INFO], robot6, {'y': 15.518, 'x': -32.559, 'yaw': 3.142}, None, None
+110.09, [INFO], robot6, {'battery-level': '85.43'}, None, None
+120.03, [INFO], robot6, {'battery-level': '84.91'}, None, None
+120.03, [INFO], robot6, {'y': 15.613, 'x': -30.449, 'yaw': -3.138}, None, None
+130.06, [INFO], robot6, {'battery-level': '84.39'}, None, None
+130.06, [INFO], robot6, {'y': 15.777, 'x': -28.335, 'yaw': 3.142}, None, None
+140.01, [INFO], robot6, {'battery-level': '83.87'}, None, None
+140.01, [INFO], robot6, {'y': 15.711, 'x': -26.24, 'yaw': 3.141}, None, None
+150.05, [INFO], robot6, {'battery-level': '83.35'}, None, None
+150.05, [INFO], robot6, {'y': 13.715, 'x': -25.773, 'yaw': 3.142}, None, None
+160.09, [INFO], robot6, {'battery-level': '82.83'}, None, None
+160.09, [INFO], robot6, {'y': 12.951, 'x': -25.945, 'yaw': -3.142}, None, None
+161.53, [info], lab_arm, sync, wait-message, (status=message-received)
+162.50, [WARN], robot6, SUCCESS, None, None
+170.06, [INFO], robot6, {'battery-level': '82.31'}, None, None
+170.06, [INFO], robot6, {'y': 12.948, 'x': -25.944, 'yaw': 3.142}, None, None

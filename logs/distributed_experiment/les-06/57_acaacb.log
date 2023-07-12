@@ -1,0 +1,151 @@
+0.00, [DEBUG], nurse, NURSE_CONFIG={'location': 'PC Room 3', 'position': [-28.5, 18.0, -1.57]}, None, None
+0.18, [DEBUG], logger, ROBOTS_CONFIG={'avg_speed': 0.15, 'battery_charge': 0.4863040833267539, 'battery_discharge_rate': 0.0006000000000000001, 'id': 4, 'local_plan': [['navigation', ['PC Room 3', [[-13.5, 18.0, -1.57], [-13.5, 16.0], [-28.5, 16.0], [-28.5, 18.0, -1.57]]], 'navto_room'], ['approach_person', ['nurse'], 'approach_nurse'], ['authenticate_person', ['nurse'], 'authenticate_nurse'], ['operate_drawer', ['open'], 'open_drawer_for_nurse'], ['send_message', ['nurse'], 'notify_nurse_of_open_drawer_for_nurse_completed'], ['wait_message', ['nurse'], 'wait_nurse_to_complete_deposit'], ['operate_drawer', ['close'], 'close_drawer_nurse'], ['navigation', ['Laboratory', [[-28.5, 18.0, -1.57], [-28.5, 16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]], 'navto_lab'], ['approach_robot', ['lab_arm'], 'approach_arm'], ['operate_drawer', ['open'], 'open_drawer_lab'], ['send_message', ['lab_arm'], 'notify_lab_arm_of_open_drawer_lab_completed'], ['wait_message', ['lab_arm'], 'wait_lab_arm_to_complete_pick_up_sample'], ['operate_drawer', ['close'], 'close_drawer_lab']], 'location': 'PC Room 7', 'name': 'r4', 'position': [-13.5, 18.0, -1.57], 'skills': ['approach_person', 'approach_robot', 'authenticate_person', 'navigation', 'operate_drawer']}, None, None
+0.18, [DEBUG], logger, Simulation open, None, None
+10.02, [INFO], robot4, {'y': 17.542, 'x': -13.39, 'yaw': -3.141}, None, None
+10.02, [INFO], robot4, {'battery-level': '48.09'}, None, None
+20.02, [INFO], robot4, {'y': 16.169, 'x': -14.499, 'yaw': -3.142}, None, None
+20.02, [INFO], robot4, {'battery-level': '47.49'}, None, None
+30.02, [INFO], robot4, {'battery-level': '46.89'}, None, None
+30.02, [INFO], robot4, {'y': 16.098, 'x': -16.619, 'yaw': -3.141}, None, None
+40.03, [INFO], robot4, {'y': 16.143, 'x': -18.735, 'yaw': -3.141}, None, None
+40.03, [INFO], robot4, {'battery-level': '46.29'}, None, None
+50.02, [INFO], robot4, {'battery-level': '45.69'}, None, None
+50.02, [INFO], robot4, {'y': 16.243, 'x': -20.837, 'yaw': 3.141}, None, None
+60.01, [INFO], robot4, {'y': 16.118, 'x': -22.942, 'yaw': -3.142}, None, None
+60.01, [INFO], robot4, {'battery-level': '45.09'}, None, None
+70.01, [INFO], robot4, {'y': 16.102, 'x': -25.051, 'yaw': 3.141}, None, None
+70.01, [INFO], robot4, {'battery-level': '44.49'}, None, None
+80.02, [INFO], robot4, {'y': 16.096, 'x': -27.172, 'yaw': -3.142}, None, None
+80.02, [INFO], robot4, {'battery-level': '43.89'}, None, None
+90.02, [INFO], robot4, {'y': 17.038, 'x': -28.649, 'yaw': -3.141}, None, None
+90.02, [INFO], robot4, {'battery-level': '43.29'}, None, None
+100.02, [INFO], robot4, {'battery-level': '42.69'}, None, None
+100.02, [INFO], robot4, {'y': 17.962, 'x': -28.611, 'yaw': 3.14}, None, None
+110.03, [INFO], robot4, {'y': 17.991, 'x': -28.566, 'yaw': 3.142}, None, None
+110.03, [INFO], robot4, {'battery-level': '42.09'}, None, None
+120.03, [INFO], robot4, {'battery-level': '41.49'}, None, None
+120.03, [INFO], robot4, {'y': 17.99, 'x': -28.566, 'yaw': 3.142}, None, None
+130.04, [INFO], robot4, {'y': 17.99, 'x': -28.566, 'yaw': -3.142}, None, None
+130.04, [INFO], robot4, {'battery-level': '40.89'}, None, None
+140.05, [INFO], robot4, {'battery-level': '40.29'}, None, None
+140.05, [INFO], robot4, {'y': 17.99, 'x': -28.566, 'yaw': 3.142}, None, None
+150.05, [INFO], robot4, {'battery-level': '39.69'}, None, None
+150.05, [INFO], robot4, {'y': 17.99, 'x': -28.566, 'yaw': -3.142}, None, None
+160.05, [INFO], robot4, {'y': 17.99, 'x': -28.566, 'yaw': 3.142}, None, None
+160.05, [INFO], robot4, {'battery-level': '39.09'}, None, None
+170.06, [INFO], robot4, {'battery-level': '38.49'}, None, None
+170.06, [INFO], robot4, {'y': 17.99, 'x': -28.566, 'yaw': -3.142}, None, None
+180.04, [INFO], robot4, {'y': 17.99, 'x': -28.566, 'yaw': 3.142}, None, None
+180.04, [INFO], robot4, {'battery-level': '37.89'}, None, None
+190.04, [INFO], robot4, {'battery-level': '37.29'}, None, None
+190.04, [INFO], robot4, {'y': 17.99, 'x': -28.566, 'yaw': -3.142}, None, None
+200.03, [INFO], robot4, {'y': 17.99, 'x': -28.566, 'yaw': 3.142}, None, None
+200.03, [INFO], robot4, {'battery-level': '36.69'}, None, None
+210.03, [INFO], robot4, {'y': 17.991, 'x': -28.566, 'yaw': 3.142}, None, None
+210.03, [INFO], robot4, {'battery-level': '36.09'}, None, None
+220.03, [INFO], robot4, {'y': 17.991, 'x': -28.566, 'yaw': 3.142}, None, None
+220.03, [INFO], robot4, {'battery-level': '35.49'}, None, None
+230.00, [INFO], robot4, {'y': 17.991, 'x': -28.566, 'yaw': 3.142}, None, None
+230.00, [INFO], robot4, {'battery-level': '34.89'}, None, None
+240.09, [INFO], robot4, {'y': 17.991, 'x': -28.566, 'yaw': -3.142}, None, None
+240.09, [INFO], robot4, {'battery-level': '34.29'}, None, None
+250.09, [INFO], robot4, {'y': 17.991, 'x': -28.566, 'yaw': 3.142}, None, None
+250.09, [INFO], robot4, {'battery-level': '33.69'}, None, None
+260.07, [INFO], robot4, {'y': 17.991, 'x': -28.566, 'yaw': 3.142}, None, None
+260.07, [INFO], robot4, {'battery-level': '33.09'}, None, None
+270.06, [INFO], robot4, {'battery-level': '32.49'}, None, None
+270.06, [INFO], robot4, {'y': 17.991, 'x': -28.566, 'yaw': -3.142}, None, None
+280.06, [INFO], robot4, {'y': 17.991, 'x': -28.566, 'yaw': -3.142}, None, None
+280.06, [INFO], robot4, {'battery-level': '31.89'}, None, None
+290.05, [INFO], robot4, {'battery-level': '31.29'}, None, None
+290.05, [INFO], robot4, {'y': 17.991, 'x': -28.566, 'yaw': 3.142}, None, None
+300.05, [INFO], robot4, {'y': 17.992, 'x': -28.566, 'yaw': 3.142}, None, None
+300.05, [INFO], robot4, {'battery-level': '30.69'}, None, None
+310.04, [INFO], robot4, {'y': 17.992, 'x': -28.566, 'yaw': 3.142}, None, None
+310.04, [INFO], robot4, {'battery-level': '30.09'}, None, None
+320.03, [INFO], robot4, {'battery-level': '29.49'}, None, None
+320.03, [INFO], robot4, {'y': 17.992, 'x': -28.566, 'yaw': 3.142}, None, None
+330.01, [INFO], robot4, {'battery-level': '28.89'}, None, None
+330.01, [INFO], robot4, {'y': 17.992, 'x': -28.566, 'yaw': -3.142}, None, None
+340.01, [INFO], robot4, {'y': 17.992, 'x': -28.566, 'yaw': 3.142}, None, None
+340.01, [INFO], robot4, {'battery-level': '28.29'}, None, None
+350.03, [INFO], robot4, {'y': 17.992, 'x': -28.566, 'yaw': -3.142}, None, None
+350.03, [INFO], robot4, {'battery-level': '27.69'}, None, None
+360.03, [INFO], robot4, {'y': 17.992, 'x': -28.566, 'yaw': 3.142}, None, None
+360.03, [INFO], robot4, {'battery-level': '27.09'}, None, None
+370.04, [INFO], robot4, {'battery-level': '26.49'}, None, None
+370.04, [INFO], robot4, {'y': 17.992, 'x': -28.566, 'yaw': -3.142}, None, None
+380.04, [INFO], robot4, {'battery-level': '25.89'}, None, None
+380.04, [INFO], robot4, {'y': 17.992, 'x': -28.566, 'yaw': -3.142}, None, None
+390.04, [INFO], robot4, {'y': 17.993, 'x': -28.566, 'yaw': 3.142}, None, None
+390.04, [INFO], robot4, {'battery-level': '25.29'}, None, None
+400.02, [INFO], robot4, {'y': 17.993, 'x': -28.566, 'yaw': -3.142}, None, None
+400.02, [INFO], robot4, {'battery-level': '24.69'}, None, None
+410.01, [INFO], robot4, {'battery-level': '24.09'}, None, None
+410.01, [INFO], robot4, {'y': 17.993, 'x': -28.566, 'yaw': -3.142}, None, None
+420.01, [INFO], robot4, {'y': 17.993, 'x': -28.566, 'yaw': -3.142}, None, None
+420.01, [INFO], robot4, {'battery-level': '23.49'}, None, None
+430.00, [INFO], robot4, {'y': 17.993, 'x': -28.566, 'yaw': -3.142}, None, None
+430.00, [INFO], robot4, {'battery-level': '22.89'}, None, None
+440.08, [INFO], robot4, {'y': 17.993, 'x': -28.566, 'yaw': -3.142}, None, None
+440.08, [INFO], robot4, {'battery-level': '22.29'}, None, None
+450.08, [INFO], robot4, {'y': 17.993, 'x': -28.566, 'yaw': -3.142}, None, None
+450.08, [INFO], robot4, {'battery-level': '21.69'}, None, None
+460.05, [INFO], robot4, {'battery-level': '21.09'}, None, None
+460.05, [INFO], robot4, {'y': 17.993, 'x': -28.566, 'yaw': 3.142}, None, None
+470.06, [INFO], robot4, {'y': 17.994, 'x': -28.566, 'yaw': 3.142}, None, None
+470.06, [INFO], robot4, {'battery-level': '20.49'}, None, None
+480.05, [INFO], robot4, {'battery-level': '19.89'}, None, None
+480.05, [INFO], robot4, {'y': 17.994, 'x': -28.566, 'yaw': -3.142}, None, None
+490.03, [INFO], robot4, {'y': 17.994, 'x': -28.566, 'yaw': 3.142}, None, None
+490.03, [INFO], robot4, {'battery-level': '19.29'}, None, None
+500.03, [INFO], robot4, {'y': 17.994, 'x': -28.566, 'yaw': -3.142}, None, None
+500.03, [INFO], robot4, {'battery-level': '18.69'}, None, None
+510.02, [INFO], robot4, {'y': 17.994, 'x': -28.566, 'yaw': 3.142}, None, None
+510.02, [INFO], robot4, {'battery-level': '18.09'}, None, None
+520.03, [INFO], robot4, {'y': 17.994, 'x': -28.566, 'yaw': 3.142}, None, None
+520.03, [INFO], robot4, {'battery-level': '17.49'}, None, None
+530.03, [INFO], robot4, {'y': 17.994, 'x': -28.566, 'yaw': -3.142}, None, None
+530.03, [INFO], robot4, {'battery-level': '16.89'}, None, None
+540.02, [INFO], robot4, {'battery-level': '16.29'}, None, None
+540.02, [INFO], robot4, {'y': 17.994, 'x': -28.566, 'yaw': 3.142}, None, None
+550.02, [INFO], robot4, {'battery-level': '15.69'}, None, None
+550.02, [INFO], robot4, {'y': 17.995, 'x': -28.566, 'yaw': -3.142}, None, None
+560.01, [INFO], robot4, {'battery-level': '15.09'}, None, None
+560.01, [INFO], robot4, {'y': 17.995, 'x': -28.566, 'yaw': -3.142}, None, None
+570.08, [INFO], robot4, {'y': 17.995, 'x': -28.566, 'yaw': -3.142}, None, None
+570.08, [INFO], robot4, {'battery-level': '14.49'}, None, None
+580.07, [INFO], robot4, {'y': 17.995, 'x': -28.566, 'yaw': -3.142}, None, None
+580.07, [INFO], robot4, {'battery-level': '13.89'}, None, None
+590.06, [INFO], robot4, {'battery-level': '13.29'}, None, None
+590.06, [INFO], robot4, {'y': 17.995, 'x': -28.566, 'yaw': -3.142}, None, None
+600.03, [INFO], robot4, {'battery-level': '12.69'}, None, None
+600.03, [INFO], robot4, {'y': 17.995, 'x': -28.566, 'yaw': -3.142}, None, None
+610.02, [INFO], robot4, {'battery-level': '12.09'}, None, None
+610.02, [INFO], robot4, {'y': 17.995, 'x': -28.566, 'yaw': -3.142}, None, None
+620.02, [INFO], robot4, {'y': 17.995, 'x': -28.566, 'yaw': -3.142}, None, None
+620.02, [INFO], robot4, {'battery-level': '11.49'}, None, None
+630.01, [INFO], robot4, {'y': 17.995, 'x': -28.566, 'yaw': -3.142}, None, None
+630.01, [INFO], robot4, {'battery-level': '10.89'}, None, None
+640.00, [INFO], robot4, {'battery-level': '10.29'}, None, None
+640.00, [INFO], robot4, {'y': 17.996, 'x': -28.566, 'yaw': -3.142}, None, None
+650.08, [INFO], robot4, {'battery-level': '9.69'}, None, None
+650.08, [INFO], robot4, {'y': 17.996, 'x': -28.566, 'yaw': 3.142}, None, None
+660.08, [INFO], robot4, {'battery-level': '9.09'}, None, None
+660.08, [INFO], robot4, {'y': 17.996, 'x': -28.566, 'yaw': -3.142}, None, None
+670.07, [INFO], robot4, {'battery-level': '8.49'}, None, None
+670.07, [INFO], robot4, {'y': 17.996, 'x': -28.566, 'yaw': -3.142}, None, None
+680.06, [INFO], robot4, {'y': 17.996, 'x': -28.566, 'yaw': -3.142}, None, None
+680.06, [INFO], robot4, {'battery-level': '7.89'}, None, None
+690.05, [INFO], robot4, {'battery-level': '7.29'}, None, None
+690.05, [INFO], robot4, {'y': 17.996, 'x': -28.566, 'yaw': 3.142}, None, None
+700.03, [INFO], robot4, {'y': 17.996, 'x': -28.566, 'yaw': -3.142}, None, None
+700.03, [INFO], robot4, {'battery-level': '6.69'}, None, None
+710.02, [INFO], robot4, {'y': 17.996, 'x': -28.566, 'yaw': -3.142}, None, None
+710.02, [INFO], robot4, {'battery-level': '6.09'}, None, None
+720.02, [INFO], robot4, {'battery-level': '5.49'}, None, None
+720.02, [INFO], robot4, {'y': 17.997, 'x': -28.566, 'yaw': 3.142}, None, None
+729.07, [WARN], robot4, LOWBATT, None, None
+729.07, [WARN], None, end!, None, None
+730.02, [INFO], robot4, {'y': 17.997, 'x': -28.566, 'yaw': -3.142}, None, None
+740.02, [INFO], robot4, {'y': 17.997, 'x': -28.566, 'yaw': -3.142}, None, None

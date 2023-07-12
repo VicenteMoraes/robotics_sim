@@ -1,0 +1,42 @@
+0.00, [INFO], robot6, {'battery-level': '54.08'}, None, None
+0.12, [DEBUG], logger, ROBOTS_CONFIG={'avg_speed': 0.15, 'battery_charge': 0.5408465660492595, 'battery_discharge_rate': 0.00038, 'id': 6, 'local_plan': [['navigation', ['IC Room 2', [[-33.9, 18.93, 3.14], [-37.0, 18.93], [-37.0, 21.5], [-38.0, 21.5, 0.0]]], 'navto_room'], ['approach_person', ['nurse'], 'approach_nurse'], ['authenticate_person', ['nurse'], 'authenticate_nurse'], ['operate_drawer', ['open'], 'open_drawer_for_nurse'], ['send_message', ['nurse'], 'notify_nurse_of_open_drawer_for_nurse_completed'], ['wait_message', ['nurse'], 'wait_nurse_to_complete_deposit'], ['operate_drawer', ['close'], 'close_drawer_nurse'], ['navigation', ['Laboratory', [[-38.0, 21.5, 0.0], [-37.0, 21.5], [-37.0, 16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]], 'navto_lab'], ['approach_robot', ['lab_arm'], 'approach_arm'], ['operate_drawer', ['open'], 'open_drawer_lab'], ['send_message', ['lab_arm'], 'notify_lab_arm_of_open_drawer_lab_completed'], ['wait_message', ['lab_arm'], 'wait_lab_arm_to_complete_pick_up_sample'], ['operate_drawer', ['close'], 'close_drawer_lab']], 'location': 'IC Room 6', 'name': 'r6', 'position': [-33.9, 18.93, 3.14], 'skills': ['approach_person', 'approach_robot', 'authenticate_person', 'navigation', 'operate_drawer']}, None, None
+0.12, [DEBUG], logger, Simulation open, None, None
+10.07, [INFO], robot6, {'battery-level': '53.74'}, None, None
+10.07, [INFO], robot6, {'y': 18.662, 'x': -34.264, 'yaw': -3.142}, None, None
+20.08, [INFO], robot6, {'battery-level': '53.36'}, None, None
+20.08, [INFO], robot6, {'y': 17.85, 'x': -35.948, 'yaw': 3.137}, None, None
+30.08, [INFO], robot6, {'y': 19.605, 'x': -36.859, 'yaw': 3.137}, None, None
+30.08, [INFO], robot6, {'battery-level': '52.98'}, None, None
+39.91, [INFO], robot6, {'y': 21.506, 'x': -37.456, 'yaw': 3.14}, None, None
+40.01, [INFO], robot6, {'battery-level': '52.60'}, None, None
+50.05, [INFO], robot6, {'y': 21.442, 'x': -38.039, 'yaw': -3.141}, None, None
+50.05, [INFO], robot6, {'battery-level': '52.22'}, None, None
+60.06, [INFO], robot6, {'battery-level': '51.84'}, None, None
+60.06, [INFO], robot6, {'y': 21.361, 'x': -38.132, 'yaw': 3.142}, None, None
+70.02, [INFO], robot6, {'battery-level': '51.46'}, None, None
+70.02, [INFO], robot6, {'y': 21.442, 'x': -38.141, 'yaw': -3.142}, None, None
+70.02, [info], nurse, sync, received-request, (status=sending-request)
+70.02, [info], nurse, sync, request-sent, (status=waiting)
+70.02, [info], nurse, sync, wait-message, (status=message-received)
+80.04, [INFO], robot6, {'battery-level': '51.08'}, None, None
+80.04, [INFO], robot6, {'y': 20.448, 'x': -37.192, 'yaw': -3.142}, None, None
+90.07, [INFO], robot6, {'battery-level': '50.70'}, None, None
+90.07, [INFO], robot6, {'y': 18.328, 'x': -37.098, 'yaw': 3.14}, None, None
+100.00, [INFO], robot6, {'battery-level': '50.32'}, None, None
+100.00, [INFO], robot6, {'y': 16.253, 'x': -36.949, 'yaw': 3.141}, None, None
+110.06, [INFO], robot6, {'battery-level': '49.94'}, None, None
+110.06, [INFO], robot6, {'y': 15.517, 'x': -34.931, 'yaw': 3.142}, None, None
+120.09, [INFO], robot6, {'battery-level': '49.56'}, None, None
+120.09, [INFO], robot6, {'y': 15.454, 'x': -32.799, 'yaw': -3.141}, None, None
+130.01, [INFO], robot6, {'battery-level': '49.18'}, None, None
+130.01, [INFO], robot6, {'y': 15.524, 'x': -30.702, 'yaw': -3.141}, None, None
+140.01, [INFO], robot6, {'battery-level': '48.80'}, None, None
+140.01, [INFO], robot6, {'y': 15.746, 'x': -28.586, 'yaw': 3.141}, None, None
+150.04, [INFO], robot6, {'battery-level': '48.42'}, None, None
+150.04, [INFO], robot6, {'y': 15.814, 'x': -26.469, 'yaw': 3.141}, None, None
+160.04, [INFO], robot6, {'battery-level': '48.04'}, None, None
+160.04, [INFO], robot6, {'y': 13.865, 'x': -25.735, 'yaw': 3.141}, None, None
+170.05, [INFO], robot6, {'y': 12.847, 'x': -25.943, 'yaw': -3.142}, None, None
+170.05, [INFO], robot6, {'battery-level': '47.66'}, None, None
+175.10, [info], lab_arm, sync, wait-message, (status=message-received)
+176.01, [WARN], robot6, SUCCESS, None, None

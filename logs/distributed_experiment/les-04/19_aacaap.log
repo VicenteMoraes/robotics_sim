@@ -1,0 +1,70 @@
+0.00, [DEBUG], logger, ROBOTS_CONFIG={'avg_speed': 0.15, 'battery_charge': 0.17496190705907763, 'battery_discharge_rate': 0.00026000000000000003, 'id': 4, 'local_plan': [['navigation', ['IC Room 6', [[-39.44, 33.95, 0.0], [-37.0, 33.95], [-37.0, 18.93], [-33.9, 18.93, 3.14]]], 'navto_room'], ['approach_person', ['nurse'], 'approach_nurse'], ['authenticate_person', ['nurse'], 'authenticate_nurse'], ['operate_drawer', ['open'], 'open_drawer_for_nurse'], ['send_message', ['nurse'], 'notify_nurse_of_open_drawer_for_nurse_completed'], ['wait_message', ['nurse'], 'wait_nurse_to_complete_deposit'], ['operate_drawer', ['close'], 'close_drawer_nurse'], ['navigation', ['Laboratory', [[-33.9, 18.93, 3.14], [-37.0, 18.93], [-37.0, 16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]], 'navto_lab'], ['approach_robot', ['lab_arm'], 'approach_arm'], ['operate_drawer', ['open'], 'open_drawer_lab'], ['send_message', ['lab_arm'], 'notify_lab_arm_of_open_drawer_lab_completed'], ['wait_message', ['lab_arm'], 'wait_lab_arm_to_complete_pick_up_sample'], ['operate_drawer', ['close'], 'close_drawer_lab']], 'location': 'IC Room 4', 'name': 'r4', 'position': [-39.44, 33.95, 0.0], 'skills': ['approach_person', 'approach_robot', 'authenticate_person', 'navigation', 'operate_drawer']}, None, None
+0.00, [DEBUG], logger, Simulation open, None, None
+10.08, [INFO], robot4, {'y': 34.272, 'x': -39.184, 'yaw': -3.142}, None, None
+10.08, [INFO], robot4, {'battery-level': '17.26'}, None, None
+20.06, [INFO], robot4, {'battery-level': '17.00'}, None, None
+20.06, [INFO], robot4, {'y': 34.144, 'x': -37.188, 'yaw': 3.142}, None, None
+30.06, [INFO], robot4, {'battery-level': '16.74'}, None, None
+30.06, [INFO], robot4, {'y': 32.057, 'x': -37.036, 'yaw': 3.141}, None, None
+40.06, [INFO], robot4, {'battery-level': '16.48'}, None, None
+40.06, [INFO], robot4, {'y': 29.942, 'x': -36.999, 'yaw': 3.141}, None, None
+50.02, [INFO], robot4, {'battery-level': '16.22'}, None, None
+50.02, [INFO], robot4, {'y': 27.827, 'x': -36.996, 'yaw': 3.141}, None, None
+59.93, [INFO], robot4, {'battery-level': '15.96'}, None, None
+60.03, [INFO], robot4, {'y': 25.711, 'x': -37.017, 'yaw': -3.142}, None, None
+70.01, [INFO], robot4, {'y': 23.609, 'x': -37.024, 'yaw': 3.14}, None, None
+70.01, [INFO], robot4, {'battery-level': '15.70'}, None, None
+80.00, [INFO], robot4, {'battery-level': '15.44'}, None, None
+80.00, [INFO], robot4, {'y': 21.499, 'x': -37.099, 'yaw': 3.141}, None, None
+90.08, [INFO], robot4, {'battery-level': '15.18'}, None, None
+90.08, [INFO], robot4, {'y': 19.37, 'x': -37.087, 'yaw': 3.139}, None, None
+100.03, [INFO], robot4, {'battery-level': '14.92'}, None, None
+100.03, [INFO], robot4, {'y': 17.826, 'x': -35.653, 'yaw': 3.141}, None, None
+110.02, [INFO], robot4, {'battery-level': '14.66'}, None, None
+110.02, [INFO], robot4, {'y': 18.731, 'x': -34.063, 'yaw': -3.142}, None, None
+120.02, [INFO], robot4, {'battery-level': '14.40'}, None, None
+120.02, [INFO], robot4, {'y': 18.93, 'x': -33.928, 'yaw': 3.142}, None, None
+120.60, [info], nurse, sync, received-request, (status=sending-request)
+120.60, [info], nurse, sync, request-sent, (status=waiting)
+120.60, [info], nurse, sync, wait-message, (status=message-received)
+130.09, [INFO], robot4, {'battery-level': '14.14'}, None, None
+130.09, [INFO], robot4, {'y': 17.764, 'x': -35.073, 'yaw': -3.142}, None, None
+140.07, [INFO], robot4, {'battery-level': '13.88'}, None, None
+140.07, [INFO], robot4, {'y': 18.039, 'x': -36.82, 'yaw': -3.142}, None, None
+150.04, [INFO], robot4, {'y': 17.372, 'x': -36.863, 'yaw': -3.141}, None, None
+150.04, [INFO], robot4, {'battery-level': '13.62'}, None, None
+160.03, [INFO], robot4, {'battery-level': '13.36'}, None, None
+160.03, [INFO], robot4, {'y': 17.426, 'x': -36.642, 'yaw': 3.14}, None, None
+170.01, [INFO], robot4, {'battery-level': '13.10'}, None, None
+170.01, [INFO], robot4, {'y': 17.225, 'x': -37.066, 'yaw': -3.142}, None, None
+180.08, [INFO], robot4, {'battery-level': '12.84'}, None, None
+180.08, [INFO], robot4, {'y': 17.385, 'x': -36.885, 'yaw': 3.141}, None, None
+190.06, [INFO], robot4, {'battery-level': '12.58'}, None, None
+190.06, [INFO], robot4, {'y': 17.498, 'x': -36.821, 'yaw': -3.142}, None, None
+200.05, [INFO], robot4, {'y': 17.335, 'x': -37.104, 'yaw': 3.141}, None, None
+200.05, [INFO], robot4, {'battery-level': '12.32'}, None, None
+210.08, [INFO], robot4, {'battery-level': '12.06'}, None, None
+210.08, [INFO], robot4, {'y': 17.413, 'x': -36.905, 'yaw': 3.142}, None, None
+220.07, [INFO], robot4, {'battery-level': '11.80'}, None, None
+220.07, [INFO], robot4, {'y': 17.257, 'x': -36.798, 'yaw': 3.141}, None, None
+230.06, [INFO], robot4, {'battery-level': '11.54'}, None, None
+230.06, [INFO], robot4, {'y': 17.227, 'x': -37.011, 'yaw': -3.141}, None, None
+240.06, [INFO], robot4, {'battery-level': '11.28'}, None, None
+240.06, [INFO], robot4, {'y': 17.251, 'x': -37.097, 'yaw': 3.141}, None, None
+250.07, [INFO], robot4, {'battery-level': '11.02'}, None, None
+250.07, [INFO], robot4, {'y': 17.483, 'x': -36.742, 'yaw': 3.14}, None, None
+260.02, [INFO], robot4, {'battery-level': '10.76'}, None, None
+260.02, [INFO], robot4, {'y': 17.247, 'x': -37.069, 'yaw': 3.141}, None, None
+270.01, [INFO], robot4, {'battery-level': '10.50'}, None, None
+270.01, [INFO], robot4, {'y': 17.473, 'x': -37.017, 'yaw': 3.141}, None, None
+280.08, [INFO], robot4, {'y': 17.33, 'x': -36.995, 'yaw': 3.141}, None, None
+280.08, [INFO], robot4, {'battery-level': '10.24'}, None, None
+290.06, [INFO], robot4, {'y': 17.396, 'x': -36.959, 'yaw': -3.142}, None, None
+290.06, [INFO], robot4, {'battery-level': '9.98'}, None, None
+300.04, [INFO], robot4, {'y': 17.27, 'x': -36.827, 'yaw': -3.141}, None, None
+300.04, [INFO], robot4, {'battery-level': '9.72'}, None, None
+310.03, [INFO], robot4, {'y': 17.406, 'x': -37.032, 'yaw': -3.141}, None, None
+310.03, [INFO], robot4, {'battery-level': '9.46'}, None, None
+315.44, [WARN], robot4, SKILL-FAILURE, navigation, navto_lab
+320.07, [INFO], robot4, {'battery-level': '9.20'}, None, None
+320.07, [INFO], robot4, {'y': 17.302, 'x': -36.993, 'yaw': -3.142}, None, None
