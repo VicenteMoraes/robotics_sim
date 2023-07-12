@@ -20,11 +20,12 @@ class Trial(Module):
             plugin = self.queue.get()
             plugin.run()
 
-    def shutdown(self):
+    def shutdown(self, restart: bool = False):
         for plugin in self.children:
             plugin.stop()
         try:
-            self.event_callback(msg="RUN NEXT TRIAL")
+            if not restart:
+                self.event_callback(msg="RUN NEXT TRIAL")
         except AttributeError:
             pass
 
@@ -32,5 +33,11 @@ class Trial(Module):
         match msg:
             case "SHUTDOWN":
                 self.shutdown()
+            case "RESTART":
+                self.shutdown(restart=True)
+                for child in self.children:
+                    self.queue.put(child)
+                self.run()
+                print(f'Rerunning Trial {self.trial_id}')
             case _:
                 super(Trial, self).event_callback(msg)
