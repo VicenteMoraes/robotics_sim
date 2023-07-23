@@ -1,42 +1,61 @@
 0.00, [DEBUG], nurse, NURSE_CONFIG={'location': 'IC Room 6', 'position': [-33.9, 18.93, 3.14]}, None, None
+0.00, [INFO], robot5, {'battery-level': '72.58'}, None, None
 0.12, [DEBUG], logger, ROBOTS_CONFIG={'avg_speed': 0.15, 'battery_charge': 0.7258412726774711, 'battery_discharge_rate': 0.00076, 'id': 5, 'local_plan': [['navigation', ['IC Room 6', [[-13.5, 18.0, -1.57], [-13.5, 16.0], [-37.0, 16.0], [-37.0, 18.93], [-33.9, 18.93, 3.14]]], 'navto_room'], ['approach_person', ['nurse'], 'approach_nurse'], ['authenticate_person', ['nurse'], 'authenticate_nurse'], ['operate_drawer', ['open'], 'open_drawer_for_nurse'], ['send_message', ['nurse'], 'notify_nurse_of_open_drawer_for_nurse_completed'], ['wait_message', ['nurse'], 'wait_nurse_to_complete_deposit'], ['operate_drawer', ['close'], 'close_drawer_nurse'], ['navigation', ['Laboratory', [[-33.9, 18.93, 3.14], [-37.0, 18.93], [-37.0, 16.0], [-26.0, 16.0], [-26.0, 13.0, 1.57]]], 'navto_lab'], ['approach_robot', ['lab_arm'], 'approach_arm'], ['operate_drawer', ['open'], 'open_drawer_lab'], ['send_message', ['lab_arm'], 'notify_lab_arm_of_open_drawer_lab_completed'], ['wait_message', ['lab_arm'], 'wait_lab_arm_to_complete_pick_up_sample'], ['operate_drawer', ['close'], 'close_drawer_lab']], 'location': 'PC Room 7', 'name': 'r5', 'position': [-13.5, 18.0, -1.57], 'skills': ['approach_person', 'approach_robot', 'authenticate_person', 'navigation', 'operate_drawer']}, None, None
 0.12, [DEBUG], logger, Simulation open, None, None
-10.05, [INFO], robot5, {'battery-level': '71.90'}, None, None
-10.05, [INFO], robot5, {'y': 17.622, 'x': -13.499, 'yaw': 3.142}, None, None
-20.01, [INFO], robot5, {'y': 15.962, 'x': -14.196, 'yaw': 3.14}, None, None
-20.01, [INFO], robot5, {'battery-level': '71.14'}, None, None
-30.03, [INFO], robot5, {'y': 15.893, 'x': -16.321, 'yaw': 3.141}, None, None
-30.03, [INFO], robot5, {'battery-level': '70.38'}, None, None
-40.07, [INFO], robot5, {'battery-level': '69.62'}, None, None
-40.07, [INFO], robot5, {'y': 15.893, 'x': -18.427, 'yaw': -3.139}, None, None
-50.04, [INFO], robot5, {'y': 16.074, 'x': -20.521, 'yaw': 3.141}, None, None
-50.04, [INFO], robot5, {'battery-level': '68.86'}, None, None
-60.09, [INFO], robot5, {'battery-level': '68.10'}, None, None
-60.09, [INFO], robot5, {'y': 16.014, 'x': -22.644, 'yaw': 3.141}, None, None
-70.03, [INFO], robot5, {'y': 15.999, 'x': -24.735, 'yaw': 3.141}, None, None
-70.03, [INFO], robot5, {'battery-level': '67.34'}, None, None
-80.04, [INFO], robot5, {'y': 16.018, 'x': -26.849, 'yaw': 3.142}, None, None
-80.04, [INFO], robot5, {'battery-level': '66.58'}, None, None
-90.08, [INFO], robot5, {'battery-level': '65.82'}, None, None
-90.08, [INFO], robot5, {'y': 16.087, 'x': -28.957, 'yaw': 3.141}, None, None
-100.00, [INFO], robot5, {'y': 16.006, 'x': -31.057, 'yaw': 3.141}, None, None
-100.00, [INFO], robot5, {'battery-level': '65.06'}, None, None
-110.03, [INFO], robot5, {'y': 15.761, 'x': -33.17, 'yaw': -3.141}, None, None
+10.08, [INFO], robot5, {'y': 17.352, 'x': -13.499, 'yaw': 3.142}, None, None
+10.08, [INFO], robot5, {'battery-level': '71.90'}, None, None
+20.06, [INFO], robot5, {'battery-level': '71.14'}, None, None
+20.06, [INFO], robot5, {'y': 16.101, 'x': -14.524, 'yaw': 3.142}, None, None
+30.09, [INFO], robot5, {'y': 15.996, 'x': -16.641, 'yaw': 3.141}, None, None
+30.09, [INFO], robot5, {'battery-level': '70.38'}, None, None
+40.01, [INFO], robot5, {'y': 16.051, 'x': -18.722, 'yaw': -3.142}, None, None
+40.01, [INFO], robot5, {'battery-level': '69.62'}, None, None
+50.02, [INFO], robot5, {'battery-level': '68.86'}, None, None
+50.02, [INFO], robot5, {'y': 16.241, 'x': -20.844, 'yaw': -3.142}, None, None
+59.93, [INFO], robot5, {'y': 16.193, 'x': -22.961, 'yaw': 3.142}, None, None
+60.03, [INFO], robot5, {'battery-level': '68.10'}, None, None
+70.08, [INFO], robot5, {'battery-level': '67.34'}, None, None
+70.08, [INFO], robot5, {'y': 16.139, 'x': -25.088, 'yaw': 3.141}, None, None
+80.05, [INFO], robot5, {'battery-level': '66.58'}, None, None
+80.05, [INFO], robot5, {'y': 16.148, 'x': -27.193, 'yaw': 3.141}, None, None
+90.07, [INFO], robot5, {'battery-level': '65.82'}, None, None
+90.07, [INFO], robot5, {'y': 16.229, 'x': -29.309, 'yaw': -3.142}, None, None
+100.07, [INFO], robot5, {'battery-level': '65.06'}, None, None
+100.07, [INFO], robot5, {'y': 16.038, 'x': -31.427, 'yaw': -3.142}, None, None
+110.03, [INFO], robot5, {'y': 15.61, 'x': -33.512, 'yaw': -3.137}, None, None
 110.03, [INFO], robot5, {'battery-level': '64.30'}, None, None
-120.02, [INFO], robot5, {'battery-level': '63.54'}, None, None
-120.02, [INFO], robot5, {'y': 15.456, 'x': -35.258, 'yaw': 3.141}, None, None
-130.04, [INFO], robot5, {'battery-level': '62.78'}, None, None
-130.04, [INFO], robot5, {'y': 16.466, 'x': -36.726, 'yaw': -3.141}, None, None
-140.05, [INFO], robot5, {'y': 17.634, 'x': -36.771, 'yaw': -3.141}, None, None
+120.06, [INFO], robot5, {'y': 15.551, 'x': -35.617, 'yaw': -3.141}, None, None
+120.06, [INFO], robot5, {'battery-level': '63.54'}, None, None
+130.10, [INFO], robot5, {'y': 16.888, 'x': -36.698, 'yaw': 3.142}, None, None
+130.10, [INFO], robot5, {'battery-level': '62.78'}, None, None
 140.05, [INFO], robot5, {'battery-level': '62.02'}, None, None
-150.01, [INFO], robot5, {'y': 17.793, 'x': -36.584, 'yaw': -3.141}, None, None
-150.01, [INFO], robot5, {'battery-level': '61.26'}, None, None
-160.06, [INFO], robot5, {'battery-level': '60.50'}, None, None
-160.06, [INFO], robot5, {'y': 18.293, 'x': -35.631, 'yaw': -3.141}, None, None
-170.08, [INFO], robot5, {'battery-level': '59.74'}, None, None
-170.08, [INFO], robot5, {'y': 18.134, 'x': -35.587, 'yaw': -3.142}, None, None
-180.01, [INFO], robot5, {'battery-level': '58.98'}, None, None
-180.01, [INFO], robot5, {'y': 18.012, 'x': -35.36, 'yaw': 3.138}, None, None
-189.40, [WARN], robot5, SKILL-FAILURE, navigation, navto_room
-190.04, [INFO], robot5, {'y': 17.997, 'x': -35.347, 'yaw': -3.142}, None, None
-190.04, [INFO], robot5, {'battery-level': '58.22'}, None, None
+140.05, [INFO], robot5, {'y': 17.686, 'x': -36.709, 'yaw': 3.141}, None, None
+150.07, [INFO], robot5, {'battery-level': '61.26'}, None, None
+150.07, [INFO], robot5, {'y': 18.14, 'x': -35.942, 'yaw': 3.141}, None, None
+160.09, [INFO], robot5, {'battery-level': '60.50'}, None, None
+160.09, [INFO], robot5, {'y': 18.14, 'x': -35.942, 'yaw': -3.142}, None, None
+170.02, [INFO], robot5, {'y': 18.141, 'x': -35.941, 'yaw': -3.136}, None, None
+170.02, [INFO], robot5, {'battery-level': '59.74'}, None, None
+180.00, [INFO], robot5, {'y': 18.278, 'x': -35.715, 'yaw': -3.142}, None, None
+180.00, [INFO], robot5, {'battery-level': '58.98'}, None, None
+190.01, [INFO], robot5, {'y': 18.278, 'x': -35.717, 'yaw': -3.142}, None, None
+190.01, [INFO], robot5, {'battery-level': '58.22'}, None, None
+200.05, [INFO], robot5, {'battery-level': '57.46'}, None, None
+200.05, [INFO], robot5, {'y': 18.278, 'x': -35.717, 'yaw': -3.142}, None, None
+210.07, [INFO], robot5, {'battery-level': '56.70'}, None, None
+210.07, [INFO], robot5, {'y': 18.277, 'x': -35.717, 'yaw': -3.142}, None, None
+220.07, [INFO], robot5, {'y': 18.344, 'x': -35.974, 'yaw': 3.141}, None, None
+220.07, [INFO], robot5, {'battery-level': '55.94'}, None, None
+230.09, [INFO], robot5, {'battery-level': '55.18'}, None, None
+230.09, [INFO], robot5, {'y': 18.272, 'x': -35.881, 'yaw': 3.142}, None, None
+240.02, [INFO], robot5, {'y': 18.27, 'x': -35.873, 'yaw': 3.142}, None, None
+240.02, [INFO], robot5, {'battery-level': '54.42'}, None, None
+250.02, [INFO], robot5, {'battery-level': '53.66'}, None, None
+250.02, [INFO], robot5, {'y': 18.268, 'x': -35.856, 'yaw': -3.142}, None, None
+260.09, [INFO], robot5, {'battery-level': '52.90'}, None, None
+260.09, [INFO], robot5, {'y': 18.266, 'x': -35.842, 'yaw': 3.142}, None, None
+270.05, [INFO], robot5, {'y': 18.256, 'x': -35.843, 'yaw': 3.141}, None, None
+270.05, [INFO], robot5, {'battery-level': '52.14'}, None, None
+280.05, [INFO], robot5, {'y': 18.256, 'x': -35.845, 'yaw': -3.142}, None, None
+280.05, [INFO], robot5, {'battery-level': '51.38'}, None, None
+283.62, [WARN], robot5, SKILL-FAILURE, navigation, navto_room
