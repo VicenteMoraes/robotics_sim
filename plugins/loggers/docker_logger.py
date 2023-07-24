@@ -8,7 +8,8 @@ import requests
 
 class DockerLogger(Logger):
     def __init__(self, target: str, write_to_file: bool = False, filename: str = '', timeout_stop: bool = False,
-                 update_interval: float = 30, log_kwargs: dict = None, timeout: float = None, *args, **kwargs):
+                 update_interval: float = 30, log_kwargs: dict = None, timeout: float = None, do_restart: bool = False,
+                 *args, **kwargs):
         super(DockerLogger, self).__init__(*args, **kwargs)
         self.target = target
         self.log_stream = None
@@ -22,6 +23,7 @@ class DockerLogger(Logger):
         log_kwargs = log_kwargs or {}
         self.timer = RepeatedTimer(update_interval, self.update, **log_kwargs)
         self.time = None
+        self.do_restart = do_restart
 
     def update(self, **log_kwargs):
         if self.timeout is not None:
@@ -51,7 +53,7 @@ class DockerLogger(Logger):
         if self.target:
             if self.target in self.logs:
                 self.stop_timer(target_reached=True)
-            elif self.count > 2:
+            elif self.do_restart and self.count > 2:
                 self.stop_timer()
 
     def write_logs(self):
@@ -68,7 +70,7 @@ class DockerLogger(Logger):
         self.timer.stop()
         if self.timeout_stop:
             if not target_reached:
-                if self.logs.count('\n') < 7:
+                if self.do_restart and self.logs.count('\n') < 7:
                     self.event_callback(msg="RESTART")
                     return
                 self.logs += f'\n{formatlog("WARN", "logger", "TIMEOUT")}\n'
