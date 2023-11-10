@@ -8,6 +8,7 @@ import docker
 import os
 import subprocess
 from paramiko.ssh_exception import ChannelException
+from threading import Thread
 
 
 class Module(Component):
@@ -66,6 +67,7 @@ class Plugin(Module):
         self.dockerfile = dockerfile  # Name of dockerfile file
         self.auto_remove = auto_remove
         self.image = None
+        self.logs_thread = None
         self.container = None
         self.command = command
         self.network = network
@@ -96,11 +98,17 @@ class Plugin(Module):
         self.env["DISPLAY"] = os.environ['DISPLAY']
         self.env["QT_GRAPHICSSYSTEM"] = "native"
         self.env["QT_X11_NO_MITSHM"] = "1"
-        #self.env["XAUTHORITY"] = "/tmp/.docker.xauth"
         self.env["XAUTH_LIST"] = subprocess.run(["xauth", "list"], text=True, capture_output=True).stdout
 
     def connect(self, network):
         network.connect(self.container)
+
+    def build(self, **build_kwargs):
+        self.image, build_logs = self.docker_client.images.build(path=self.path, dockerfile=self.dockerfile,
+                                                                      tag=self.tag, **build_kwargs)
+        self.logs_thread = Thread(target=self.print_logs, args=[build_logs])
+        self.logs_thread.run()
+        super(Plugin, self).build()
 
     def run(self, **run_kwargs):
         if self.network:
@@ -115,11 +123,6 @@ class Plugin(Module):
             pass
         super(Plugin, self).run()
 
-    def build(self, **build_kwargs):
-        self.image = self.docker_client.images.build(path=self.path, dockerfile=self.dockerfile, tag=self.tag,
-                                                     **build_kwargs)
-        super(Plugin, self).build()
-
     def add_logger(self, target: str = "", write_to_file: bool = False, filename: str = '', update_interval: float = 15,
                    log_kwargs: dict = None, timeout: float = 15*60, add_logger_func: bool = True,
                    *logger_args, **logger_kwargs):
@@ -129,7 +132,6 @@ class Plugin(Module):
         self.add(logger)
         if add_logger_func:
             self._start_logger = logger.start_timer
-
 
     def kill(self, signal=None):
         self.container.kill(signal)
@@ -146,3 +148,10 @@ class Plugin(Module):
                 continue
         super(Plugin, self).stop()
 
+    def print_logs(self, log_generator):
+        print('\x1b[6;30;42m' + f"Building image for tag: {self.tag}" + '\x1b[0m')
+        for log in log_generator:
+            try:
+                print(log['stream'])
+            except KeyError:
+                print(log)

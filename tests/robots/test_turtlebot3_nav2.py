@@ -11,7 +11,7 @@ def test_turtlebot3withnav2():
     client = docker.from_env()
     network = ROS2Network(client, name="ros2")
     sim = Gazebo(client, headless=False, auto_remove=True, network=network, path_to_world="/opt/ros/humble/share/turtlebot3_gazebo/worlds/turtlebot3_world.world")
-    sim.add(DockerLogger(target='', write_to_file=True, filename='sim.log', timeout=300))
+    sim.add(DockerLogger(target='', write_to_file=True, filename='sim.log', timeout=300, update_interval=1))
     ps = pose.Pose()
     ps.position.x = -2
     ps.position.y = -0.5
