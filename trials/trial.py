@@ -1,6 +1,6 @@
 import docker.errors
 
-from plugins.plugin import Module
+from modules.base_module import Module
 from queue import PriorityQueue
 
 

@@ -1,14 +1,14 @@
-from plugins.plugin import Plugin
+from modules.base_module import DockerModule
 from core.components import ProjectPath
 from docker import DockerClient
-from plugins.networks.ros2_network import ROS2Network
+from modules.networks.ros2_network import ROS2Network
 from core.pose import Pose
 
 
 DEFAULT_PATH = str(ProjectPath/"dockerfiles/Ros2/SkillLibrary")
 
 
-class SkillLibrary(Plugin):
+class SkillLibrary(DockerModule):
     def __init__(self, docker_client: DockerClient, config: str, initial_pose: Pose, network: ROS2Network,
                  path: str = DEFAULT_PATH, robot_name: str = 'robot', robot_namespace: str = 'robot',
                  tag: str = "skill_library", command: str = "python3 launch/run_from_config.py", *args, **kwargs):

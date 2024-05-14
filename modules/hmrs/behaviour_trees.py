@@ -1,11 +1,11 @@
-from plugins.plugin import Plugin
+from modules.base_module import DockerModule
 from core.components import ProjectPath
 from docker import DockerClient
 
 DEFAULT_PATH = str(ProjectPath/"dockerfiles/hmrs/BehaviourTrees")
 
 
-class BehaviourTrees(Plugin):
+class BehaviourTrees(DockerModule):
     def __init__(self, docker_client: DockerClient, config: str, path: str = DEFAULT_PATH, tag: str = "bt_skills",
                  command: str = None, *args, **kwargs):
         super(BehaviourTrees, self).__init__(docker_client=docker_client, path=path, tag=tag,

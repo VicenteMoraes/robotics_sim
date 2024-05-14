@@ -1,4 +1,4 @@
-from plugins.hmrs.load_experiment import parse_config
+from modules.hmrs.load_experiment import parse_config
 from core.components import ProjectPath
 from trials.hmrs_trial import HMRSTrial
 

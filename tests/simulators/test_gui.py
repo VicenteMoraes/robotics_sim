@@ -1,4 +1,4 @@
-from plugins.simulators.rmf_gazebo_simulator import RMFGazebo
+from modules.simulators.rmf_gazebo_simulator import RMFGazebo
 import docker
 
 

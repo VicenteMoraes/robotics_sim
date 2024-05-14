@@ -1,4 +1,4 @@
-from plugins.robots.turtlebot3 import Turtlebot3
+from modules.robots.turtlebot3 import Turtlebot3
 from docker import DockerClient
 from core.components import ProjectPath
 

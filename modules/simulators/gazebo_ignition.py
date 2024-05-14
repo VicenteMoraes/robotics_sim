@@ -1,5 +1,5 @@
 from docker import DockerClient
-from plugins.simulators.simulator import Simulator
+from modules.simulators.simulator import Simulator
 from core.components import ProjectPath
 
 DEFAULT_PATH = str(ProjectPath/"dockerfiles/GazeboIgnition/")

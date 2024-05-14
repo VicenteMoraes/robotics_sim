@@ -1,4 +1,4 @@
-from plugins.plugin import Module
+from modules.base_module import Module
 import docker
 
 

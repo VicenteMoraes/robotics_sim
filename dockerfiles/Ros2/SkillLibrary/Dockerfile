@@ -1,10 +1,9 @@
 FROM ros:humble-ros-base
 
+RUN apt update
 RUN apt update && apt full-upgrade -y
 RUN apt install -y git python3-pip
-RUN apt update
 RUN apt install -y ros-${ROS_DISTRO}-rmw-cyclonedds-cpp
-RUN apt update
 RUN apt install -y ros-${ROS_DISTRO}-navigation2
 RUN apt install -y ros-${ROS_DISTRO}-nav2*
 RUN apt install -y vim
@@ -19,8 +18,9 @@ RUN sudo apt install -y libopencv-dev python3-opencv python3-numpy
 RUN sudo apt install -y ros-${ROS_DISTRO}-vision-opencv
 RUN pip3 install imutils
 
-RUN git clone https://github.com/VicenteMoraes/skill_library
-RUN pip3 install -r /skill_library/requirements.txt
+#RUN git clone https://github.com/VicenteMoraes/skill_library
+COPY skill_library /skill_library
+RUN pip3 install -e /skill_library
 
 
 WORKDIR skill_library

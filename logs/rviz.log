@@ -1,6 +1,4 @@
 QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
-[0m[INFO] [1662739280.266029584] [rviz2]: Stereo is NOT SUPPORTED[0m
-[0m[INFO] [1662739280.266159533] [rviz2]: OpenGl version: 4.6 (GLSL 4.6)[0m
-[0m[INFO] [1662739281.050359419] [rviz2]: Stereo is NOT SUPPORTED[0m
-[0m[INFO] [1662739390.765601938] [rviz2]: Trying to create a map of size 384 x 384 using 1 swatches[0m
-[0m[INFO] [1662739407.091282107] [rviz2]: Setting goal pose: Frame:map, Position(1.62005, -0.505823, 0), Orientation(0, 0, 0.999292, 0.037621) = Angle: 3.06633[0m
+[0m[INFO] [1670855429.037612535] [rviz2]: Stereo is NOT SUPPORTED[0m
+[0m[INFO] [1670855429.037753699] [rviz2]: OpenGl version: 4.6 (GLSL 4.6)[0m
+[0m[INFO] [1670855429.609311744] [rviz2]: Stereo is NOT SUPPORTED[0m

@@ -1,4 +1,4 @@
-from plugins.robots.robot import Robot
+from modules.robots.robot import Robot
 from docker import DockerClient
 from core.components import ProjectPath
 

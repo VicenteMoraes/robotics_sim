@@ -1,8 +1,8 @@
-from plugins.plugin import Plugin
+from modules.base_module import DockerModule
 from docker import DockerClient
 
 
-class Simulator(Plugin):
+class Simulator(DockerModule):
     def __init__(self, docker_client: DockerClient, path: str, headless_command: str, gui_command: str, headless: bool = True,
                  tag: str = "sim", path_to_world: str = "", world_arg: str = "world_map", *args, **kwargs):
         super(Simulator, self).__init__(docker_client=docker_client, path=path, tag=tag, command="", *args, **kwargs)
@@ -11,7 +11,6 @@ class Simulator(Plugin):
 
         if not self.headless:
             self.command = gui_command
-            self.load_gui()
         else:
             self.command = headless_command
 

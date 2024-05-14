@@ -1,4 +1,4 @@
-from plugins.robots.robot import Robot
+from modules.robots.robot import Robot
 from core.components import ProjectPath
 from core.pose import Pose
 from docker import DockerClient
@@ -8,11 +8,11 @@ DEFAULT_PATH = str(ProjectPath/"dockerfiles/Robots/Turtlebot4")
 
 class Turtlebot4(Robot):
     def __init__(self, docker_client: DockerClient, path: str = DEFAULT_PATH, tag: str = "turtlebot4",
-                 command: str = "ros2 launch --debug /workdir/launch/tb4_bringup.launch.py slam:=true",
+                 command: str = "ros2 launch --debug /workdir/launch/tb4_bringup.launch.py",
                  robot_name: str = "turtlebot4", robot_namespace: str = "turtlebot4", initial_pose: Pose = None,
                  sim_hostname: str = 'gz_sim', use_rviz: bool = False, use_nav2: bool = False, use_slam: bool = False,
                  spawn_dock: bool = False, dock_pose: Pose = None, robot_model: str = "lite", map_dir: str = "",
-                 map_yaml: str = '/workdir/map/map.yaml', *args, **kwargs):
+                 map_yaml: str = '/workdir/map/map.yaml', use_localization: bool = False, *args, **kwargs):
         super(Turtlebot4, self).__init__(docker_client=docker_client, path=path, tag=tag, command=command,
                                          robot_name=robot_name, robot_namespace=robot_namespace,
                                          initial_pose=initial_pose, *args, **kwargs)
@@ -22,6 +22,7 @@ class Turtlebot4(Robot):
         self.env['USE_RVIZ'] = use_rviz
         self.env['USE_NAV2'] = use_nav2
         self.env['USE_SLAM'] = use_slam
+        self.env['USE_LOCALIZATION'] = use_localization
         self.robot_model = robot_model
         self.env['ROBOT_MODEL'] = robot_model
         self.env['MAP_YAML'] = map_yaml

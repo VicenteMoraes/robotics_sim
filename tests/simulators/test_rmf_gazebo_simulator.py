@@ -1,5 +1,5 @@
 import docker
-from plugins.simulators.rmf_gazebo_simulator import RMFGazebo
+from modules.simulators.rmf_gazebo_simulator import RMFGazebo
 
 
 def test_build():

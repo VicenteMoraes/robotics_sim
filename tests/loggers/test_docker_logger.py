@@ -1,6 +1,6 @@
 import docker
-from plugins.simulators.gazebo import Gazebo
-from plugins.loggers.docker_logger import DockerLogger
+from modules.simulators.gazebo import Gazebo
+from modules.loggers.docker_logger import DockerLogger
 from time import sleep
 
 

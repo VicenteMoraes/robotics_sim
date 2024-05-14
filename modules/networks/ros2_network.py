@@ -1,5 +1,5 @@
 import docker
-from plugins.networks.network import Network
+from modules.networks.network import Network
 
 
 class ROS2Network(Network):

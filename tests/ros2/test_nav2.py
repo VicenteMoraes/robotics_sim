@@ -1,10 +1,10 @@
 import docker
-from plugins.simulators.gazebo import Gazebo
-from plugins.robots.turtlebot3 import Turtlebot3
-from plugins.networks.ros2_network import ROS2Network
-from plugins.ros2.rviz import RVIZ
-from plugins.ros2.nav2 import NAV2
-from plugins.loggers.docker_logger import DockerLogger
+from modules.simulators.gazebo import Gazebo
+from modules.robots.turtlebot3 import Turtlebot3
+from modules.networks.ros2_network import ROS2Network
+from modules.ros2.rviz import RVIZ
+from modules.ros2.nav2 import NAV2
+from modules.loggers.docker_logger import DockerLogger
 
 
 def test_nav2():

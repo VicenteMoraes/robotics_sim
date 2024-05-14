@@ -1,4 +1,4 @@
-from plugins.loggers.logger import Logger, formatlog
+from modules.loggers.logger import Logger, formatlog
 from core.components import ProjectPath
 from core.timer import RepeatedTimer
 from paramiko.ssh_exception import ChannelException

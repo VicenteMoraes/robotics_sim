@@ -1,9 +1,9 @@
 import docker
-from plugins.simulators.gazebo import Gazebo
-from plugins.loggers.docker_logger import DockerLogger
-from plugins.robots.turtlebot3_nav2 import Turtlebot3withNav2
-from plugins.ros2.skill_library import SkillLibrary
-from plugins.networks.ros2_network import ROS2Network
+from modules.simulators.gazebo import Gazebo
+from modules.loggers.docker_logger import DockerLogger
+from modules.robots.turtlebot3_nav2 import Turtlebot3withNav2
+from modules.ros2.skill_library import SkillLibrary
+from modules.networks.ros2_network import ROS2Network
 from core import pose
 
 

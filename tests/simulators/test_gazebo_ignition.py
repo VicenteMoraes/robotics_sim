@@ -1,4 +1,4 @@
-from plugins.simulators.gazebo_ignition import GazeboIgnition
+from modules.simulators.gazebo_ignition import GazeboIgnition
 import docker
 
 

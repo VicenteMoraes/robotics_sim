@@ -1,7 +1,7 @@
 import docker
-from plugins.simulators.gazebo import Gazebo
-from plugins.robots.human import Human
-from plugins.networks.ros2_network import ROS2Network
+from modules.simulators.gazebo import Gazebo
+from modules.robots.human import Human
+from modules.networks.ros2_network import ROS2Network
 
 
 def test_human():

@@ -3,7 +3,7 @@ from docker import DockerClient
 
 from trials.trial import Trial
 from trials.hmrs_trial import HMRSTrial
-from plugins.plugin import Module
+from modules.base_module import Module
 from queue import Queue
 
 

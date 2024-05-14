@@ -1,10 +1,10 @@
 import docker
-from plugins.simulators.gazebo import Gazebo
-from plugins.robots.turtlebot3_nav2 import Turtlebot3withNav2
-from plugins.networks.ros2_network import ROS2Network
+from modules.simulators.gazebo import Gazebo
+from modules.robots.turtlebot3_nav2 import Turtlebot3withNav2
+from modules.networks.ros2_network import ROS2Network
 from core import pose
 from core.components import ProjectPath
-from plugins.hmrs.load_experiment import parse_config
+from modules.hmrs.load_experiment import parse_config
 from trials.hmrs_trial import HMRSTrial
 from trials.experiment import Experiment
 import os
@@ -12,6 +12,7 @@ from core.components import ProjectPath
 
 
 def test_full_experiment():
+    return
     hosts = [f"les-0{i}" for i in range(1, 9)]
     config = parse_config(str(ProjectPath/"tests/hmrs/old_hospital_map/experiment/trials.json"))
     experiments = []
@@ -33,19 +34,12 @@ def test_full_experiment():
 
 
 def test_experiment():
-    return
-    trials = [trial.removesuffix(".log") for trial in os.listdir(ProjectPath/"logs/experiment")]
-    exclusion_list = ["1_aaaaab", "1_aaaaap", "2_aaaabb", "2_aaaabp", "3_aaaacb", "3_aaaacp", "4_aaabab", "4_aaabap",
-                      "5_aaabbb", "5_aaabbp", "6_aaabcb", "6_aaabcp", "7_aaacab", "7_aaacap", "8_aaacbb", "8_aaacbp",
-                      "9_aaaccb", "9_aaaccp", "10_aabaab", "18_aabccb"]
-    exclusion_list = [trial for trial in trials if trial in exclusion_list or int(trial[:2]) < 53]
-    trials = sorted([trial for trial in trials if trial not in exclusion_list], key=(lambda x: x[:2]))
     docker_client = docker.from_env()
     config = parse_config(str(ProjectPath/"tests/hmrs/old_hospital_map/experiment/trials.json"))
     experiment = Experiment.from_config(docker_client, config=config, map_path=str(ProjectPath/"tests/hmrs/old_hospital_map/param/map"),
-                                        param_path=str(ProjectPath/"tests/hmrs/old_hospital_map/param"), use_rviz=False,
-                                        path_to_world="/workdir/map/hospital.world", dir="distributed_experiment/les-01",
-                                        headless=True, trials_to_execute=trials)
+                                        param_path=str(ProjectPath/"tests/hmrs/old_hospital_map/param"), use_rviz=True,
+                                        path_to_world="/workdir/map/hospital.world", dir="experiment",
+                                        headless=False, trials_to_execute=["51_abcbcp"])
     experiment.build()
     experiment.run()
 

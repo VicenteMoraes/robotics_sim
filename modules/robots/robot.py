@@ -1,9 +1,9 @@
-from plugins.plugin import Plugin
+from modules.base_module import DockerModule
 from docker import DockerClient
 from core.pose import Pose
 
 
-class Robot(Plugin):
+class Robot(DockerModule):
     def __init__(self, docker_client: DockerClient, path: str, command: str, initial_pose: Pose = None,
                  tag: str = "robot", robot_name: str = "robot", robot_namespace: str = "robot",
                  sdf_file: str = '/workdir/launch/waffle.model', config: str = '', *args, **kwargs):

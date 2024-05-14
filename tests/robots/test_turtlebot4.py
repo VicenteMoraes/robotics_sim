@@ -1,7 +1,7 @@
 import docker
-from plugins.simulators.gazebo_ignition import GazeboIgnition
-from plugins.robots.turtlebot4 import Turtlebot4
-from plugins.networks.ros2_network import ROS2Network
+from modules.simulators.gazebo_ignition import GazeboIgnition
+from modules.robots.turtlebot4 import Turtlebot4
+from modules.networks.ros2_network import ROS2Network
 from core.components import ProjectPath
 
 

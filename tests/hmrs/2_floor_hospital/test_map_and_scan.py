@@ -1,11 +1,11 @@
 import docker
 from core.pose import Pose, quaternion_from_euler
 from core.components import ProjectPath
-from plugins.simulators.gazebo import Gazebo
-from plugins.robots.turtlebot3 import Turtlebot3
-from plugins.robots.turtlebot3_nav2 import Turtlebot3withNav2
-from plugins.networks.ros2_network import ROS2Network
-from plugins.ros2.rviz import RVIZ
+from modules.simulators.gazebo import Gazebo
+from modules.robots.turtlebot3 import Turtlebot3
+from modules.robots.turtlebot3_nav2 import Turtlebot3withNav2
+from modules.networks.ros2_network import ROS2Network
+from modules.ros2.rviz import RVIZ
 
 
 def test_slam():

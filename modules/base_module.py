@@ -3,7 +3,7 @@ from abc import abstractmethod
 from core.components import Component, ProjectPath
 from core.envs.baseenv import Environment
 from docker import DockerClient
-from plugins.loggers.docker_logger import DockerLogger
+from modules.loggers.docker_logger import DockerLogger
 import docker
 import os
 import subprocess
@@ -54,13 +54,13 @@ class Module(Component):
         return self.priority == other.priority
 
 
-class Plugin(Module):
+class DockerModule(Module):
     ssh_hash_dict = {}
 
     def __init__(self, docker_client: DockerClient, path: str, command: str, tag: str, ssh_host: str = None, ssh_pass: str = '',
                  dockerfile: str = "Dockerfile", auto_remove: bool = True, container_name: str = "", network=None,
-                 run_children: bool = True, *args, **kwargs):
-        super(Plugin, self).__init__(*args, **kwargs)
+                 run_children: bool = True, headless: bool = True, *args, **kwargs):
+        super(DockerModule, self).__init__(*args, **kwargs)
         self.docker_client = docker_client
         self.path = path  # Path to dockerfile directory
         self.tag = tag
@@ -80,6 +80,10 @@ class Plugin(Module):
         self.env = Environment()
         self.env["TAG"] = self.tag
         self.container_name = container_name if container_name else f"{self.tag}_container"
+        self.headless = headless
+
+        if not self.headless:
+            self.load_gui()
 
     def add_mount(self, source: str, target: str, mount_type: str = 'bind', **mount_kwargs):
         if self.ssh_host is not None and mount_type == 'bind':
@@ -108,7 +112,7 @@ class Plugin(Module):
                                                                       tag=self.tag, **build_kwargs)
         self.logs_thread = Thread(target=self.print_logs, args=[build_logs])
         self.logs_thread.run()
-        super(Plugin, self).build()
+        super(DockerModule, self).build()
 
     def run(self, **run_kwargs):
         if self.network:
@@ -121,7 +125,7 @@ class Plugin(Module):
             self._start_logger()
         except TypeError:
             pass
-        super(Plugin, self).run()
+        super(DockerModule, self).run()
 
     def add_logger(self, target: str = "", write_to_file: bool = False, filename: str = '', update_interval: float = 15,
                    log_kwargs: dict = None, timeout: float = 15*60, add_logger_func: bool = True,
@@ -146,7 +150,7 @@ class Plugin(Module):
             except ChannelException:
                 print('Paramiko broken channel')
                 continue
-        super(Plugin, self).stop()
+        super(DockerModule, self).stop()
 
     def print_logs(self, log_generator):
         print('\x1b[6;30;42m' + f"Building image for tag: {self.tag}" + '\x1b[0m')

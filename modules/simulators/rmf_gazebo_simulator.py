@@ -1,4 +1,4 @@
-from plugins.simulators.simulator import Simulator
+from modules.simulators.simulator import Simulator
 from docker import DockerClient
 from core.components import ProjectPath
 

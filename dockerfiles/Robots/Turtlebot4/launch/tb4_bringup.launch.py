@@ -24,6 +24,7 @@ ROBOT_POSE = json.loads(os.environ['ROBOT_POSE'])
 USE_RVIZ = os.environ['USE_RVIZ'].lower()
 USE_NAV2 = os.environ['USE_NAV2'].lower()
 USE_SLAM = os.environ['USE_SLAM'].lower()
+USE_LOCALIZATION = os.environ['USE_LOCALIZATION'].lower()
 
 MAP_YAML = os.environ['MAP_YAML']
 
@@ -42,7 +43,7 @@ ARGUMENTS = [
                           description='Turtlebot4 Model'),
     DeclareLaunchArgument('namespace', default_value='',
                           description='Robot namespace'),
-    DeclareLaunchArgument('localization', default_value=USE_NAV2,
+    DeclareLaunchArgument('localization', default_value=USE_LOCALIZATION,
                           choices=['true', 'false'],
                           description='Whether to launch localization'),
     DeclareLaunchArgument('slam', default_value=USE_SLAM,

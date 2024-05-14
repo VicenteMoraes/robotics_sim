@@ -1,14 +1,14 @@
 from docker import DockerClient
 from core.pose import Pose, quaternion_from_euler
 from trials.trial import Trial
-from plugins.ros2.rviz import RVIZ
-from plugins.simulators.gazebo import Gazebo
-from plugins.networks.ros2_network import ROS2Network
-from plugins.robots.turtlebot3_nav2 import Turtlebot3withNav2
-from plugins.robots.turtlebot3 import Turtlebot3
-from plugins.ros2.skill_library import SkillLibrary
-from plugins.robots.human import Human
-from plugins.ros2.roslogger import ROSLogger
+from modules.ros2.rviz import RVIZ
+from modules.simulators.gazebo import Gazebo
+from modules.networks.ros2_network import ROS2Network
+from modules.robots.turtlebot3_nav2 import Turtlebot3withNav2
+from modules.robots.turtlebot3 import Turtlebot3
+from modules.ros2.skill_library import SkillLibrary
+from modules.robots.human import Human
+from modules.ros2.roslogger import ROSLogger
 
 
 class HMRSTrial(Trial):
@@ -96,21 +96,21 @@ class HMRSTrial(Trial):
 
                 skill_library = SkillLibrary(self.docker_client, config=config, network=self.network, robot_name=name,
                                              robot_namespace=name, initial_pose=pose, ssh_host=self.ssh_host,
-                                             ssh_pass=self.ssh_pass)
+                                             ssh_pass=self.ssh_pass, headless=False)
                 self.skills[name] = skill_library
-                robot.add(skill_library)
+                self.add_plugins(skill_library)
             else:
                 robot = Turtlebot3(self.docker_client, robot_name=name, container_name=f"{name}_container", config=config,
                                    robot_namespace=name, initial_pose=pose, network=self.network, ssh_host=self.ssh_host,
                                    ssh_pass=self.ssh_pass)
-            self.sim.add(robot)
+            self.add_plugins(robot)
 
     def setup_nurse(self, *robot_args, **robot_kwargs):
         for config in self.config['nurses']:
             pose = self.pose_from_config(config)
             human = Human(self.docker_client, robot_name="nurse", config=config, initial_pose=pose, network=self.network,
                           ssh_host=self.ssh_host, ssh_pass=self.ssh_pass, *robot_args, **robot_kwargs)
-            self.sim.add(human)
+            self.add_plugins(human)
 
     def run(self):
         super(HMRSTrial, self).run()

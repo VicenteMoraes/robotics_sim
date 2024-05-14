@@ -1,6 +1,6 @@
 import docker
 from trials.trial import Trial
-from plugins.simulators.rmf_gazebo_simulator import RMFGazebo
+from modules.simulators.rmf_gazebo_simulator import RMFGazebo
 
 
 class GazeboTrial(Trial):

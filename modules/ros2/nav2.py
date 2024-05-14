@@ -1,11 +1,11 @@
 from docker import DockerClient
-from plugins.plugin import Plugin
+from modules.base_module import DockerModule
 from core.components import ProjectPath
 
 DEFAULT_PATH = str(ProjectPath/"dockerfiles/Ros2/Nav2")
 
 
-class NAV2(Plugin):
+class NAV2(DockerModule):
     def __init__(self, docker_client: DockerClient, robot_name: str, robot_namespace: str, path: str = DEFAULT_PATH,
                  command: str = "", tag: str = "nav2", *args, **kwargs):
         super(NAV2, self).__init__(docker_client=docker_client, path=path, command=command, tag=tag, *args, **kwargs)

@@ -1,8 +1,8 @@
 import docker
-from plugins.simulators.gazebo import Gazebo
-from plugins.robots.turtlebot3 import Turtlebot3
-from plugins.networks.ros2_network import ROS2Network
-from plugins.ros2.rviz import RVIZ
+from modules.simulators.gazebo import Gazebo
+from modules.robots.turtlebot3 import Turtlebot3
+from modules.networks.ros2_network import ROS2Network
+from modules.ros2.rviz import RVIZ
 
 
 def test_rviz():
