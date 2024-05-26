@@ -8,8 +8,8 @@ from sensor_msgs.msg import BatteryState
 from geometry_msgs.msg import Twist
 
 
-def formatlog(severity, who, loginfo, skill=None, params=None):
-    return f"[{severity}], {who}, {loginfo}, {skill}, {params}"
+def formatlog(severity, who, loginfo, variable=None, skill=None, params=None):
+    return f"[{severity}], {who}, {loginfo}, {variable}, {skill}, {params}"
 
 
 class BatterySensor(Node):
@@ -43,7 +43,7 @@ class BatterySensor(Node):
 
     def update_log(self):
         log = String()
-        log.data = formatlog("INFO", self.parent, {'battery-level': f"{self.percentage*100:02.2f}"})
+        log.data = formatlog("INFO", self.parent, {'battery-level': f"{self.percentage*100:02.2f}"}, variable="battery_charge")
         self.log_pub.publish(log)
 
     def update_charge(self):

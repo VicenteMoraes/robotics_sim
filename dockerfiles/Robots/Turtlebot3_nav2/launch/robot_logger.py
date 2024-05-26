@@ -13,8 +13,8 @@ ROBOT_NAMESPACE = os.environ['ROBOT_NAMESPACE']
 CONFIG = json.loads(os.environ['CONFIG'])
 
 
-def formatlog(severity, who, loginfo, skill=None, params=None):
-    return f"[{severity}], {who}, {loginfo}, {skill}, {params}"
+def formatlog(severity, who, loginfo, variable=None, skill=None, params=None):
+    return f"[{severity}], {who}, {loginfo}, {variable}, {skill}, {params}"
 
 
 class Logger(Node):
@@ -55,7 +55,7 @@ class Logger(Node):
             orientation = [self.pose.orientation.x, self.pose.orientation.y, self.pose.orientation.z, self.pose.orientation.w]
             pose_msg = String()
             pose_msg.data = formatlog("INFO", self.name, {'y': round(self.pose.position.y, 3), 'x': round(self.pose.position.x, 3),
-                                                          "yaw": round(quat2euler(orientation)[2], 3)})
+                                                          "yaw": round(quat2euler(orientation)[2], 3)}, variable="pose")
             self.log_pub.publish(pose_msg)
         except AttributeError:
             pass
