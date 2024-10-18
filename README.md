@@ -44,9 +44,9 @@ sudo usermod -aG docker $USER
 
 ```python
 import docker
-from robotics_sim.plugins.simulators.gazebo import Gazebo
-from robotics_sim.plugins.robots.turtlebot3 import Turtlebot3
-from robotics_sim.plugins.networks.ros2_network import ROS2Network
+from robotics_sim.modules.simulators.gazebo import Gazebo
+from robotics_sim.modules.robots.turtlebot3 import Turtlebot3
+from robotics_sim.modules.networks.ros2_network import ROS2Network
 
 
 client = docker.from_env()
@@ -66,7 +66,7 @@ robot.run()
 
 ```python
 import docker
-from robotics_sim.plugins.simulators.rmf_gazebo_simulator import RMFGazebo
+from robotics_sim.modules.simulators.rmf_gazebo_simulator import RMFGazebo
 
 client = docker.from_env()
 sim = RMFGazebo(client, headless=True)
@@ -78,10 +78,10 @@ sim.run()
 
 ```python
 import docker
-from robotics_sim.plugins.simulators.gazebo import Gazebo
-from robotics_sim.plugins.robots.turtlebot3_nav2 import Turtlebot3withNav2
-from robotics_sim.plugins.networks.ros2_network import ROS2Network
-from robotics_sim.plugins.loggers.docker_logger import DockerLogger
+from robotics_sim.modules.simulators.gazebo import Gazebo
+from robotics_sim.modules.robots.turtlebot3_nav2 import Turtlebot3withNav2
+from robotics_sim.modules.networks.ros2_network import ROS2Network
+from robotics_sim.modules.loggers.docker_logger import DockerLogger
 from robotics_sim.core import pose
 
 
@@ -121,9 +121,9 @@ robot2.run()
 ```python
 
 import docker
-from robotics_sim.plugins.simulators.gazebo_ignition import GazeboIgnition
-from robotics_sim.plugins.robots.turtlebot4 import Turtlebot4
-from robotics_sim.plugins.networks.ros2_network import ROS2Network
+from robotics_sim.modules.simulators.gazebo_ignition import GazeboIgnition
+from robotics_sim.modules.robots.turtlebot4 import Turtlebot4
+from robotics_sim.modules.networks.ros2_network import ROS2Network
 
 
 client = docker.DockerClient(base_url="ssh://username@your_host")
