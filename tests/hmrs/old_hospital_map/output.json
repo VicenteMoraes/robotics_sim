@@ -247,7 +247,7 @@
             "children": ""
         }
     },
-    "headless": false,
+    "headless": true,
     "skill_library": "default",
     "simulator": "gazebo",
     "trials": [
