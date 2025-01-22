@@ -1,0 +1,5823 @@
+{
+    "ihtn": {
+        "0": {
+            "name": "ROOT",
+            "type": "task",
+            "parent": "1",
+            "agents": [
+                "r1",
+                "Arm1",
+                "Nurse1"
+            ],
+            "children": [
+                "1"
+            ]
+        },
+        "1": {
+            "name": "ROOT_M",
+            "type": "method",
+            "parent": "0",
+            "agents": [
+                "r1",
+                "Arm1",
+                "Nurse1"
+            ],
+            "children": [
+                "2",
+                "7",
+                "12",
+                "16"
+            ]
+        },
+        "2": {
+            "name": "ApproachNurse",
+            "type": "task",
+            "parent": "1",
+            "agents": [
+                "r1",
+                "Nurse1"
+            ],
+            "children": [
+                "3"
+            ]
+        },
+        "3": {
+            "name": "nurse-approach",
+            "type": "method",
+            "parent": "2",
+            "agents": [
+                "r1",
+                "Nurse1"
+            ],
+            "children": [
+                "4",
+                "5",
+                "6"
+            ]
+        },
+        "4": {
+            "name": "navto",
+            "type": "action",
+            "parent": "3",
+            "locations": [
+                "Room3"
+            ],
+            "agents": [
+                "r1"
+            ],
+            "children": ""
+        },
+        "5": {
+            "name": "approach-nurse",
+            "type": "action",
+            "parent": "3",
+            "locations": "",
+            "agents": [
+                "r1"
+            ],
+            "children": ""
+        },
+        "6": {
+            "name": "authenticate-nurse",
+            "type": "action",
+            "parent": "3",
+            "locations": "",
+            "agents": [
+                "r1"
+            ],
+            "children": ""
+        },
+        "7": {
+            "name": "PickSample",
+            "type": "task",
+            "parent": "1",
+            "agents": [
+                "r1",
+                "Nurse1"
+            ],
+            "children": [
+                "8"
+            ]
+        },
+        "8": {
+            "name": "sample-pick",
+            "type": "method",
+            "parent": "7",
+            "agents": [
+                "r1",
+                "Nurse1"
+            ],
+            "children": [
+                "9",
+                "10",
+                "11"
+            ]
+        },
+        "9": {
+            "name": "open-drawer",
+            "type": "action",
+            "parent": "8",
+            "locations": "",
+            "agents": [
+                "r1"
+            ],
+            "children": ""
+        },
+        "10": {
+            "name": "deposit",
+            "type": "action",
+            "parent": "8",
+            "locations": "",
+            "agents": [
+                "Nurse1"
+            ],
+            "children": ""
+        },
+        "11": {
+            "name": "close-drawer",
+            "type": "action",
+            "parent": "8",
+            "locations": "",
+            "agents": [
+                "r1"
+            ],
+            "children": ""
+        },
+        "12": {
+            "name": "ApproachArm",
+            "type": "task",
+            "parent": "1",
+            "agents": [
+                "r1",
+                "Arm1"
+            ],
+            "children": [
+                "13"
+            ]
+        },
+        "13": {
+            "name": "arm-approach",
+            "type": "method",
+            "parent": "12",
+            "agents": [
+                "r1",
+                "Arm1"
+            ],
+            "children": [
+                "14",
+                "15"
+            ]
+        },
+        "14": {
+            "name": "navto",
+            "type": "action",
+            "parent": "13",
+            "locations": [
+                "Pharmacy"
+            ],
+            "agents": [
+                "r1"
+            ],
+            "children": ""
+        },
+        "15": {
+            "name": "approach-arm",
+            "type": "action",
+            "parent": "13",
+            "locations": "",
+            "agents": [
+                "r1"
+            ],
+            "children": ""
+        },
+        "16": {
+            "name": "UnloadSample",
+            "type": "task",
+            "parent": "1",
+            "agents": [
+                "r1",
+                "Arm1"
+            ],
+            "children": [
+                "17"
+            ]
+        },
+        "17": {
+            "name": "sample-unload",
+            "type": "method",
+            "parent": "16",
+            "agents": [
+                "r1",
+                "Arm1"
+            ],
+            "children": [
+                "18",
+                "19",
+                "20"
+            ]
+        },
+        "18": {
+            "name": "open-drawer",
+            "type": "action",
+            "parent": "17",
+            "locations": "",
+            "agents": [
+                "r1"
+            ],
+            "children": ""
+        },
+        "19": {
+            "name": "pick-up-sample",
+            "type": "action",
+            "parent": "17",
+            "locations": "",
+            "agents": [
+                "Arm1"
+            ],
+            "children": ""
+        },
+        "20": {
+            "name": "close-drawer",
+            "type": "action",
+            "parent": "17",
+            "locations": "",
+            "agents": [
+                "r1"
+            ],
+            "children": ""
+        }
+    },
+    "headless": false,
+    "skill_library": "default",
+    "simulator": "gazebo",
+    "trials": [
+        {
+            "id": 3,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 11,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 13,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 22,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 24,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 26,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 28,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 30,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 32,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 34,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 37,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 39,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 41,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 43,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 45,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 47,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 49,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 51,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 54,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 56,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 58,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 60,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 62,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 64,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 66,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 68,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 71,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 73,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 75,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 77,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 79,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 81,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 83,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 85,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 88,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 90,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 92,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 94,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 96,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 98,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 100,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 102,
+            "independent_variables": {
+                "battery_charge": 0.25,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 106,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 108,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 110,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 112,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 114,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 116,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 118,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 120,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 123,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 125,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 127,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 129,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 131,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 133,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 135,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 137,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 140,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 142,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 144,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 146,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 148,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 150,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 152,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 154,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 157,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 159,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 161,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 163,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 165,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 167,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 169,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 171,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 174,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 176,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 178,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 180,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 182,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 184,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 186,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 188,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 191,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 193,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 195,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 197,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 199,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 201,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 203,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 205,
+            "independent_variables": {
+                "battery_charge": 0.5,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 209,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 211,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 213,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 215,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 217,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 219,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 221,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 223,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 226,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 228,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 230,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 232,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 234,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 236,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 238,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 240,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 243,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 245,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 247,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 249,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 251,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 253,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 255,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 257,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 260,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 262,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 264,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 266,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 268,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 270,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 272,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 274,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 277,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 279,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 281,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 283,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 285,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 287,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 289,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 291,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 294,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 296,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 298,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 300,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 302,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 304,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 306,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 308,
+            "independent_variables": {
+                "battery_charge": 0.75,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 312,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 314,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 316,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 318,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 320,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 322,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 324,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 326,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 1",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 329,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 331,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 333,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 335,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 337,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 339,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 341,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 343,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 2",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 346,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 348,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 350,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 352,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 354,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 356,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 358,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 360,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 3",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 363,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 365,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 367,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 369,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 371,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 373,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 375,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 377,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 4",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 380,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 382,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 384,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 386,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 388,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 390,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 392,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 394,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 5",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 397,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 1"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 399,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 2"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 401,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 3"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 403,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 4"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 405,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 5"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 407,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 6"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 409,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 7"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 411,
+            "independent_variables": {
+                "battery_charge": 1,
+                "location_robot": "IC Room 6",
+                "location_nurse": "PC Room 8"
+            },
+            "dependent_variables": [
+                "battery-level",
+                "ttc"
+            ],
+            "repetitions": 1,
+            "robot_properties": {
+                "nurse": {
+                    "capabilities": [
+                        "comms"
+                    ]
+                },
+                "r1": {
+                    "capabilities": [
+                        "approach_person",
+                        "approach_robot",
+                        "authenticate_person",
+                        "navigation",
+                        "operate_drawer"
+                    ]
+                }
+            }
+        }
+    ]
+}
