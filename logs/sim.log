@@ -1,0 +1,60 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2025-01-22-21-23-39-798236-f6e8077df8fc-1
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gzserver-1]: process started with pid [44]
+[INFO] [gzclient-2]: process started with pid [46]
+[gzclient-2] Gazebo multi-robot simulator, version 11.10.2
+[gzclient-2] Copyright (C) 2012 Open Source Robotics Foundation.
+[gzclient-2] Released under the Apache 2 License.
+[gzclient-2] http://gazebosim.org
+[gzclient-2] 
+[gzserver-1] Gazebo multi-robot simulator, version 11.10.2
+[gzserver-1] Copyright (C) 2012 Open Source Robotics Foundation.
+[gzserver-1] Released under the Apache 2 License.
+[gzserver-1] http://gazebosim.org
+[gzserver-1] 
+[gzserver-1] MESA: error: Failed to query drm device.
+[gzserver-1] libGL error: glx: failed to create dri3 screen
+[gzserver-1] libGL error: failed to load driver: iris
+[gzserver-1] libGL error: failed to open /dev/dri/card0: No such file or directory
+[gzserver-1] libGL error: failed to load driver: iris
+[gzclient-2] [1;33m[Wrn] [GuiIface.cc:298] [0m[1;33mCouldn't locate specified .ini. Creating file at [0m[1;33m"/root/.gazebo/gui.ini"[0m[1;33m
+[gzserver-1] ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+[gzserver-1] ALSA lib conf.c:5178:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+[gzserver-1] ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+[gzserver-1] ALSA lib conf.c:5178:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+[gzserver-1] ALSA lib confmisc.c:1334:(snd_func_refer) error evaluating name
+[gzserver-1] ALSA lib conf.c:5178:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+[gzserver-1] ALSA lib conf.c:5701:(snd_config_expand) Evaluate error: No such file or directory
+[gzserver-1] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM default
+[gzserver-1] AL lib: (EE) ALCplaybackAlsa_open: Could not open playback device 'default': No such file or directory
+[gzserver-1] [1;31m[Err] [OpenAL.cc:84] [0m[1;31mUnable to open audio device[[0m[1;31mdefault[0m[1;31m]
+[gzserver-1]  Audio will be disabled.
+[gzserver-1] [1;32m[Msg] [0m[1;32mWaiting for master.[0m[1;32m
+[gzserver-1] [0m[1;32m[0m[1;32m[0m[1;32m[Msg] [0m[1;32mConnected to gazebo master @ [0m[1;32mhttp://127.0.0.1:11345[0m[1;32m
+[gzserver-1] [0m[1;32m[0m[1;32m[0m[1;32m[Msg] [0m[1;32mPublicized address: [0m[1;32m172.18.0.2[0m[1;32m
+[gzserver-1] [0m[1;32m[0m[1;32m[0m[1;32m[Msg] [0m[1;32mLoading world file [[0m[1;32m/workdir/map/hospital.world[0m[1;32m][0m[1;32m
+[gzclient-2] [0m[1;33m[0m[1;33m[0mMESA: error: Failed to query drm device.
+[gzclient-2] libGL error: glx: failed to create dri3 screen
+[gzclient-2] libGL error: failed to load driver: iris
+[gzclient-2] libGL error: failed to open /dev/dri/card0: No such file or directory
+[gzclient-2] libGL error: failed to load driver: iris
+[gzclient-2] [1;33m[Wrn] [GuiIface.cc:120] [0m[1;33mQStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'[0m[1;33m
+[gzclient-2] [0m[1;33m[0m[1;33m[0mMESA: error: Failed to query drm device.
+[gzclient-2] libGL error: glx: failed to create dri3 screen
+[gzclient-2] libGL error: failed to load driver: iris
+[gzclient-2] libGL error: failed to open /dev/dri/card0: No such file or directory
+[gzclient-2] libGL error: failed to load driver: iris
+[gzclient-2] [1;31m[Err] [InsertModelWidget.cc:403] [0m[1;31mMissing [0m[1;31mmodel.config[0m[1;31m for model [0m[1;31m"/root/.gazebo/models/icons"[0m[1;31m
+[gzclient-2] [0m[1;33m[Wrn] [ModelDatabase.cc:212] [0m[1;33mUnable to connect to model database using [[0m[1;33m//database.config[0m[1;33m]. Only locally installed models will be available.
+[gzserver-1] [0m[1;33m[Wrn] [Event.cc:61] [0m[1;33mWarning: Deleting a connection right after creation. [0m[1;33mMake sure to save the ConnectionPtr from a Connect call
+[gzserver-1] [0m[INFO] [1737581023.683332737] [r1.intel_realsense_r200_depth_driver]: Publishing camera info to [/r1/intel_realsense_r200_depth/camera_info]
+[gzserver-1] [INFO] [1737581023.685023001] [r1.intel_realsense_r200_depth_driver]: Publishing depth camera info to [/r1/intel_realsense_r200_depth/depth/camera_info]
+[gzserver-1] [INFO] [1737581023.685728943] [r1.intel_realsense_r200_depth_driver]: Publishing pointcloud to [/r1/intel_realsense_r200_depth/points]
+[gzserver-1] [INFO] [1737581023.821710115] [r1.turtlebot3_diff_drive]: Wheel pair 1 separation set to [0.287000m]
+[gzserver-1] [INFO] [1737581023.821806570] [r1.turtlebot3_diff_drive]: Wheel pair 1 diameter set to [0.066000m]
+[gzserver-1] [INFO] [1737581023.824028158] [r1.turtlebot3_diff_drive]: Subscribed to [/r1/cmd_vel]
+[gzserver-1] [INFO] [1737581023.825771648] [r1.turtlebot3_diff_drive]: Advertise odometry on [/r1/odom]
+[gzserver-1] [INFO] [1737581023.828445122] [r1.turtlebot3_diff_drive]: Publishing odom transforms between [odom] and [base_footprint]
+[gzserver-1] [INFO] [1737581023.843926244] [r1.turtlebot3_joint_state]: Going to publish joint [wheel_left_joint]
+[gzserver-1] [INFO] [1737581023.843978977] [r1.turtlebot3_joint_state]: Going to publish joint [wheel_right_joint]
+[gzserver-1] [1;33m[Wrn] [Publisher.cc:135] [0m[1;33mQueue limit reached for topic [0m[1;33m/gazebo/default/pose/local/info[0m[1;33m, deleting message. [0m[1;33mThis warning is printed only once.[0m[1;33m

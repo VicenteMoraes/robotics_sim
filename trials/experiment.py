@@ -1,3 +1,4 @@
+import json
 import queue
 from docker import DockerClient
 
@@ -18,23 +19,27 @@ class Experiment(Module):
         self.name = name
 
     @classmethod
-    def from_config(cls, docker_client: DockerClient, config, map_path: str, param_path: str, path_to_world: str,
+    def from_config(cls, docker_client: DockerClient, config_file: str, map_path: str, param_path: str, path_to_world: str,
                     name: str = "", trials_to_execute: [str] = None, ssh_host: str = None, ssh_pass: str = '',
                     *trial_args, **trial_kwargs):
         trial_list = []
-        for trial_config in config:
-            trial = HMRSTrial(docker_client, trial_config, trial_config['id'], trial_config['code'],
-                              path_to_world=path_to_world, ssh_host=ssh_host, ssh_pass=ssh_pass,
+        with open(config_file) as f:
+            config = json.load(f)
+        ihtn = config['ihtn']
+        headless = config['headless']
+        simulator = config['simulator']
+
+        for trial_config in config['trials']:
+            trial = HMRSTrial(docker_client=docker_client, config=trial_config, trial_id=trial_config['id'], ihtn=ihtn,
+                              ssh_host=ssh_host, ssh_pass=ssh_pass, headless=headless
                               *trial_args, **trial_kwargs)
-            if trials_to_execute is not None:
-                if trial.trial_id not in trials_to_execute:
-                    continue
+
+            trial.setup(simulator=simulator, path_to_world=path_to_world,
+                        param_path=param_path,
+                        map_yaml='/workdir/param/map/map.yaml',
+                        use_pose_logger=True, use_battery=True)
             trial.sim.add_mount(source=map_path, target="/workdir/map")
-            trial.setup_robots(param_path=param_path,
-                               map_yaml='/workdir/param/map/map.yaml',
-                               use_pose_logger=True, use_battery=True)
-            trial.setup_nurse()
-            trial_list.append(trial)
+            trial_list.extend([trial] * trial_config["repetitions"])
 
         return cls(trial_list, name)
 

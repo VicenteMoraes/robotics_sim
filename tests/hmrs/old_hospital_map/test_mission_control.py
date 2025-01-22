@@ -10,6 +10,17 @@ from trials.experiment import Experiment
 import os
 from core.components import ProjectPath
 
+def test_web_experiment():
+    config = "output.json"
+    client = docker.DockerClient()
+    experiment = Experiment.from_config(client, config_file=config,
+                                        map_path=str(ProjectPath/"tests/hmrs/old_hospital_map/param/map"),
+                                        param_path=str(ProjectPath / "tests/hmrs/old_hospital_map/param"),
+                                        use_rviz=False, path_to_world="/workdir/map/hospital.world",
+                                        dir=f"distributed_experiment/new")
+    experiment.build()
+    print("Running experiment")
+    experiment.run()
 
 def test_full_experiment():
     return
@@ -34,6 +45,7 @@ def test_full_experiment():
 
 
 def test_experiment():
+    return
     docker_client = docker.from_env()
     config = parse_config(str(ProjectPath/"tests/hmrs/old_hospital_map/experiment/trials.json"))
     experiment = Experiment.from_config(docker_client, config=config, map_path=str(ProjectPath/"tests/hmrs/old_hospital_map/param/map"),
@@ -88,4 +100,4 @@ def test_hmrsim():
 
 if __name__ == "__main__":
     print('Started')
-    test_full_experiment()
+    test_web_experiment()

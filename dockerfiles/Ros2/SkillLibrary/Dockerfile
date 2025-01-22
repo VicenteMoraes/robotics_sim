@@ -18,6 +18,7 @@ RUN sudo apt install -y libopencv-dev python3-opencv python3-numpy
 RUN sudo apt install -y ros-${ROS_DISTRO}-vision-opencv
 RUN pip3 install imutils
 
+COPY init/run_from_config.py /run_from_config.py
 #RUN git clone https://github.com/VicenteMoraes/skill_library
 COPY skill_library /skill_library
 RUN pip3 install -e /skill_library

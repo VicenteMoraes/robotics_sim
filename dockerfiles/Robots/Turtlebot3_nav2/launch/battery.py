@@ -42,6 +42,7 @@ class BatterySensor(Node):
         self.update_log()
 
     def update_log(self):
+        print("UPDATING BATTERY LOGS")
         log = String()
         log.data = formatlog("INFO", self.parent, {'battery-level': f"{self.percentage*100:02.2f}"}, variable="battery_charge")
         self.log_pub.publish(log)
@@ -84,13 +85,18 @@ class BatterySensor(Node):
 if __name__ == "__main__":
     parent = os.environ['ROBOT_NAME']
     rclpy.init()
+    print("STARTING BATTERY")
     try:
         config = json.loads(os.environ['CONFIG'])
         initial_percentage = config['battery_charge']
-        discharge_rate_percentage = config['battery_discharge_rate']
+        try:
+            discharge_rate_percentage = config['battery_discharge_rate']
+        except KeyError:
+            discharge_rate_percentage = 0.0005
         battery = BatterySensor(parent, initial_percentage=initial_percentage,
                                 discharge_rate_percentage=discharge_rate_percentage)
     except (AttributeError, json.decoder.JSONDecodeError):
         battery = BatterySensor(parent)
 
+    print("BATTERY STARTED")
     rclpy.spin(battery)
