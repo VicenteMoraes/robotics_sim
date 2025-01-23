@@ -31,7 +31,7 @@ class Experiment(Module):
 
         for trial_config in config['trials']:
             trial = HMRSTrial(docker_client=docker_client, config=trial_config, trial_id=trial_config['id'], ihtn=ihtn,
-                              ssh_host=ssh_host, ssh_pass=ssh_pass, headless=headless
+                              ssh_host=ssh_host, ssh_pass=ssh_pass, headless=headless,
                               *trial_args, **trial_kwargs)
 
             trial.setup(simulator=simulator, path_to_world=path_to_world,
