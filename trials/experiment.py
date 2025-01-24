@@ -30,16 +30,17 @@ class Experiment(Module):
         simulator = config['simulator']
 
         for trial_config in config['trials']:
-            trial = HMRSTrial(docker_client=docker_client, config=trial_config, trial_id=trial_config['id'], ihtn=ihtn,
-                              ssh_host=ssh_host, ssh_pass=ssh_pass, headless=headless,
-                              *trial_args, **trial_kwargs)
+            for repetition in trial_config["repetitions"]:
+                trial = HMRSTrial(docker_client=docker_client, config=trial_config, trial_id=f"{trial_config['id']}_{repetition}",
+                                  ihtn=ihtn, ssh_host=ssh_host, ssh_pass=ssh_pass, headless=headless,
+                                  *trial_args, **trial_kwargs)
 
-            trial.setup(simulator=simulator, path_to_world=path_to_world,
-                        param_path=param_path,
-                        map_yaml='/workdir/param/map/map.yaml',
-                        use_pose_logger=True, use_battery=True)
-            trial.sim.add_mount(source=map_path, target="/workdir/map")
-            trial_list.extend([trial] * trial_config["repetitions"])
+                trial.setup(simulator=simulator, path_to_world=path_to_world,
+                            param_path=param_path,
+                            map_yaml='/workdir/param/map/map.yaml',
+                            use_pose_logger=True, use_battery=True)
+                trial.sim.add_mount(source=map_path, target="/workdir/map")
+                trial_list.append(trial)
 
         return cls(trial_list, name)
 
