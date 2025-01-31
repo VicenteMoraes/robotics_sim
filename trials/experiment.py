@@ -30,7 +30,7 @@ class Experiment(Module):
         simulator = config['simulator']
 
         for trial_config in config['trials']:
-            for repetition in range(trial_config["repetitions"]):
+            for repetition in range(1, trial_config["repetitions"]+1):
                 trial = HMRSTrial(docker_client=docker_client, config=trial_config, trial_id=f"{trial_config['id']}_{repetition}",
                                   ihtn=ihtn, ssh_host=ssh_host, ssh_pass=ssh_pass, headless=headless,
                                   *trial_args, **trial_kwargs)
