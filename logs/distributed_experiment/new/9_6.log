@@ -1,0 +1,34 @@
+9.01, [INFO], r1, started skill, None, navto, None
+10.01, [INFO], r1, {'y': 10.006, 'x': -37.851, 'yaw': -3.141}, pose, None, None
+10.01, [INFO], r1, {'battery-level': '24.55'}, battery_charge, None, None
+20.05, [INFO], r1, {'y': 11.779, 'x': -37.15, 'yaw': 3.142}, pose, None, None
+20.05, [INFO], r1, {'battery-level': '24.05'}, battery_charge, None, None
+30.08, [INFO], r1, {'battery-level': '23.55'}, battery_charge, None, None
+30.08, [INFO], r1, {'y': 13.913, 'x': -37.059, 'yaw': 3.142}, pose, None, None
+40.02, [INFO], r1, {'y': 15.833, 'x': -36.554, 'yaw': -3.142}, pose, None, None
+40.02, [INFO], r1, {'battery-level': '23.05'}, battery_charge, None, None
+50.05, [INFO], r1, {'y': 15.425, 'x': -34.457, 'yaw': 3.141}, pose, None, None
+50.05, [INFO], r1, {'battery-level': '22.55'}, battery_charge, None, None
+60.09, [INFO], r1, {'y': 15.555, 'x': -32.334, 'yaw': -3.141}, pose, None, None
+60.09, [INFO], r1, {'battery-level': '22.05'}, battery_charge, None, None
+70.02, [INFO], r1, {'battery-level': '21.55'}, battery_charge, None, None
+70.02, [INFO], r1, {'y': 15.577, 'x': -30.232, 'yaw': -3.142}, pose, None, None
+80.05, [INFO], r1, {'y': 15.808, 'x': -28.108, 'yaw': 3.142}, pose, None, None
+80.05, [INFO], r1, {'battery-level': '21.05'}, battery_charge, None, None
+90.08, [INFO], r1, {'battery-level': '20.55'}, battery_charge, None, None
+90.08, [INFO], r1, {'y': 17.329, 'x': -26.994, 'yaw': 3.141}, pose, None, None
+100.02, [INFO], r1, {'y': 17.955, 'x': -27.199, 'yaw': -3.142}, pose, None, None
+100.02, [INFO], r1, {'battery-level': '20.05'}, battery_charge, None, None
+110.05, [INFO], r1, {'battery-level': '19.55'}, battery_charge, None, None
+110.05, [INFO], r1, {'y': 17.987, 'x': -27.224, 'yaw': 3.141}, pose, None, None
+114.56, [INFO], r1, skill-success, None, navto, None
+114.56, [INFO], r1, started skill, None, approach-nurse, None
+114.56, [INFO], r1, sent message, None, None, None
+114.56, [INFO], r1, skill-success, None, approach-nurse, None
+114.56, [INFO], r1, started skill, None, authenticate-nurse, None
+114.56, [INFO], r1, sent message, None, None, None
+114.56, [INFO], r1, skill-success, None, authenticate-nurse, None
+114.56, [INFO], r1, started skill, None, open-drawer, None
+114.56, [WARN], r1, SKILL-FAILURE, None, open-drawer, None
+120.08, [INFO], r1, {'y': 17.976, 'x': -27.215, 'yaw': -3.142}, pose, None, None
+120.08, [INFO], r1, {'battery-level': '19.05'}, battery_charge, None, None
