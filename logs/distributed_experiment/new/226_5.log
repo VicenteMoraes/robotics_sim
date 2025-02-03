@@ -1,0 +1,28 @@
+9.85, [INFO], r1, started skill, None, navto, None
+10.05, [INFO], r1, {'y': 21.5, 'x': -38.0, 'yaw': 3.142}, pose, None, None
+10.05, [INFO], r1, {'battery-level': '74.60'}, battery_charge, None, None
+20.10, [INFO], r1, {'y': 19.885, 'x': -37.189, 'yaw': 3.141}, pose, None, None
+20.10, [INFO], r1, {'battery-level': '74.10'}, battery_charge, None, None
+30.02, [INFO], r1, {'y': 17.785, 'x': -37.102, 'yaw': 3.14}, pose, None, None
+30.02, [INFO], r1, {'battery-level': '73.60'}, battery_charge, None, None
+40.04, [INFO], r1, {'y': 15.98, 'x': -36.509, 'yaw': 3.141}, pose, None, None
+40.04, [INFO], r1, {'battery-level': '73.10'}, battery_charge, None, None
+50.06, [INFO], r1, {'battery-level': '72.60'}, battery_charge, None, None
+50.06, [INFO], r1, {'y': 15.428, 'x': -34.44, 'yaw': -3.141}, pose, None, None
+60.04, [INFO], r1, {'y': 15.502, 'x': -32.308, 'yaw': 3.142}, pose, None, None
+60.04, [INFO], r1, {'battery-level': '72.10'}, battery_charge, None, None
+70.03, [INFO], r1, {'battery-level': '71.60'}, battery_charge, None, None
+70.03, [INFO], r1, {'y': 15.61, 'x': -30.195, 'yaw': 3.141}, pose, None, None
+80.03, [INFO], r1, {'y': 15.762, 'x': -28.084, 'yaw': -3.142}, pose, None, None
+80.03, [INFO], r1, {'battery-level': '71.10'}, battery_charge, None, None
+90.01, [INFO], r1, {'y': 14.386, 'x': -27.292, 'yaw': 3.142}, pose, None, None
+90.01, [INFO], r1, {'battery-level': '70.60'}, battery_charge, None, None
+100.07, [INFO], r1, {'y': 12.989, 'x': -27.382, 'yaw': -3.141}, pose, None, None
+100.07, [INFO], r1, {'battery-level': '70.10'}, battery_charge, None, None
+110.04, [INFO], r1, {'y': 12.94, 'x': -27.344, 'yaw': 3.142}, pose, None, None
+110.04, [INFO], r1, {'battery-level': '69.60'}, battery_charge, None, None
+114.35, [INFO], r1, skill-success, None, navto, None
+114.35, [INFO], r1, started skill, None, approach-nurse, None
+114.35, [WARN], r1, SKILL-FAILURE, None, approach-nurse, None
+120.03, [INFO], r1, {'battery-level': '69.10'}, battery_charge, None, None
+120.03, [INFO], r1, {'y': 12.936, 'x': -27.342, 'yaw': -3.142}, pose, None, None

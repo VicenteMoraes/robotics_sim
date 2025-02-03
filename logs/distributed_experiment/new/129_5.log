@@ -1,0 +1,35 @@
+9.30, [INFO], r1, started skill, None, navto, None
+10.07, [INFO], r1, {'y': 21.499, 'x': -37.919, 'yaw': 3.14}, pose, None, None
+10.07, [INFO], r1, {'battery-level': '49.55'}, battery_charge, None, None
+20.03, [INFO], r1, {'y': 19.793, 'x': -37.16, 'yaw': 3.142}, pose, None, None
+20.03, [INFO], r1, {'battery-level': '49.05'}, battery_charge, None, None
+30.03, [INFO], r1, {'y': 17.673, 'x': -37.104, 'yaw': 3.141}, pose, None, None
+30.03, [INFO], r1, {'battery-level': '48.55'}, battery_charge, None, None
+40.08, [INFO], r1, {'battery-level': '48.05'}, battery_charge, None, None
+40.08, [INFO], r1, {'y': 15.985, 'x': -36.412, 'yaw': 3.141}, pose, None, None
+50.02, [INFO], r1, {'y': 15.397, 'x': -34.371, 'yaw': -3.142}, pose, None, None
+50.02, [INFO], r1, {'battery-level': '47.55'}, battery_charge, None, None
+60.09, [INFO], r1, {'battery-level': '47.05'}, battery_charge, None, None
+60.09, [INFO], r1, {'y': 15.565, 'x': -32.228, 'yaw': -3.142}, pose, None, None
+70.09, [INFO], r1, {'battery-level': '46.55'}, battery_charge, None, None
+70.09, [INFO], r1, {'y': 15.651, 'x': -30.117, 'yaw': 3.137}, pose, None, None
+80.08, [INFO], r1, {'battery-level': '46.05'}, battery_charge, None, None
+80.08, [INFO], r1, {'y': 15.818, 'x': -28.016, 'yaw': -3.142}, pose, None, None
+90.06, [INFO], r1, {'y': 17.395, 'x': -26.951, 'yaw': 3.142}, pose, None, None
+90.06, [INFO], r1, {'battery-level': '45.55'}, battery_charge, None, None
+100.03, [INFO], r1, {'y': 17.992, 'x': -27.186, 'yaw': -3.142}, pose, None, None
+100.03, [INFO], r1, {'battery-level': '45.05'}, battery_charge, None, None
+100.99, [INFO], r1, skill-success, None, navto, None
+100.99, [INFO], r1, started skill, None, approach-nurse, None
+100.99, [INFO], r1, sent message, None, None, None
+100.99, [INFO], r1, skill-success, None, approach-nurse, None
+100.99, [INFO], r1, sent message, None, None, None
+100.99, [INFO], r1, skill-success, None, authenticate-nurse, None
+100.99, [INFO], r1, started skill, None, open-drawer, None
+100.99, [INFO], r1, sent message, None, None, None
+100.99, [INFO], r1, skill-success, None, open-drawer, None
+100.99, [INFO], r1, started skill, None, deposit, None
+100.99, [INFO], r1, sent message, None, None, None
+100.99, [INFO], r1, skill-success, None, deposit, None
+100.99, [INFO], r1, started skill, None, close-drawer, None
+100.99, [WARN], r1, SKILL-FAILURE, None, close-drawer, None
