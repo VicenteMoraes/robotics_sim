@@ -1,0 +1,35 @@
+0.19, [DEBUG], logger, ROBOTS_CONFIG={'capabilities': ['approach_person', 'approach_robot', 'authenticate_person', 'navigation', 'operate_drawer'], 'battery_charge': 0.25, 'nurse_pose': [-27.25, 13.0, 1.57], 'robot_pose': [-38.0, 10.0, 0.0]}, None, None, None
+0.19, [DEBUG], logger, Simulation open, None, None, None
+6.26, [INFO], r1, started skill, None, navto, None
+10.01, [INFO], r1, {'y': 10.252, 'x': -37.332, 'yaw': -3.142}, pose, None, None
+10.01, [INFO], r1, {'battery-level': '24.55'}, battery_charge, None, None
+20.07, [INFO], r1, {'y': 12.341, 'x': -37.146, 'yaw': -3.142}, pose, None, None
+20.07, [INFO], r1, {'battery-level': '24.05'}, battery_charge, None, None
+30.02, [INFO], r1, {'y': 14.43, 'x': -37.056, 'yaw': -3.142}, pose, None, None
+30.02, [INFO], r1, {'battery-level': '23.55'}, battery_charge, None, None
+40.04, [INFO], r1, {'battery-level': '23.05'}, battery_charge, None, None
+40.04, [INFO], r1, {'y': 15.68, 'x': -36.05, 'yaw': 3.142}, pose, None, None
+50.05, [INFO], r1, {'y': 15.439, 'x': -33.936, 'yaw': -3.142}, pose, None, None
+50.05, [INFO], r1, {'battery-level': '22.55'}, battery_charge, None, None
+60.03, [INFO], r1, {'y': 15.563, 'x': -31.829, 'yaw': 3.142}, pose, None, None
+60.03, [INFO], r1, {'battery-level': '22.05'}, battery_charge, None, None
+70.05, [INFO], r1, {'y': 15.666, 'x': -29.72, 'yaw': 3.141}, pose, None, None
+70.05, [INFO], r1, {'battery-level': '21.55'}, battery_charge, None, None
+80.05, [INFO], r1, {'battery-level': '21.05'}, battery_charge, None, None
+80.05, [INFO], r1, {'y': 15.881, 'x': -27.593, 'yaw': -3.141}, pose, None, None
+90.03, [INFO], r1, {'y': 13.91, 'x': -27.366, 'yaw': 3.142}, pose, None, None
+90.03, [INFO], r1, {'battery-level': '20.55'}, battery_charge, None, None
+100.01, [INFO], r1, {'y': 12.953, 'x': -27.395, 'yaw': -3.142}, pose, None, None
+100.01, [INFO], r1, {'battery-level': '20.05'}, battery_charge, None, None
+103.38, [INFO], r1, skill-success, None, navto, None
+103.38, [INFO], r1, started skill, None, approach-nurse, None
+103.38, [INFO], r1, sent message, None, None, None
+103.38, [INFO], r1, skill-success, None, approach-nurse, None
+103.47, [INFO], r1, started skill, None, authenticate-nurse, None
+103.47, [INFO], r1, sent message, None, None, None
+103.47, [INFO], r1, skill-success, None, authenticate-nurse, None
+103.47, [INFO], r1, started skill, None, open-drawer, None
+103.47, [INFO], r1, sent message, None, None, None
+103.47, [INFO], r1, skill-success, None, open-drawer, None
+103.47, [INFO], r1, started skill, None, deposit, None
+103.47, [WARN], r1, SKILL-FAILURE, None, deposit, None
