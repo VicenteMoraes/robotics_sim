@@ -1,0 +1,34 @@
+9.73, [INFO], r1, started skill, None, navto, None
+10.01, [INFO], r1, {'y': 18.93, 'x': -33.901, 'yaw': 3.142}, pose, None, None
+10.01, [INFO], r1, {'battery-level': '74.60'}, battery_charge, None, None
+20.01, [INFO], r1, {'battery-level': '74.10'}, battery_charge, None, None
+20.01, [INFO], r1, {'y': 17.756, 'x': -35.444, 'yaw': 3.141}, pose, None, None
+30.06, [INFO], r1, {'y': 16.138, 'x': -36.547, 'yaw': 3.141}, pose, None, None
+30.06, [INFO], r1, {'battery-level': '73.60'}, battery_charge, None, None
+40.05, [INFO], r1, {'battery-level': '73.10'}, battery_charge, None, None
+40.05, [INFO], r1, {'y': 15.382, 'x': -34.598, 'yaw': 3.141}, pose, None, None
+50.07, [INFO], r1, {'y': 15.524, 'x': -32.482, 'yaw': -3.142}, pose, None, None
+50.07, [INFO], r1, {'battery-level': '72.60'}, battery_charge, None, None
+60.04, [INFO], r1, {'y': 15.582, 'x': -30.374, 'yaw': 3.141}, pose, None, None
+60.04, [INFO], r1, {'battery-level': '72.10'}, battery_charge, None, None
+70.01, [INFO], r1, {'y': 15.754, 'x': -28.266, 'yaw': 3.142}, pose, None, None
+70.01, [INFO], r1, {'battery-level': '71.60'}, battery_charge, None, None
+80.08, [INFO], r1, {'y': 16.075, 'x': -26.15, 'yaw': 3.142}, pose, None, None
+80.08, [INFO], r1, {'battery-level': '71.10'}, battery_charge, None, None
+90.03, [INFO], r1, {'y': 16.174, 'x': -24.049, 'yaw': -3.141}, pose, None, None
+90.03, [INFO], r1, {'battery-level': '70.60'}, battery_charge, None, None
+100.02, [INFO], r1, {'battery-level': '70.10'}, battery_charge, None, None
+100.02, [INFO], r1, {'y': 16.196, 'x': -21.95, 'yaw': -3.142}, pose, None, None
+110.07, [INFO], r1, {'y': 17.593, 'x': -20.962, 'yaw': 3.142}, pose, None, None
+110.07, [INFO], r1, {'battery-level': '69.60'}, battery_charge, None, None
+120.02, [INFO], r1, {'y': 17.976, 'x': -21.082, 'yaw': -3.142}, pose, None, None
+120.02, [INFO], r1, {'battery-level': '69.10'}, battery_charge, None, None
+121.18, [INFO], r1, skill-success, None, navto, None
+121.18, [INFO], r1, started skill, None, approach-nurse, None
+121.18, [INFO], r1, sent message, None, None, None
+121.18, [INFO], r1, skill-success, None, approach-nurse, None
+121.18, [INFO], r1, started skill, None, authenticate-nurse, None
+121.18, [INFO], r1, sent message, None, None, None
+121.18, [INFO], r1, skill-success, None, authenticate-nurse, None
+121.18, [INFO], r1, started skill, None, open-drawer, None
+121.18, [WARN], r1, SKILL-FAILURE, None, open-drawer, None

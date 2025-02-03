@@ -1,0 +1,47 @@
+9.97, [INFO], r1, started skill, None, navto, None
+10.06, [INFO], r1, {'battery-level': '74.60'}, battery_charge, None, None
+10.06, [INFO], r1, {'y': 33.95, 'x': -39.44, 'yaw': -3.142}, pose, None, None
+20.08, [INFO], r1, {'battery-level': '74.10'}, battery_charge, None, None
+20.08, [INFO], r1, {'y': 34.553, 'x': -37.5, 'yaw': -3.141}, pose, None, None
+30.01, [INFO], r1, {'battery-level': '73.60'}, battery_charge, None, None
+30.01, [INFO], r1, {'y': 32.621, 'x': -36.998, 'yaw': 3.14}, pose, None, None
+40.02, [INFO], r1, {'y': 30.508, 'x': -37.056, 'yaw': 3.141}, pose, None, None
+40.02, [INFO], r1, {'battery-level': '73.10'}, battery_charge, None, None
+50.07, [INFO], r1, {'y': 28.393, 'x': -36.997, 'yaw': 3.14}, pose, None, None
+50.07, [INFO], r1, {'battery-level': '72.60'}, battery_charge, None, None
+60.04, [INFO], r1, {'y': 26.294, 'x': -37.012, 'yaw': 3.141}, pose, None, None
+60.04, [INFO], r1, {'battery-level': '72.10'}, battery_charge, None, None
+70.01, [INFO], r1, {'y': 24.185, 'x': -37.027, 'yaw': 3.142}, pose, None, None
+70.01, [INFO], r1, {'battery-level': '71.60'}, battery_charge, None, None
+80.09, [INFO], r1, {'y': 22.055, 'x': -37.115, 'yaw': 3.142}, pose, None, None
+80.09, [INFO], r1, {'battery-level': '71.10'}, battery_charge, None, None
+90.01, [INFO], r1, {'y': 19.958, 'x': -37.111, 'yaw': -3.137}, pose, None, None
+90.01, [INFO], r1, {'battery-level': '70.60'}, battery_charge, None, None
+100.09, [INFO], r1, {'y': 17.836, 'x': -37.068, 'yaw': 3.142}, pose, None, None
+100.09, [INFO], r1, {'battery-level': '70.10'}, battery_charge, None, None
+110.05, [INFO], r1, {'y': 15.848, 'x': -36.698, 'yaw': 3.141}, pose, None, None
+110.05, [INFO], r1, {'battery-level': '69.60'}, battery_charge, None, None
+120.01, [INFO], r1, {'y': 15.4, 'x': -34.62, 'yaw': 3.142}, pose, None, None
+120.01, [INFO], r1, {'battery-level': '69.10'}, battery_charge, None, None
+130.09, [INFO], r1, {'battery-level': '68.60'}, battery_charge, None, None
+130.09, [INFO], r1, {'y': 15.495, 'x': -32.476, 'yaw': 3.142}, pose, None, None
+140.07, [INFO], r1, {'battery-level': '68.10'}, battery_charge, None, None
+140.07, [INFO], r1, {'y': 15.614, 'x': -30.371, 'yaw': 3.141}, pose, None, None
+150.07, [INFO], r1, {'y': 15.836, 'x': -28.259, 'yaw': 3.142}, pose, None, None
+150.07, [INFO], r1, {'battery-level': '67.60'}, battery_charge, None, None
+160.06, [INFO], r1, {'y': 15.999, 'x': -26.134, 'yaw': 3.14}, pose, None, None
+160.06, [INFO], r1, {'battery-level': '67.10'}, battery_charge, None, None
+170.07, [INFO], r1, {'y': 16.0, 'x': -24.015, 'yaw': 3.141}, pose, None, None
+170.07, [INFO], r1, {'battery-level': '66.60'}, battery_charge, None, None
+180.05, [INFO], r1, {'battery-level': '66.10'}, battery_charge, None, None
+180.05, [INFO], r1, {'y': 16.157, 'x': -21.926, 'yaw': 3.141}, pose, None, None
+190.06, [INFO], r1, {'battery-level': '65.60'}, battery_charge, None, None
+190.06, [INFO], r1, {'y': 17.569, 'x': -20.907, 'yaw': -3.142}, pose, None, None
+200.07, [INFO], r1, {'y': 17.986, 'x': -21.041, 'yaw': 3.142}, pose, None, None
+200.07, [INFO], r1, {'battery-level': '65.10'}, battery_charge, None, None
+206.32, [INFO], r1, skill-success, None, navto, None
+206.32, [INFO], r1, started skill, None, approach-nurse, None
+206.32, [INFO], r1, sent message, None, None, None
+206.32, [INFO], r1, skill-success, None, approach-nurse, None
+206.32, [INFO], r1, started skill, None, authenticate-nurse, None
+206.32, [WARN], r1, SKILL-FAILURE, None, authenticate-nurse, None
