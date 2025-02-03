@@ -1,0 +1,37 @@
+10.06, [INFO], r1, {'battery-level': '99.60'}, battery_charge, None, None
+10.06, [INFO], r1, {'y': 25.37, 'x': -40.23, 'yaw': -3.142}, pose, None, None
+10.15, [INFO], r1, started skill, None, navto, None
+20.04, [INFO], r1, {'y': 23.821, 'x': -38.944, 'yaw': 3.142}, pose, None, None
+20.04, [INFO], r1, {'battery-level': '99.10'}, battery_charge, None, None
+30.02, [INFO], r1, {'battery-level': '98.60'}, battery_charge, None, None
+30.02, [INFO], r1, {'y': 22.489, 'x': -37.389, 'yaw': 3.14}, pose, None, None
+40.05, [INFO], r1, {'battery-level': '98.10'}, battery_charge, None, None
+40.05, [INFO], r1, {'y': 20.358, 'x': -37.279, 'yaw': 3.141}, pose, None, None
+50.00, [INFO], r1, {'y': 18.263, 'x': -37.103, 'yaw': 3.141}, pose, None, None
+50.00, [INFO], r1, {'battery-level': '97.60'}, battery_charge, None, None
+60.02, [INFO], r1, {'y': 16.182, 'x': -36.907, 'yaw': 3.141}, pose, None, None
+60.02, [INFO], r1, {'battery-level': '97.10'}, battery_charge, None, None
+70.03, [INFO], r1, {'y': 15.497, 'x': -34.874, 'yaw': 3.14}, pose, None, None
+70.03, [INFO], r1, {'battery-level': '96.60'}, battery_charge, None, None
+80.06, [INFO], r1, {'y': 15.512, 'x': -32.755, 'yaw': 3.141}, pose, None, None
+80.06, [INFO], r1, {'battery-level': '96.10'}, battery_charge, None, None
+90.06, [INFO], r1, {'y': 15.499, 'x': -30.647, 'yaw': -3.141}, pose, None, None
+90.06, [INFO], r1, {'battery-level': '95.60'}, battery_charge, None, None
+100.06, [INFO], r1, {'y': 15.783, 'x': -28.533, 'yaw': -3.138}, pose, None, None
+100.06, [INFO], r1, {'battery-level': '95.10'}, battery_charge, None, None
+110.09, [INFO], r1, {'battery-level': '94.60'}, battery_charge, None, None
+110.09, [INFO], r1, {'y': 16.938, 'x': -27.027, 'yaw': 3.139}, pose, None, None
+120.02, [INFO], r1, {'battery-level': '94.10'}, battery_charge, None, None
+120.02, [INFO], r1, {'y': 17.979, 'x': -27.196, 'yaw': -3.142}, pose, None, None
+124.64, [INFO], r1, skill-success, None, navto, None
+124.64, [INFO], r1, started skill, None, approach-nurse, None
+124.64, [INFO], r1, sent message, None, None, None
+124.64, [INFO], r1, skill-success, None, approach-nurse, None
+124.64, [INFO], r1, started skill, None, authenticate-nurse, None
+124.64, [INFO], r1, sent message, None, None, None
+124.64, [INFO], r1, skill-success, None, authenticate-nurse, None
+124.64, [INFO], r1, started skill, None, open-drawer, None
+124.64, [INFO], r1, sent message, None, None, None
+124.64, [INFO], r1, skill-success, None, open-drawer, None
+124.64, [INFO], r1, started skill, None, deposit, None
+124.64, [WARN], r1, SKILL-FAILURE, None, deposit, None

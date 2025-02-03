@@ -1,0 +1,28 @@
+8.98, [INFO], r1, started skill, None, navto, None
+10.07, [INFO], r1, {'y': 21.493, 'x': -37.836, 'yaw': 3.141}, pose, None, None
+10.07, [INFO], r1, {'battery-level': '49.55'}, battery_charge, None, None
+20.08, [INFO], r1, {'battery-level': '49.05'}, battery_charge, None, None
+20.08, [INFO], r1, {'y': 19.706, 'x': -37.154, 'yaw': -3.142}, pose, None, None
+30.06, [INFO], r1, {'y': 17.6, 'x': -37.066, 'yaw': 3.141}, pose, None, None
+30.06, [INFO], r1, {'battery-level': '48.55'}, battery_charge, None, None
+40.00, [INFO], r1, {'battery-level': '48.05'}, battery_charge, None, None
+40.00, [INFO], r1, {'y': 15.887, 'x': -36.351, 'yaw': 3.142}, pose, None, None
+50.08, [INFO], r1, {'battery-level': '47.55'}, battery_charge, None, None
+50.08, [INFO], r1, {'y': 15.337, 'x': -34.271, 'yaw': 3.142}, pose, None, None
+60.09, [INFO], r1, {'y': 15.472, 'x': -32.144, 'yaw': 3.141}, pose, None, None
+60.09, [INFO], r1, {'battery-level': '47.05'}, battery_charge, None, None
+70.08, [INFO], r1, {'battery-level': '46.55'}, battery_charge, None, None
+70.08, [INFO], r1, {'y': 15.619, 'x': -30.041, 'yaw': 3.141}, pose, None, None
+80.04, [INFO], r1, {'y': 15.782, 'x': -28.498, 'yaw': -3.142}, pose, None, None
+80.04, [INFO], r1, {'battery-level': '46.05'}, battery_charge, None, None
+90.07, [INFO], r1, {'y': 16.922, 'x': -28.427, 'yaw': 3.141}, pose, None, None
+90.07, [INFO], r1, {'battery-level': '45.55'}, battery_charge, None, None
+100.02, [INFO], r1, {'y': 17.172, 'x': -28.253, 'yaw': -3.142}, pose, None, None
+100.02, [INFO], r1, {'battery-level': '45.05'}, battery_charge, None, None
+110.06, [INFO], r1, {'y': 17.333, 'x': -28.245, 'yaw': 3.141}, pose, None, None
+110.06, [INFO], r1, {'battery-level': '44.55'}, battery_charge, None, None
+120.03, [INFO], r1, {'y': 17.369, 'x': -28.253, 'yaw': 3.142}, pose, None, None
+120.03, [INFO], r1, {'battery-level': '44.05'}, battery_charge, None, None
+129.88, [WARN], r1, SKILL-FAILURE, None, navto, None
+130.07, [INFO], r1, {'battery-level': '43.55'}, battery_charge, None, None
+130.07, [INFO], r1, {'y': 17.65, 'x': -28.366, 'yaw': -3.142}, pose, None, None

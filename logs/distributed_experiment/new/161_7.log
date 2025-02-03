@@ -1,0 +1,70 @@
+9.12, [INFO], r1, started skill, None, navto, None
+10.01, [INFO], r1, {'y': 33.959, 'x': -39.314, 'yaw': 3.141}, pose, None, None
+10.01, [INFO], r1, {'battery-level': '49.55'}, battery_charge, None, None
+20.07, [INFO], r1, {'battery-level': '49.05'}, battery_charge, None, None
+20.07, [INFO], r1, {'y': 34.423, 'x': -37.352, 'yaw': -3.141}, pose, None, None
+30.10, [INFO], r1, {'battery-level': '48.55'}, battery_charge, None, None
+30.10, [INFO], r1, {'y': 32.39, 'x': -37.044, 'yaw': 3.141}, pose, None, None
+40.04, [INFO], r1, {'y': 30.293, 'x': -37.01, 'yaw': 3.14}, pose, None, None
+40.04, [INFO], r1, {'battery-level': '48.05'}, battery_charge, None, None
+50.05, [INFO], r1, {'battery-level': '47.55'}, battery_charge, None, None
+50.05, [INFO], r1, {'y': 28.171, 'x': -37.017, 'yaw': -3.142}, pose, None, None
+60.07, [INFO], r1, {'y': 26.053, 'x': -37.005, 'yaw': 3.141}, pose, None, None
+60.07, [INFO], r1, {'battery-level': '47.05'}, battery_charge, None, None
+70.01, [INFO], r1, {'y': 23.951, 'x': -36.976, 'yaw': -3.142}, pose, None, None
+70.01, [INFO], r1, {'battery-level': '46.55'}, battery_charge, None, None
+80.03, [INFO], r1, {'y': 21.835, 'x': -37.099, 'yaw': -3.142}, pose, None, None
+80.03, [INFO], r1, {'battery-level': '46.05'}, battery_charge, None, None
+90.05, [INFO], r1, {'y': 19.702, 'x': -37.093, 'yaw': 3.141}, pose, None, None
+90.05, [INFO], r1, {'battery-level': '45.55'}, battery_charge, None, None
+100.03, [INFO], r1, {'y': 17.6, 'x': -37.055, 'yaw': 3.141}, pose, None, None
+100.03, [INFO], r1, {'battery-level': '45.05'}, battery_charge, None, None
+110.05, [INFO], r1, {'battery-level': '44.55'}, battery_charge, None, None
+110.05, [INFO], r1, {'y': 15.909, 'x': -36.381, 'yaw': 3.142}, pose, None, None
+120.04, [INFO], r1, {'y': 15.378, 'x': -34.305, 'yaw': -3.141}, pose, None, None
+120.04, [INFO], r1, {'battery-level': '44.05'}, battery_charge, None, None
+130.05, [INFO], r1, {'battery-level': '43.55'}, battery_charge, None, None
+130.05, [INFO], r1, {'y': 15.544, 'x': -32.185, 'yaw': -3.141}, pose, None, None
+140.05, [INFO], r1, {'y': 15.676, 'x': -30.068, 'yaw': 3.14}, pose, None, None
+140.05, [INFO], r1, {'battery-level': '43.05'}, battery_charge, None, None
+150.04, [INFO], r1, {'battery-level': '42.55'}, battery_charge, None, None
+150.04, [INFO], r1, {'y': 15.765, 'x': -28.566, 'yaw': -3.137}, pose, None, None
+160.04, [INFO], r1, {'y': 16.569, 'x': -28.442, 'yaw': -3.142}, pose, None, None
+160.04, [INFO], r1, {'battery-level': '42.05'}, battery_charge, None, None
+170.03, [INFO], r1, {'y': 16.933, 'x': -28.477, 'yaw': 3.137}, pose, None, None
+170.03, [INFO], r1, {'battery-level': '41.55'}, battery_charge, None, None
+180.09, [INFO], r1, {'battery-level': '41.05'}, battery_charge, None, None
+180.09, [INFO], r1, {'y': 16.754, 'x': -28.602, 'yaw': -3.141}, pose, None, None
+190.09, [INFO], r1, {'y': 16.863, 'x': -28.416, 'yaw': 3.141}, pose, None, None
+190.09, [INFO], r1, {'battery-level': '40.55'}, battery_charge, None, None
+200.06, [INFO], r1, {'y': 16.809, 'x': -28.593, 'yaw': 3.142}, pose, None, None
+200.06, [INFO], r1, {'battery-level': '40.05'}, battery_charge, None, None
+210.06, [INFO], r1, {'y': 17.054, 'x': -28.417, 'yaw': 3.14}, pose, None, None
+210.06, [INFO], r1, {'battery-level': '39.55'}, battery_charge, None, None
+220.04, [INFO], r1, {'y': 17.027, 'x': -28.267, 'yaw': 3.142}, pose, None, None
+220.04, [INFO], r1, {'battery-level': '39.05'}, battery_charge, None, None
+230.02, [INFO], r1, {'battery-level': '38.55'}, battery_charge, None, None
+230.02, [INFO], r1, {'y': 17.124, 'x': -28.376, 'yaw': -3.142}, pose, None, None
+240.04, [INFO], r1, {'y': 16.75, 'x': -28.542, 'yaw': 3.14}, pose, None, None
+240.04, [INFO], r1, {'battery-level': '38.05'}, battery_charge, None, None
+250.03, [INFO], r1, {'y': 17.026, 'x': -28.482, 'yaw': -3.141}, pose, None, None
+250.03, [INFO], r1, {'battery-level': '37.55'}, battery_charge, None, None
+260.01, [INFO], r1, {'y': 16.728, 'x': -28.632, 'yaw': 3.142}, pose, None, None
+260.01, [INFO], r1, {'battery-level': '37.05'}, battery_charge, None, None
+270.09, [INFO], r1, {'y': 16.955, 'x': -28.689, 'yaw': 3.136}, pose, None, None
+270.09, [INFO], r1, {'battery-level': '36.55'}, battery_charge, None, None
+280.08, [INFO], r1, {'y': 16.621, 'x': -28.591, 'yaw': -3.141}, pose, None, None
+280.08, [INFO], r1, {'battery-level': '36.05'}, battery_charge, None, None
+290.06, [INFO], r1, {'y': 16.74, 'x': -28.435, 'yaw': 3.141}, pose, None, None
+290.06, [INFO], r1, {'battery-level': '35.55'}, battery_charge, None, None
+300.03, [INFO], r1, {'y': 16.984, 'x': -28.435, 'yaw': -3.139}, pose, None, None
+300.03, [INFO], r1, {'battery-level': '35.05'}, battery_charge, None, None
+310.02, [INFO], r1, {'y': 16.975, 'x': -28.411, 'yaw': -3.141}, pose, None, None
+310.02, [INFO], r1, {'battery-level': '34.55'}, battery_charge, None, None
+320.04, [INFO], r1, {'battery-level': '34.05'}, battery_charge, None, None
+320.04, [INFO], r1, {'y': 17.061, 'x': -28.259, 'yaw': -3.14}, pose, None, None
+330.05, [INFO], r1, {'battery-level': '33.55'}, battery_charge, None, None
+330.05, [INFO], r1, {'y': 16.835, 'x': -28.612, 'yaw': 3.142}, pose, None, None
+330.94, [WARN], r1, SKILL-FAILURE, None, navto, None
+340.00, [INFO], r1, {'y': 16.839, 'x': -28.612, 'yaw': 3.142}, pose, None, None
+340.00, [INFO], r1, {'battery-level': '33.05'}, battery_charge, None, None

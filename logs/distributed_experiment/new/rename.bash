@@ -1,4 +1,4 @@
 #!/bin/bash
 
-for f in *_1.log; do mv "$f" "${f/_1.log/_6.log}"; done
+for f in *_1.log; do mv "$f" "${f/_1.log/_7.log}"; done
 

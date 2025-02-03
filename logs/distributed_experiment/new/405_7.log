@@ -1,0 +1,28 @@
+9.72, [INFO], r1, started skill, None, navto, None
+10.01, [INFO], r1, {'y': 18.93, 'x': -33.904, 'yaw': 3.142}, pose, None, None
+10.01, [INFO], r1, {'battery-level': '99.55'}, battery_charge, None, None
+20.07, [INFO], r1, {'battery-level': '99.05'}, battery_charge, None, None
+20.07, [INFO], r1, {'y': 17.731, 'x': -35.466, 'yaw': -3.14}, pose, None, None
+30.09, [INFO], r1, {'battery-level': '98.55'}, battery_charge, None, None
+30.09, [INFO], r1, {'y': 16.072, 'x': -36.492, 'yaw': 3.141}, pose, None, None
+40.08, [INFO], r1, {'y': 15.398, 'x': -34.509, 'yaw': 3.142}, pose, None, None
+40.08, [INFO], r1, {'battery-level': '98.05'}, battery_charge, None, None
+50.06, [INFO], r1, {'battery-level': '97.55'}, battery_charge, None, None
+50.06, [INFO], r1, {'y': 15.492, 'x': -32.399, 'yaw': 3.142}, pose, None, None
+60.02, [INFO], r1, {'y': 15.553, 'x': -30.302, 'yaw': 3.141}, pose, None, None
+60.02, [INFO], r1, {'battery-level': '97.05'}, battery_charge, None, None
+70.06, [INFO], r1, {'y': 15.783, 'x': -28.185, 'yaw': 3.142}, pose, None, None
+70.06, [INFO], r1, {'battery-level': '96.55'}, battery_charge, None, None
+80.01, [INFO], r1, {'y': 16.186, 'x': -26.098, 'yaw': -3.14}, pose, None, None
+80.01, [INFO], r1, {'battery-level': '96.05'}, battery_charge, None, None
+90.04, [INFO], r1, {'y': 16.103, 'x': -23.993, 'yaw': 3.14}, pose, None, None
+90.04, [INFO], r1, {'battery-level': '95.55'}, battery_charge, None, None
+100.07, [INFO], r1, {'y': 16.196, 'x': -21.883, 'yaw': -3.142}, pose, None, None
+100.07, [INFO], r1, {'battery-level': '95.05'}, battery_charge, None, None
+110.09, [INFO], r1, {'y': 17.615, 'x': -20.945, 'yaw': -3.142}, pose, None, None
+110.09, [INFO], r1, {'battery-level': '94.55'}, battery_charge, None, None
+120.01, [INFO], r1, {'y': 17.956, 'x': -21.085, 'yaw': -3.141}, pose, None, None
+120.01, [INFO], r1, {'battery-level': '94.05'}, battery_charge, None, None
+125.20, [INFO], r1, skill-success, None, navto, None
+125.20, [INFO], r1, started skill, None, approach-nurse, None
+125.20, [WARN], r1, SKILL-FAILURE, None, approach-nurse, None
