@@ -11,13 +11,13 @@ import os
 from core.components import ProjectPath
 
 def test_web_experiment():
-    config = "output.json"
+    config = "output_tcc.json"
     client = docker.DockerClient()
     experiment = Experiment.from_config(client, config_file=config,
                                         map_path=str(ProjectPath/"tests/hmrs/old_hospital_map/param/map"),
                                         param_path=str(ProjectPath / "tests/hmrs/old_hospital_map/param"),
                                         use_rviz=False, path_to_world="/workdir/map/hospital.world",
-                                        dir=f"distributed_experiment/new")
+                                        dir=f"distributed_experiment/arthur")
     experiment.build()
     print("Running experiment")
     experiment.run()

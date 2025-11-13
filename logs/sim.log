@@ -1,34 +1,51 @@
 [DEBUG] [launch.launch_context]: emitting event synchronously: 'launch.events.IncludeLaunchDescription'
-[INFO] [launch]: All log files can be found below /root/.ros/log/2025-01-23-16-54-59-425590-48df2f9e78e2-1
+[INFO] [launch]: All log files can be found below /root/.ros/log/2025-11-13-11-57-32-452611-d689a879297b-1
 [INFO] [launch]: Default logging verbosity is set to DEBUG
-[DEBUG] [launch]: processing event: '<launch.events.include_launch_description.IncludeLaunchDescription object at 0x7f17e0390310>'
-[DEBUG] [launch]: processing event: '<launch.events.include_launch_description.IncludeLaunchDescription object at 0x7f17e0390310>' ✓ '<launch.event_handlers.on_include_launch_description.OnIncludeLaunchDescription object at 0x7f17e0390820>'
-[INFO] [gzserver-1]: process started with pid [44]
+[DEBUG] [launch]: processing event: '<launch.events.include_launch_description.IncludeLaunchDescription object at 0x7ff6767b5ea0>'
+[DEBUG] [launch]: processing event: '<launch.events.include_launch_description.IncludeLaunchDescription object at 0x7ff6767b5ea0>' ✓ '<launch.event_handlers.on_include_launch_description.OnIncludeLaunchDescription object at 0x7ff6767b4910>'
+[INFO] [gzserver-1]: process started with pid [14]
 [DEBUG] [launch.launch_context]: emitting event: 'launch.events.process.ProcessStarted'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_started.ProcessStarted object at 0x7f17ded3d420>'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_started.ProcessStarted object at 0x7ff6767b5330>'
 [DEBUG] [launch.launch_context]: emitting event synchronously: 'launch.events.process.ProcessStderr'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17e0390d60>'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17e0390d60>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7f17de69e0e0>'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6767b5060>'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6767b5060>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7ff6760f98a0>'
 [gzserver-1] Gazebo multi-robot simulator, version 11.10.2
 [gzserver-1] Copyright (C) 2012 Open Source Robotics Foundation.
 [gzserver-1] Released under the Apache 2 License.
 [gzserver-1] http://gazebosim.org
 [gzserver-1] 
+[DEBUG] [launch.launch_context]: emitting event synchronously: 'launch.events.process.ProcessStderr'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6767b5630>'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6767b5630>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7ff6760f98a0>'
+[gzserver-1] [1;33m[Wrn] [gazebo_ros_init.cpp:178] [0m[1;33m
+[gzserver-1] #     # ####### ####### ###  #####  #######
+[gzserver-1] ##    # #     #    #     #  #     # #
+[gzserver-1] # #   # #     #    #     #  #       #
+[gzserver-1] #  #  # #     #    #     #  #       #####
+[gzserver-1] #   # # #     #    #     #  #       #
+[gzserver-1] #    ## #     #    #     #  #     # #
+[gzserver-1] #     # #######    #    ###  #####  #######
+[gzserver-1] 
+[gzserver-1] This version of Gazebo, now called Gazebo classic, reaches end-of-life
+[gzserver-1] in January 2025. Users are highly encouraged to migrate to the new Gazebo
+[gzserver-1] using our migration guides (https://gazebosim.org/docs/latest/gazebo_classic_migration?utm_source=gazebo_ros_pkgs&utm_medium=cli)
+[gzserver-1] 
+[gzserver-1] [0m[1;33m
 [DEBUG] [launch.launch_context]: emitting event synchronously: 'launch.events.process.ProcessStdout'
 [DEBUG] [launch.launch_context]: emitting event synchronously: 'launch.events.process.ProcessStderr'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stdout.ProcessStdout object at 0x7f17ded3e260>'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stdout.ProcessStdout object at 0x7f17ded3e260>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7f17de69e0e0>'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stdout.ProcessStdout object at 0x7ff6767b6bc0>'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stdout.ProcessStdout object at 0x7ff6767b6bc0>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7ff6760f98a0>'
 [gzserver-1] [1;32m[Msg] [0m[1;32mWaiting for master.[0m[1;32m
 [gzserver-1] [0m[1;32m[0m[1;32m[0m[1;32m[Msg] [0m[1;32mConnected to gazebo master @ [0m[1;32mhttp://127.0.0.1:11345[0m[1;32m
 [gzserver-1] [0m[1;32m[0m[1;32m[0m[1;32m[Msg] [0m[1;32mPublicized address: [0m[1;32m172.18.0.2[0m[1;32m
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17de69c6d0>'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17de69c6d0>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7f17de69e0e0>'
-[gzserver-1] [1;31m[Err] [RenderEngine.cc:749] [0m[1;31mCan't open display: [0m[1;31m[0m[1;31m
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6760f8160>'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6760f8160>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7ff6760f98a0>'
+[gzserver-1] [0m[1;33m[0m[1;33m[0m[1;31m[Err] [RenderEngine.cc:749] [0m[1;31mCan't open display: [0m[1;31m[0m[1;31m
 [gzserver-1] [0m[1;33m[Wrn] [RenderEngine.cc:89] [0m[1;33mUnable to create X window. Rendering will be disabled
 [gzserver-1] [0m[1;33m[Wrn] [RenderEngine.cc:292] [0m[1;33mCannot initialize render engine since [0m[1;33mrender path type is NONE. Ignore this warning if[0m[1;33mrendering has been turned off on purpose.
 [DEBUG] [launch.launch_context]: emitting event synchronously: 'launch.events.process.ProcessStderr'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17ded3d420>'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17ded3d420>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7f17de69e0e0>'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6767b6ec0>'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6767b6ec0>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7ff6760f98a0>'
 [gzserver-1] [0mALSA lib confmisc.c:855:(parse_card) cannot find card '0'
 [gzserver-1] ALSA lib conf.c:5178:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
 [gzserver-1] ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
@@ -40,39 +57,39 @@
 [gzserver-1] AL lib: (EE) ALCplaybackAlsa_open: Could not open playback device 'default': No such file or directory
 [DEBUG] [launch.launch_context]: emitting event synchronously: 'launch.events.process.ProcessStderr'
 [DEBUG] [launch.launch_context]: emitting event synchronously: 'launch.events.process.ProcessStdout'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17ded3d420>'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17ded3d420>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7f17de69e0e0>'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6767b6ec0>'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6767b6ec0>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7ff6760f98a0>'
 [gzserver-1] [1;31m[Err] [OpenAL.cc:84] [0m[1;31mUnable to open audio device[[0m[1;31mdefault[0m[1;31m]
 [gzserver-1]  Audio will be disabled.
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stdout.ProcessStdout object at 0x7f17de69c700>'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stdout.ProcessStdout object at 0x7f17de69c700>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7f17de69e0e0>'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stdout.ProcessStdout object at 0x7ff6760f80a0>'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stdout.ProcessStdout object at 0x7ff6760f80a0>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7ff6760f98a0>'
 [gzserver-1] [0m[1;32m[0m[1;32m[0m[1;32m[Msg] [0m[1;32mLoading world file [[0m[1;32m/workdir/map/hospital.world[0m[1;32m][0m[1;32m
 [DEBUG] [launch.launch_context]: emitting event synchronously: 'launch.events.process.ProcessStderr'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17ded3d420>'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17ded3d420>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7f17de69e0e0>'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6767b6bc0>'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6767b6bc0>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7ff6760f98a0>'
 [gzserver-1] [0m[1;31m[Err] [DepthCameraSensor.cc:66] [0m[1;31mUnable to create DepthCameraSensor. Rendering is disabled.[0m[1;31m
 [DEBUG] [launch.launch_context]: emitting event synchronously: 'launch.events.process.ProcessStderr'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17ded3d420>'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17ded3d420>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7f17de69e0e0>'
-[gzserver-1] [0m[1;31m[0m[1;31m[0m[INFO] [1737651302.688392211] [r1.turtlebot3_diff_drive]: Wheel pair 1 separation set to [0.287000m]
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6767b6bc0>'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6767b6bc0>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7ff6760f98a0>'
+[gzserver-1] [0m[1;31m[0m[1;31m[0m[INFO] [1763035055.149244278] [r1.turtlebot3_diff_drive]: Wheel pair 1 separation set to [0.287000m]
 [DEBUG] [launch.launch_context]: emitting event synchronously: 'launch.events.process.ProcessStderr'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17ded3d420>'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17ded3d420>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7f17de69e0e0>'
-[gzserver-1] [INFO] [1737651302.688983074] [r1.turtlebot3_diff_drive]: Wheel pair 1 diameter set to [0.066000m]
 [DEBUG] [launch.launch_context]: emitting event synchronously: 'launch.events.process.ProcessStderr'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17ded3e260>'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17ded3e260>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7f17de69e0e0>'
-[gzserver-1] [INFO] [1737651302.690746824] [r1.turtlebot3_diff_drive]: Subscribed to [/r1/cmd_vel]
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6767b6bc0>'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6767b6bc0>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7ff6760f98a0>'
+[gzserver-1] [INFO] [1763035055.149851412] [r1.turtlebot3_diff_drive]: Wheel pair 1 diameter set to [0.066000m]
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6760fa950>'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6760fa950>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7ff6760f98a0>'
+[gzserver-1] [INFO] [1763035055.151222371] [r1.turtlebot3_diff_drive]: Subscribed to [/r1/cmd_vel]
 [DEBUG] [launch.launch_context]: emitting event synchronously: 'launch.events.process.ProcessStderr'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17ded3d420>'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17ded3d420>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7f17de69e0e0>'
-[gzserver-1] [INFO] [1737651302.694055154] [r1.turtlebot3_diff_drive]: Advertise odometry on [/r1/odom]
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6767b5330>'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6767b5330>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7ff6760f98a0>'
+[gzserver-1] [INFO] [1763035055.153828352] [r1.turtlebot3_diff_drive]: Advertise odometry on [/r1/odom]
 [DEBUG] [launch.launch_context]: emitting event synchronously: 'launch.events.process.ProcessStderr'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17de69dae0>'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17de69dae0>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7f17de69e0e0>'
-[gzserver-1] [INFO] [1737651302.698337015] [r1.turtlebot3_diff_drive]: Publishing odom transforms between [odom] and [base_footprint]
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6767b6bc0>'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6767b6bc0>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7ff6760f98a0>'
+[gzserver-1] [INFO] [1763035055.157335818] [r1.turtlebot3_diff_drive]: Publishing odom transforms between [odom] and [base_footprint]
 [DEBUG] [launch.launch_context]: emitting event synchronously: 'launch.events.process.ProcessStderr'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17ded3d420>'
-[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7f17ded3d420>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7f17de69e0e0>'
-[gzserver-1] [INFO] [1737651302.718825710] [r1.turtlebot3_joint_state]: Going to publish joint [wheel_left_joint]
-[gzserver-1] [INFO] [1737651302.718883732] [r1.turtlebot3_joint_state]: Going to publish joint [wheel_right_joint]
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6767b5060>'
+[DEBUG] [launch]: processing event: '<launch.events.process.process_stderr.ProcessStderr object at 0x7ff6767b5060>' ✓ '<launch.event_handlers.on_process_io.OnProcessIO object at 0x7ff6760f98a0>'
+[gzserver-1] [INFO] [1763035055.176136129] [r1.turtlebot3_joint_state]: Going to publish joint [wheel_left_joint]
+[gzserver-1] [INFO] [1763035055.176204005] [r1.turtlebot3_joint_state]: Going to publish joint [wheel_right_joint]
